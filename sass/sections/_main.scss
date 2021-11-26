@@ -1,0 +1,84 @@
+.main {
+
+}
+
+.main__body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 80px 0 0 0;
+
+    @media (max-width: $tablet) {
+        flex-direction: column-reverse;
+        margin: 64px 0 0 0;
+    }
+}
+
+// Контентная часть
+.main__content {
+    position: relative;
+    max-width: 445px;
+    width: 100%;
+
+    @media (max-width: $tablet) {
+        margin: 64px 0 0 0;
+    }
+}
+
+.main__title {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 150%;
+}
+
+.main__text {
+    font-weight: 20;
+    color: $second;
+    margin: 16px 0 0 0;
+}
+
+.main__btn {
+    margin: 64px 0 0 0;
+}
+
+.main__circles {
+    position: absolute;
+    z-index: -1;
+    bottom: -285px;
+    left: -285px;
+    width: 570px;
+    height: 570px;
+
+    @media (max-width: $tablet) {
+        bottom: -142px;
+        left: -142px;
+        width: 285px;
+        height: 285px;
+    }
+
+    & span {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: block;
+        border: 2px solid #EFF7F5;
+        border-radius: 50%;
+
+        &:nth-child(1) {
+            width: 60%;
+            height: 60%;
+        }
+
+        &:nth-child(2) {
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+
+// Картинка
+.main__img {
+    max-width: 540px;
+    width: 100%;
+}

@@ -33,7 +33,7 @@ body {
     color: $main;
     font-size: 20px;
     font-weight: 400;
-    line-height: 1.2;
+    line-height: 1.5;
     background: $bg-page;
 
     &._lock {
@@ -63,6 +63,8 @@ body {
 
 // Секции
 @import 'sections/_header';
+@import 'sections/_main';
+@import 'sections/_advantages';
 
 // Библиотеки
 @import 'libs/_aos';

@@ -41,7 +41,7 @@ function menu() {
 	
 	// Высота меню
 	if (window.innerWidth <= 768) {
-		menu.style.paddingTop = headerHeight + 24 + 'px'
+		menu.style.paddingTop = headerHeight + 'px'
 	}
 
 	burger.addEventListener('click', (e) => {
