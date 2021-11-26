@@ -2,47 +2,39 @@
 :root {
     --ffMain: sans-serif;
     --ffHeader: sans-serif;
-    --minHover: 768px; // Минимальное разрешения экрана для hover-эффекта
-    --tr: .4s;  // Плавность перехода
+    --tr: .3s;  // Плавность перехода
 }
 
 $ffMain: var(--ffMain);
 $ffHeader: var(--ffHeader);
-$minHover: var(--minHover);
 $tr: var(--tr);
+$minHover: 768px; // Минимальное разрешения экрана для hover-эффекта
 
-// Разрешения экрана (адаптив)
-:root {
-    --laptop-l: 1440px;
-    --laptop: 1024px;
-    --tablet: 768px;
-    --mobile-l: 425px;
-    --mobile-m: 375px;
-    --mobile-s: 320px;
-}
-
-$laptop-l: var(--laptop-l);
-$laptop: var(--laptop);
-$tablet: var(--tablet);
-$mobile-l: var(--mobile-l);
-$mobile-m: var(--mobile-m);
-$mobile-s: var(--mobile-s);
+$laptop-l: 1440px;
+$laptop: 1024px;
+$tablet: 768px;
+$mobile-l: 425px;
+$mobile-m: 375px;
+$mobile-s: 320px;
 
 // Цвета
 :root {
-    --main: #6C7785;
-    --second: #58626F;
-    --accent: #FF755D;
-    --accent-hover: #ff917e;
+    --main: #242424;
+    --second: #838383;
+    --accent: #399478;
+    --accent-hover: #44BD99;
+    --accent-active: #37866E;
+    --accent2: #DC8B2D;
     --outline: #C0C0C0;
-    --bg-page: #FEF1EB;
-    --bg-section: #E0CCC7;
+    --bg-page: #FFF;
+    --bg-block: #F8F8F8;
 }
 
 $main: var(--main);
 $second: var(--second);
 $accent: var(--accent);
 $accent-hover: var(--accent-hover);
+$accent-active: var(--accent-active);
 $outline: var(--outline);
 $bg-page: var(--bg-page);
-$bg-section: var(--bg-section);
+$bg-block: var(--bg-block);
