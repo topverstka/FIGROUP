@@ -37,8 +37,6 @@ function menu() {
 	const menu = find('.menu');
 	const headerHeight = find('.header').clientHeight
 
-	// console.log(headerHeight)
-	
 	// Высота меню
 	if (window.innerWidth <= 768) {
 		menu.style.paddingTop = headerHeight + 'px'
@@ -49,11 +47,40 @@ function menu() {
 		menu.classList.toggle('_show')
 		bodyLock()
 	})
-	// for (let button of burger) {
-	// }
 }
 
+const swiper = new Swiper('.advantages__slider', {
+	slidesPerView: 1.33, // Кол-во показываемых слайдов
+	spaceBetween: 16, // Расстояние между слайдами
+	centeredSlides: true,
+	// loop: true, // Бесконечный слайдер
+	// freeMode: true, // Слайдеры не зафиксированны
 
+	breakpoints: {
+		1200: {
+
+		},
+		700: {
+
+		},
+		400: {
+
+		}
+	},
+
+	// pagination: {
+	// 	el: '.swiper-pagination',
+	// },
+
+	// navigation: {
+	// 	nextEl: '.swiper__arrow-next',
+	// 	prevEl: '.swiper__arrow-prev',
+	// },
+
+	// scrollbar: {
+	// 	el: '.swiper-scrollbar',
+	// },
+});
 
 
 
