@@ -3,6 +3,7 @@
 }
 
 .team-slider__container {
+    position: relative;
     
 }
 
@@ -28,4 +29,32 @@
 
 .team-slider__prev {
 
+}
+
+.team-slider__arrow {
+    position: absolute;
+    z-index: 1;
+    top: 32%;
+
+    @media (max-width: $mobile-l) {
+        top: 28%;
+    }
+}
+
+.team-slider__prev {
+    left: 0;
+    // transform: translate(-50%, 0);
+
+    @media (max-width: 600px) {
+        left: 6px;
+    }
+}
+
+.team-slider__next {
+    right: 0;
+    // transform: translate(50%, 0);
+
+    @media (max-width: 600px) {
+        right: 6px;
+    }
 }

@@ -49,7 +49,7 @@
         & .cat-section__cat-card {
 
             &:not(:nth-child(-n + 3)) {
-                display: none;
+                display: none; 
             }
         }
     }
@@ -60,15 +60,5 @@
 }
 
 .cat-section__more {
-    display: none;
 
-    @media (max-width: $tablet) {
-        width: 100%;
-        display: block;
-        font-size: 14px;
-        font-weight: 600;
-        text-align: center;
-        padding: 6px 0;
-        margin: 26px 0 0 0;
-    }
 }

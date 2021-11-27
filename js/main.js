@@ -85,32 +85,24 @@ const advantagesSlider = new Swiper('.advantages__slider', {
 });
 
 const teamSlider = new Swiper('.team-slider', {
-	// centeredSlides: true,
-	// autoHeight: true,
-	// slidesPerView: 'auto',
-	// loop: true, // Бесконечный слайдер
-	// freeMode: true, // Слайдеры не зафиксированны
+	loop: true,
 
 	breakpoints: {
 		600: {
 			slidesPerView: 2,
 			spaceBetween: 30,
 		},
-		// 700: {
-		// 	slidesPerView: 1.1,
-		// },
 		0: {
 			slidesPerView: 1,
 			spaceBetween: 30,
-			// spaceBetween: 8,
 			centeredSlides: false,
 		}
 	},
 
-	// navigation: {
-	// 	nextEl: '.swiper__arrow-next',
-	// 	prevEl: '.swiper__arrow-prev',
-	// }
+	navigation: {
+		nextEl: '.team-slider__next',
+		prevEl: '.team-slider__prev',
+	}
 });
 
 

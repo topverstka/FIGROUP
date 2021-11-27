@@ -140,3 +140,54 @@
         }
     }
 }
+
+// Стрелка в слайдерах
+.slider-arrow {
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $accent;
+    border-radius: 50%;
+
+    &:hover {
+        
+        @media (min-width: $minHover) {
+            background: $accent-hover;
+        }
+    }
+
+    &:active {
+        background: $accent-active;
+    }
+
+    &.swiper-button-disabled {
+        background: #F8F8F8; 
+        // pointer-events: none;
+
+        & svg path {
+            fill: $second;
+        }
+    }
+
+    & svg {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+// Кнопк/ссылка "Подробнее" у разделов
+.section-more {
+    display: none;
+
+    @media (max-width: $tablet) {
+        width: 100%;
+        display: block;
+        font-size: 14px;
+        font-weight: 600;
+        text-align: center;
+        padding: 6px 0;
+        margin: 26px 0 0 0;
+    }
+}

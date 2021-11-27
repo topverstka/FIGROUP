@@ -2,8 +2,18 @@
 
     &:hover {
 
+        @media (min-width: $minHover) {
+            
+            & .service-card__title {
+                color: $accent2;
+            }
+        }
+    }
+
+    &:active {
+
         & .service-card__title {
-            color: $accent2;
+            color: $accent2-active;
         }
     }
 }

@@ -39,30 +39,31 @@
     }
 
     &:active {
-        background: $accent;
+        transform: scale(.98);
+        // background: $accent;
 
-        & .cat-card__icon {
-            // background: rgba(255, 255, 255, .08);
+        // & .cat-card__icon {
+        //     // background: rgba(255, 255, 255, .08);
 
-            & svg path {
-                fill: #fff;
-            }
-        }
+        //     & svg path {
+        //         fill: #fff;
+        //     }
+        // }
 
-        & .cat-card__title {
-            color: #fff;
-        }
+        // & .cat-card__title {
+        //     color: #fff;
+        // }
 
-        & .link-arrow__text {
-            color: #fff;
-        }
+        // & .link-arrow__text {
+        //     color: #fff;
+        // }
 
-        & .link-arrow__icon {
+        // & .link-arrow__icon {
 
-            & svg path {
-                fill: #fff;
-            }
-        }
+        //     & svg path {
+        //         fill: #fff;
+        //     }
+        // }
     }
 }
 

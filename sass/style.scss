@@ -64,6 +64,8 @@ body {
 @import 'components/_section-header';
 @import 'components/_team-slider';
 @import 'components/_team-card';
+@import 'components/_project-card';
+@import 'components/_news-card';
 
 // Текстовые компоненты
 @import 'components/text/_text';
@@ -76,7 +78,8 @@ body {
 @import 'sections/_briefly-do';
 @import 'sections/_cat-section';
 @import 'sections/_services-section';
-@import 'sections/_about-section';
+@import 'sections/_project-section';
+@import 'sections/_news-section';
 
 // Библиотеки
 @import 'libs/_aos';

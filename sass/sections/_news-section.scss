@@ -1,0 +1,18 @@
+.news-section__list {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(min-content, 255px));
+    grid-auto-rows: 255px;
+    gap: 30px;
+
+    & .news-card {
+
+        &:nth-child(1) {
+            grid-column-start: 1;
+            grid-column-end: 3;
+            grid-row-start: 1;
+            grid-row-end: 3;
+            
+            font-size: 24px;
+        }
+    }
+}
