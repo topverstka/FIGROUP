@@ -50,18 +50,21 @@ function menu() {
 }
 
 const swiper = new Swiper('.advantages__slider', {
-	slidesPerView: 1.33, // Кол-во показываемых слайдов
+	// slidesPerView: 1.33, // Кол-во показываемых слайдов
 	spaceBetween: 16, // Расстояние между слайдами
 	centeredSlides: true,
+	// autoHeight: true,
+	// slidesPerView: 'auto',
 	// loop: true, // Бесконечный слайдер
 	// freeMode: true, // Слайдеры не зафиксированны
 
 	breakpoints: {
 		1200: {
-
+			slidesPerView: 'auto',
 		},
 		700: {
-
+			slidesPerView: 1.1,
+			centeredSlides: false,
 		},
 		400: {
 
