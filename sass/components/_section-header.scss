@@ -1,0 +1,36 @@
+.section__header {
+    margin: 0 0 64px 0;
+
+    @media (max-width: $tablet) {
+        margin: 0 0 32px 0;
+    }
+}
+
+.section__header-block {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.section__title {
+    font-size: 32px;
+    font-weight: 900;
+}
+
+.section__more {
+    font-size: 14px;
+    font-weight: 600;
+
+    @media (max-width: $tablet) {
+        display: none;
+    }
+}
+
+.section__text {
+    max-width: 730px;
+    width: 100%;
+    font-size: 16px;
+    font-weight: 400;
+    color: $second;
+    margin: 32px 0 0 0;
+}

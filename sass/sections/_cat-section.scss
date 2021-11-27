@@ -1,0 +1,74 @@
+
+.cat-section {
+
+}
+
+.cat-section__header {
+    display: flex;
+    align-items: center;
+}
+
+.cat-section__choice-chips {
+    display: flex;
+
+    &:not(:last-child) {
+        margin: 0 16px 0 0;
+    }
+
+    @media (max-width: $tablet) {
+        padding: 12px 20px;
+
+        &:not(:last-child) {
+            margin: 0 8px 0 0;
+        }
+    }
+}
+
+.cat-section__body {
+    margin: 32px 0 0 0;
+}
+
+.cat-section__card-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(min-content, 350px));
+    grid-auto-rows: minmax(306px, max-content);
+    gap: 30px;
+
+    @media (max-width: 940px) {
+        grid-template-columns: repeat(2, minmax(min-content, 1fr));
+    }
+
+    @media (max-width: $tablet) {
+        grid-template-columns: repeat(1, minmax(min-content, 1fr));
+        grid-auto-rows: min-content;
+        gap: 16px;
+    }
+
+    @media (max-width: $tablet) {
+        
+        & .cat-section__cat-card {
+
+            &:not(:nth-child(-n + 3)) {
+                display: none;
+            }
+        }
+    }
+}
+
+.cat-section__cat-card {
+
+}
+
+.cat-section__more {
+    display: none;
+
+    @media (max-width: $tablet) {
+        width: 100%;
+        display: block;
+        font-size: 14px;
+        font-weight: 600;
+        text-align: center;
+        padding: 6px 0;
+        margin: 26px 0 0 0;
+    }
+}

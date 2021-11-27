@@ -35,12 +35,18 @@ menu()
 function menu() {
 	const burger = find('.burger')
 	const menu = find('.menu');
-	const headerHeight = find('.header').clientHeight
-
+	
 	// Высота меню
-	if (window.innerWidth <= 768) {
-		menu.style.paddingTop = headerHeight + 'px'
-	}
+	window.addEventListener('resize', () => {
+		const headerHeight = find('.header').clientHeight
+
+		if (window.innerWidth <= 768) {
+			menu.style.paddingTop = headerHeight + 'px'
+		}
+		else {
+			menu.style.paddingTop = 0
+		}
+	})
 
 	burger.addEventListener('click', (e) => {
 		burger.classList.toggle('burger_close')
@@ -49,9 +55,9 @@ function menu() {
 	})
 }
 
-const swiper = new Swiper('.advantages__slider', {
+const advantagesSlider = new Swiper('.advantages__slider', {
 	// slidesPerView: 1.33, // Кол-во показываемых слайдов
-	spaceBetween: 16, // Расстояние между слайдами
+	spaceBetween: 16,
 	centeredSlides: true,
 	// autoHeight: true,
 	// slidesPerView: 'auto',
@@ -64,25 +70,47 @@ const swiper = new Swiper('.advantages__slider', {
 		},
 		700: {
 			slidesPerView: 1.1,
-			centeredSlides: false,
 		},
-		400: {
-
+		0: {
+			slidesPerView: 1.08,
+			spaceBetween: 8,
+			centeredSlides: false,
 		}
 	},
-
-	// pagination: {
-	// 	el: '.swiper-pagination',
-	// },
 
 	// navigation: {
 	// 	nextEl: '.swiper__arrow-next',
 	// 	prevEl: '.swiper__arrow-prev',
-	// },
+	// }
+});
 
-	// scrollbar: {
-	// 	el: '.swiper-scrollbar',
-	// },
+const teamSlider = new Swiper('.team-slider', {
+	// centeredSlides: true,
+	// autoHeight: true,
+	// slidesPerView: 'auto',
+	// loop: true, // Бесконечный слайдер
+	// freeMode: true, // Слайдеры не зафиксированны
+
+	breakpoints: {
+		600: {
+			slidesPerView: 2,
+			spaceBetween: 30,
+		},
+		// 700: {
+		// 	slidesPerView: 1.1,
+		// },
+		0: {
+			slidesPerView: 1,
+			spaceBetween: 30,
+			// spaceBetween: 8,
+			centeredSlides: false,
+		}
+	},
+
+	// navigation: {
+	// 	nextEl: '.swiper__arrow-next',
+	// 	prevEl: '.swiper__arrow-prev',
+	// }
 });
 
 

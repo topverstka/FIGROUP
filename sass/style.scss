@@ -59,8 +59,11 @@ body {
 
 // Компоненты
 @import 'components/_buttons';
-// @import 'components/_forms';
-// @import 'components/_tables'; 
+@import 'components/_cat-card';
+@import 'components/_service-card';
+@import 'components/_section-header';
+@import 'components/_team-slider';
+@import 'components/_team-card';
 
 // Текстовые компоненты
 @import 'components/text/_text';
@@ -71,6 +74,9 @@ body {
 @import 'sections/_main';
 @import 'sections/_advantages';
 @import 'sections/_briefly-do';
+@import 'sections/_cat-section';
+@import 'sections/_services-section';
+@import 'sections/_about-section';
 
 // Библиотеки
 @import 'libs/_aos';

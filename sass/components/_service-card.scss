@@ -1,0 +1,38 @@
+.service-card {
+
+    &:hover {
+
+        & .service-card__title {
+            color: $accent2;
+        }
+    }
+}
+
+.service-card__body {
+    display: flex;
+    align-items: center;
+}
+
+.service-card__img {
+    min-width: 65px;
+    width: 65px;
+    height: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #F7F3F0;
+    border-radius: 8px;
+
+    & img {
+        width: 38px;
+        height: 38px;
+    }
+}
+
+.service-card__title {
+    font-size: 14px;
+    font-weight: 600;
+    padding: 0 12px 0 0;
+    margin: 0 0 0 16px;
+    transition: $tr;
+}

@@ -1,5 +1,9 @@
 .advantages {
     // margin: 64px 0 0 0;
+
+    @media (max-width: $tablet) {
+        margin: 80px 0 0 0;
+    }
 }
 
 .advantages__slider {
@@ -15,7 +19,6 @@
 .advantages__slide {
     max-width: 1110px;
     width: 100%;
-    // min-height: 358px;
     border-radius: 16px;
     overflow: hidden;
     // background: linear-gradient(95.93deg, #399478 0%, #3C7471 100%);
