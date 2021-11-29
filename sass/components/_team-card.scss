@@ -7,21 +7,6 @@
             & .team-card__img::after {
                 transform: translate(0, 0);
             }
-
-            & .link-arrow__text {
-                color: $accent;
-            }
-    
-            & .team-card__link-arrow {
-        
-                & svg {
-                    animation: linkArrowIconHover .4s linear forwards;
-                }
-    
-                & svg path {
-                    fill: $accent;
-                }
-            }
         }
     }
 

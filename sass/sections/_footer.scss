@@ -1,0 +1,206 @@
+.footer {
+    background: $bg-block;
+    margin: 62px 0 0 0;
+
+    @media (max-width: $tablet) {
+        margin: 40px 0 0 0;
+    }
+
+    @media (max-width: $mobile-m) {
+        margin: 30px 0 0 0;
+    }
+}
+
+.footer__body {
+    padding-top: 40px;
+}
+
+.footer__up {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @media (max-width: $mobile-l) {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+    }
+}
+
+.footer__logo {
+
+}
+
+.footer__social {
+    display: flex;
+    align-items: center;
+
+    @media (max-width: $mobile-l) {
+        margin: 24px 0 0 0;
+    }
+}
+
+.footer__social-link {
+    display: flex;
+    background: $accent;
+    border-radius: 4px;
+    padding: 4px;
+    transition: $tr;
+
+    &:hover {
+        background: $accent-hover;
+    }
+
+    &:active {
+        background: $accent-active;
+    }
+
+    &:not(:last-child) {
+        margin: 0 16px 0 0;
+    }
+
+    & img {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+// Меню
+.footer__menu {
+    display: flex;
+    justify-content: space-between;
+    margin: 40px 0 0 0;
+
+    @media (max-width: $tablet) {
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+
+    @media (max-width: $mobile-l) {
+        margin: 64px 0 0 0;
+    }
+}
+
+.footer__list {
+    max-width: 255px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    
+    &:not(:last-child) {
+        margin: 0 12px 0 0;
+
+        @media (max-width: $tablet) {
+            margin: 0 0 18px 0;
+        }
+    }
+}
+
+.footer__item {
+    line-height: 1.2;
+
+    &:not(:first-child) {
+        margin: 16px 0 0 0;
+
+        @media (max-width: $tablet) {
+            margin: 18px 0 0 0;
+        }
+    }
+}
+
+.footer__link {
+    font-size: 14px;
+    font-weight: 600;
+    transition: $tr;
+
+    &:hover {
+
+        @media (min-width: $minHover) {
+            color: $accent2;
+        }
+    }
+
+    &:active {
+        color: $accent2-active;
+    }
+}
+
+// Контакты
+.footer__contacts {
+    margin: 56px 0 0 0;
+
+    @media (max-width: $mobile-l) {
+        margin: 66px 0 0 0;
+    }
+}
+
+.footer__contacts-title {
+    font-size: 14px;
+    font-weight: 400;
+    color: $second;
+}
+
+.footer__contacts-list {
+    margin: 24px 0 0 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer__contacts-item {
+
+    &:not(:first-child) {
+        margin: 16px 0 0 0;
+    }
+}
+
+.footer__contacts-link {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+// Нижняя часть
+.footer__down {
+    padding: 16px 0;
+    margin: 24px 0 0 0;
+}
+
+.footer__down-list {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @media (max-width: $tablet) {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+.footer__down-item {
+    font-size: 12px;
+    font-weight: 400;
+    color: $second;
+
+    @media (max-width: $tablet) {
+        
+        &:not(:first-child) {
+            margin: 16px 0 0 0;
+        }
+    }
+
+    &:nth-child(2) {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, 0);
+
+        @media (max-width: $tablet) {
+            position: initial;
+            transform: none;
+        }
+    }
+    
+}
+
+.footer__down-link {
+    
+}

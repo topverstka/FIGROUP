@@ -11,29 +11,16 @@
     
             & .cat-card__icon {
                 // background: rgba(255, 255, 255, .08);
-    
-                & svg path {
-                    fill: #fff;
-                }
             }
     
-            & .cat-card__title {
-                color: #fff;
-            }
-    
+            & .cat-card__title,
             & .link-arrow__text {
                 color: #fff;
             }
     
-            & .link-arrow__icon {
-    
-                & svg {
-                    animation: linkArrowIconHover .4s linear forwards;
-                }
-    
-                & svg path {
-                    fill: #fff;
-                }
+            & .link-arrow__icon svg path,
+            & .cat-card__icon svg path {
+                fill: #fff;
             }
         }
     }

@@ -10,23 +10,13 @@
             background: $accent;
 
             & .project-card__cat,
-            & .project-card__title {
+            & .project-card__title,
+            & .link-arrow__text {
                 color: #fff;
             }
 
-            & .project-card__link-arrow {
-    
-                & .link-arrow__text {
-                    color: #fff;
-                }
-
-                & .link-arrow__icon svg {
-                    animation: linkArrowIconHover .4s linear forwards;
-
-                    & path {
-                        fill: #fff;
-                    }
-                }
+            & .link-arrow__icon svg path {
+                fill: #fff;
             }
         }
     }
