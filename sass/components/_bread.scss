@@ -1,0 +1,42 @@
+.bread {
+
+}
+
+.bread_main {
+    position: absolute;
+    top: 24px;
+    left: 0;
+
+    @media (max-width: $tablet) {
+        position: initial;
+        margin: 16px auto 0 0;
+    }
+}
+
+.bread_page { // Хлебные крошки на страницах без главного экрана
+    margin: 24px 0 32px 0;
+}
+
+.bread__body {
+
+    & span {
+        font-size: 14px;
+        font-weight: 600;
+    }
+}
+
+.bread__link {
+    color: $second;
+}
+
+.bread__separator {
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    vertical-align: middle;
+    pointer-events: none;
+}
+
+.bread__current {
+    color: $accent;
+}

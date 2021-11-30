@@ -1,0 +1,40 @@
+.rule-section {
+
+}
+
+.rule-section__header {
+
+}
+
+.rule-section__body {
+
+}
+
+.rule-section__list {
+    counter-reset: myCounter;
+}
+
+.rule-section__item {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    color: $accent;
+    list-style: none;
+    background: #EFF7F5;
+    border-radius: 16px;
+    padding: 24px;
+
+    &:not(:last-child) {
+        margin: 0 0 16px 0;
+    }
+
+    &::before {
+        content: counter(myCounter);
+        counter-increment: myCounter;
+        display: block;
+        font-size: 32px;
+        font-weight: 900;
+        color: $accent;
+        margin: 0 24px 0 0;
+    }
+}

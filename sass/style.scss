@@ -36,7 +36,7 @@
 body {
     font-family: $ffMain;
     color: $main;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 400;
     line-height: 1.5;
     background: $bg-page;
@@ -59,6 +59,7 @@ body {
 
 // Компоненты
 @import 'components/_buttons';
+@import 'components/_bread';
 @import 'components/_cat-card';
 @import 'components/_service-card';
 @import 'components/_section-header';
@@ -66,6 +67,7 @@ body {
 @import 'components/_team-card';
 @import 'components/_project-card';
 @import 'components/_news-card';
+@import 'components/_modal';
 
 // Текстовые компоненты
 @import 'components/text/_text';
@@ -83,6 +85,15 @@ body {
 @import 'sections/_vacancy-banner';
 @import 'sections/_map-section';
 @import 'sections/_footer';
+@import 'sections/_page-content';
+@import 'sections/_rule-section';
+@import 'sections/_select-section';
+
+// Страницы
+@import 'pages/index/_index';
+@import 'pages/category/_category';
+@import 'pages/service/_service';
+@import 'pages/categories/_categories';
 
 // Библиотеки
 @import 'libs/_aos';

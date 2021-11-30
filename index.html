@@ -55,19 +55,21 @@
 			</div>
 		</header>
 		
-		<main class="main">
+		<main class="main main_index">
 			<div class="container">
 				<div class="main__body">
 					<div class="main__content">
 						<h1 class="main__title">Услуги форензик и экономическая экспертиза</h1>
 						<p class="main__text">Найдем эффективные способы снизить риски и уменьшить потери</p>
-						<button class="btn main__btn">Проконсультироваться</button>
+						<button class="btn main__btn" data-modal-open="modal-1">Проконсультироваться</button>
 						<div class="main__circles">
 							<span></span>
 							<span></span>
 						</div>
 					</div>
-					<div class="main__img"><img src="./img/main/index.svg" alt="Услуги форензик и экономическая экспертиза"></div>
+					<div class="main__img-block">
+						<div class="main__img"><img src="./img/main/index.svg" alt="Услуги форензик и экономическая экспертиза"></div>
+					</div>
 				</div>
 			</div>
 		</main>
@@ -639,7 +641,7 @@
 					<div class="map-section__block">
 						<h2 class="map-section__title">Услуги форензик и экономическая экспертиза</h2>
 						<p class="map-section__text">Найдем эффективные способы снизить риски и уменьшить потери</p>
-						<button class="btn map-section__btn">Проконсультироваться</button>
+						<button class="btn map-section__btn" data-modal-open="modal-1">Проконсультироваться</button>
 					</div>
 				</div>
 			</div>
@@ -692,6 +694,31 @@
 				</div>
 			</div>
 		</footer>
+	</div>
+
+	<!-- Модальные окна -->
+	<div class="modal" id="modal-1">
+		<div class="modal__body">
+			<div class="modal__content">
+				<h2 class="modal__title">Запись на консультацию</h2>
+				<form action="#" class="modal__form">
+					<div class="input _required">
+						<input class="input__input" type="text" id="name" name="name">
+						<label class="input__label" for="name">Имя</label>
+					</div>
+					<div class="input">
+						<input class="input__input" type="text" id="phone" name="name">
+						<label class="input__label" for="name">Имя</label>
+					</div>
+					<span class="modal__attention">Нажав на кнопку, вы соглашаетесь с обработкой персональных данных.</span>
+					<button class="btn modal__submit" data-modal-open="modal-1">Проконсультироваться</button>
+				</form>
+				<button class="modal__close">
+					<span></span>
+					<span></span>
+				</button>
+			</div>
+		</div>
 	</div>
 
 	<!-- Подключение скриптов -->
