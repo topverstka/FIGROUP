@@ -7,7 +7,12 @@
     @media (max-width: $mobile-l) {
         padding: 0 16px;
     }
+
+    &_blog {
+        max-width: $container-blog;
+    }
 }
+
 
 .section {
     margin: 62px 0;

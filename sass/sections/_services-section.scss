@@ -1,3 +1,18 @@
+.services-section {
+
+    &_blog {
+        margin: 0 0 124px 0;
+
+        & .section__header {
+            margin: 0 0 32px 0;
+        }
+
+        & .section__title {
+            font-size: 24px;
+        }
+    }
+}
+
 .services-section__body {
 }
 

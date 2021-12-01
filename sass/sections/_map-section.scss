@@ -1,5 +1,13 @@
 .map-section {
+    margin-bottom: 124px;
 
+    @media (max-width: $tablet) {
+        margin-bottom: 84px;
+    }
+
+    @media (max-width: $mobile-m) {
+        margin-bottom: 94px;
+    }
 }
 
 .map-section__body {

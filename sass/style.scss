@@ -90,6 +90,8 @@ body {
 @import 'sections/_rule-section';
 @import 'sections/_select-section';
 @import 'sections/_worker-section';
+@import 'sections/_main-blog';
+@import 'sections/_content-blog';
 
 // Страницы
 @import 'pages/index/_index';
@@ -97,6 +99,7 @@ body {
 @import 'pages/service/_service';
 @import 'pages/categories/_categories';
 @import 'pages/worker/_worker';
+@import 'pages/project/_project';
 
 // Библиотеки
 @import 'libs/_aos';
