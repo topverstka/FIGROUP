@@ -3,6 +3,7 @@
     --ffMain: 'Noto Sans', sans-serif;
     --ffHeader: sans-serif;
     --tr: .3s;  // Плавность перехода
+    --radius: 16px; // border-radius
 }
 
 $ffMain: var(--ffMain);
@@ -10,6 +11,7 @@ $ffHeader: var(--ffHeader);
 $tr: var(--tr);
 $minHover: 768px; // Минимальное разрешения экрана для hover-эффекта
 $container: 1158px;
+$radius: var(--radius);
 
 $laptop-l: 1440px;
 $laptop: 1024px;

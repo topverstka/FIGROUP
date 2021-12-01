@@ -1,7 +1,7 @@
 .cat-card {
     padding: 24px;
     background: $bg-block;
-    border-radius: 16px;
+    border-radius: $radius;
     transition: $tr;
 
     &:hover {

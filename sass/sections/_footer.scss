@@ -27,11 +27,7 @@
     }
 }
 
-.footer__logo {
-
-}
-
-.footer__social {
+.footer__social-list {
     display: flex;
     align-items: center;
 
@@ -40,28 +36,10 @@
     }
 }
 
-.footer__social-link {
-    display: flex;
-    background: $accent;
-    border-radius: 4px;
-    padding: 4px;
-    transition: $tr;
+.footer__social-media {
 
-    &:hover {
-        background: $accent-hover;
-    }
-
-    &:active {
-        background: $accent-active;
-    }
-
-    &:not(:last-child) {
-        margin: 0 16px 0 0;
-    }
-
-    & img {
-        width: 16px;
-        height: 16px;
+    &:not(:first-child) {
+        margin-left: 16px;
     }
 }
 

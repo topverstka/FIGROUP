@@ -68,6 +68,7 @@ body {
 @import 'components/_project-card';
 @import 'components/_news-card';
 @import 'components/_modal';
+@import 'components/_social-media';
 
 // Текстовые компоненты
 @import 'components/text/_text';
@@ -88,12 +89,14 @@ body {
 @import 'sections/_page-content';
 @import 'sections/_rule-section';
 @import 'sections/_select-section';
+@import 'sections/_worker-section';
 
 // Страницы
 @import 'pages/index/_index';
 @import 'pages/category/_category';
 @import 'pages/service/_service';
 @import 'pages/categories/_categories';
+@import 'pages/worker/_worker';
 
 // Библиотеки
 @import 'libs/_aos';

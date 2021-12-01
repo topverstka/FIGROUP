@@ -21,7 +21,7 @@
     color: $accent;
     list-style: none;
     background: #EFF7F5;
-    border-radius: 16px;
+    border-radius: $radius;
     padding: 24px;
 
     &:not(:last-child) {

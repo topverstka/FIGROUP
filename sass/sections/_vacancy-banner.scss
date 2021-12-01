@@ -6,7 +6,7 @@
     position: relative;
     display: block;
     background: $bg-block;
-    border-radius: 16px;
+    border-radius: $radius;
     padding: 80px;
     overflow: hidden;
     transition: $tr;
