@@ -3,35 +3,29 @@
     grid-template-columns: repeat(4, minmax(min-content, 255px));
     grid-auto-rows: 255px;
     gap: 30px;
+}
 
+.news-section__list_section {
+    
     @media (max-width: $laptop) {
         grid-template-columns: repeat(4, minmax(min-content, 1fr));
         grid-auto-rows: 200px;
         gap: 16px;
     }
-
-    @media (max-width: 900px) {
-        grid-template-columns: repeat(4, minmax(min-content, 1fr));
-    }
-
-    @media (max-width: $tablet) {
-        // grid-template-columns: repeat(4, minmax(min-content, 1fr));
-    }
-
+    
     @media (max-width: 540px) {
         grid-template-columns: repeat(1, minmax(min-content, 1fr));
         grid-auto-rows: 340px;
-        
     }
-
+    
     & .news-card {
-
+    
         &:nth-child(1) {
             grid-column-start: 1;
             grid-column-end: 3;
             grid-row-start: 1;
             grid-row-end: 3;
-
+    
             @media (max-width: 540px) {
                 grid-column-start: auto;
                 grid-column-end: auto;
@@ -41,22 +35,22 @@
             
             & .news-card__title {
                 font-size: 24px;
-
+    
                 @media (max-width: $tablet) { 
                     font-size: 16px;
                 }
             }
         }
-
+    
         &:nth-child(2) {
-
+    
             @media (max-width: $tablet) {
                 grid-column-start: 3;
                 grid-column-end: 5;
                 grid-row-start: 1;
                 grid-row-end: 2;
             }
-
+    
             @media (max-width: 540px) {
                 grid-column-start: auto;
                 grid-column-end: auto;
@@ -64,16 +58,16 @@
                 grid-row-end: auto;
             }
         }
-
+    
         &:nth-child(3) {
-
+    
             @media (max-width: $tablet) {
                 grid-column-start: 3;
                 grid-column-end: 5;
                 grid-row-start: 2;
                 grid-row-end: 3;
             }
-
+    
             @media (max-width: 540px) {
                 grid-column-start: auto;
                 grid-column-end: auto;
@@ -81,18 +75,100 @@
                 grid-row-end: auto;
             }
         }
-
+    
         @media (max-width: $tablet) {
             
             &:not(:nth-child(-n + 3)) {
                 display: none;
             }
         }
-
+    
         @media (max-width: 540px) {
             
             &:not(:nth-child(-n + 2)) {
                 display: none;
+            }
+        }
+    }
+}
+
+.news-section__list_page {
+    
+    @media (max-width: $laptop) {
+        grid-template-columns: repeat(4, minmax(min-content, 1fr));
+        grid-auto-rows: 200px;
+        gap: 16px;
+    }
+
+    @media (max-width: $tablet) {
+        grid-template-columns: repeat(2, minmax(min-content, 1fr));
+        grid-auto-rows: 340px;
+    }
+    
+    @media (max-width: 600px) {
+        // grid-template-columns: repeat(1, minmax(min-content, 1fr));
+        grid-auto-rows: 250px;
+    }
+    
+    @media (max-width: 540px) {
+        grid-template-columns: repeat(1, minmax(min-content, 1fr));
+        grid-auto-rows: 340px;
+    }
+    
+    & .news-card {
+    
+        &:nth-child(1) {
+            grid-column-start: 1;
+            grid-column-end: 3;
+            grid-row-start: 1;
+            grid-row-end: 3;
+    
+            @media (max-width: $tablet) {
+                grid-column-start: auto;
+                grid-column-end: auto;
+                grid-row-start: auto;
+                grid-row-end: auto;
+            }
+            
+            & .news-card__title {
+                font-size: 24px;
+    
+                // @media (min-width: 540px) and (max-width: $tablet) { 
+                //     font-size: 16px;
+                // }
+            }
+        }
+    
+        &:nth-child(2) {
+            grid-column-start: 3;
+            grid-column-end: 5;
+            grid-row-start: 1;
+            grid-row-end: 3;
+    
+            @media (max-width: $tablet) {
+                grid-column-start: auto;
+                grid-column-end: auto;
+                grid-row-start: auto;
+                grid-row-end: auto;
+            }
+            
+            & .news-card__title {
+                font-size: 24px;
+    
+                // @media (min-width: 540px) and (max-width: $tablet) { 
+                //     font-size: 16px;
+                // }
+            }
+        }
+
+        & .news-card__title {
+
+            @media (min-width: 540px) and (max-width: $tablet) { 
+                font-size: 16px !important;
+            }
+
+            @media (max-width: 540px) {
+                font-size: 24px;
             }
         }
     }
