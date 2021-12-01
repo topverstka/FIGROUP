@@ -58,6 +58,7 @@ input[type="submit"] {
 button {
     background: none;
     cursor: pointer;
+    transition: $tr;
 }
 
 button::-moz-focus-inner {

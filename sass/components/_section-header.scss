@@ -6,6 +6,27 @@
     }
 }
 
+.section__header_rule-section {
+    margin: 0 0 32px 0;
+}
+
+.section__header_about-section {
+
+    & .section__text {
+        max-width: none;
+        margin: 16px 0 0 0;
+    }
+}
+
+.section__header_resume-section {
+    margin: 0 0 32px 0;
+
+    & .section__text {
+        max-width: none;
+        margin: 16px 0 0 0;
+    }
+}
+
 .section__header_categories { // Заголовок раздела на странице categories.html
     margin: 0 0 32px 0;
 }

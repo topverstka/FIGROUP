@@ -1,0 +1,73 @@
+.contacts-section {
+
+}
+
+.contacts-section__wrap {
+
+}
+
+.contacts-section__header {
+
+    @media (max-width: $tablet) {
+        margin: 0 0 32px 0;
+    }
+}
+
+.contacts-section__title {
+    font-size: 32px;
+    font-weight: 900;
+}
+
+.contacts-section__body {
+    display: flex;
+    
+    @media (max-width: 540px) {
+        flex-direction: column;
+    }
+}
+
+.contacts-section__block {
+
+    &:not(:first-child) {
+        margin: 0 0 0 120px;
+
+        @media (max-width: $tablet) {
+            margin: 0 0 0 64px;
+        }
+
+        @media (max-width: 540px) {
+            margin: 32px 0 0 0;
+        }
+    }
+}
+
+.contacts-section__subtitle {
+    font-size: 24px;
+    font-weight: 900;
+}
+
+.contacts-section__list {
+    margin: 24px 0 0 0;
+}
+
+.contacts-section__item {
+
+    &:not(:first-child) {
+        margin: 16px 0 0 0;
+    }
+}
+
+.contacts-section__link {
+
+}
+
+.contacts-section__block_moscow {
+
+}
+
+.contacts-section__block_requisites {
+
+    & .contacts-section__item {
+        color: $second;
+    }
+}

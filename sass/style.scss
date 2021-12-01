@@ -9,12 +9,16 @@
 
 // Общие стили для страниц
 // Стиль выделения элементов на странице
-// ::selection {
-//     background: #fed9cd;
-// }
-// ::-moz-selection {
-//     background: #ffb7b7;
-// }
+::selection {
+    // background: #CCF2E9;
+    background: $accent-hover;
+    color: #fff;
+}
+::-moz-selection {
+    // background: #CCF2E9;
+    background: $accent-hover;
+    color: #fff;
+}
 
 // Стиль скроллбара
 // body::-webkit-scrollbar {
@@ -69,6 +73,7 @@ body {
 @import 'components/_news-card';
 @import 'components/_modal';
 @import 'components/_social-media';
+@import 'components/_wp-style';
 
 // Текстовые компоненты
 @import 'components/text/_text';
@@ -92,6 +97,10 @@ body {
 @import 'sections/_worker-section';
 @import 'sections/_main-blog';
 @import 'sections/_content-blog';
+@import 'sections/_office-section';
+@import 'sections/_resume-section';
+@import 'sections/_contacts-section';
+@import 'sections/_map-contacts';
 
 // Страницы
 @import 'pages/index/_index';
@@ -101,6 +110,7 @@ body {
 @import 'pages/worker/_worker';
 @import 'pages/project/_project';
 @import 'pages/news/_news';
+@import 'pages/404/_404';
 
 // Библиотеки
 @import 'libs/_aos';

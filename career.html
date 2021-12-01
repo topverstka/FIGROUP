@@ -33,9 +33,9 @@
 								<ul class="header__nav-list">
 									<li class="header__nav-item"><a href="./about.html" class="link header__nav-link">Кто мы</a></li>
 									<li class="header__nav-item"><a href="./categories.html" class="link header__nav-link">Что мы делаем</a></li>
-									<li class="header__nav-item current_page_item"><a href="./projects.html" class="link header__nav-link">Проекты</a></li>
+									<li class="header__nav-item"><a href="./projects.html" class="link header__nav-link">Проекты</a></li>
 									<li class="header__nav-item"><a href="./news.html" class="link header__nav-link">Публикации</a></li>
-									<li class="header__nav-item"><a href="./career.html" class="link header__nav-link">Карьера</a></li>
+									<li class="header__nav-item current_page_item"><a href="./career.html" class="link header__nav-link">Карьера</a></li>
 									<li class="header__nav-item"><a href="./contacts.html" class="link header__nav-link">Контакты</a></li>
 								</ul>
 								<div class="header__nav-contacts">
@@ -54,33 +54,76 @@
 				</div>
 			</div>
 		</header>
-
-        <div class="bread bread_page">
-            <div class="container">
-                <div class="bread__body">
-                    <span>
-                        <a class="link bread__link" href="#"><span>Главная</span></a>
-                    </span>
-                    <span class="bread__separator"><img src="./img/icons/bread-arrow.svg" alt="Разделитель"></span>
-                    <span class="bread__current">Алексей Никольский</span>
-                </div>
-            </div>
-        </div>
-
-		<section class="section projects-section">
+		
+		<main class="main main_career">
 			<div class="container">
-				<div class="section__header projects-section__header">
+				<div class="main__body">
+					<div class="main__content">
+						<h1 class="main__title">Мы — команда экспертов с разносторонним опытом</h1>
+						<p class="main__text">Мы занимаемся проведением финансовых экспертиз, расследованием мошенничества в экономической сфере, сопровождаем судебные процессы, работаем с проблемными активами.</p>
+						<div class="main__circles">
+							<span></span>
+							<span></span>
+						</div>
+					</div>
+					<div class="main__img-block">
+						<div class="main__img"><img src="./img/main/career.svg" alt="Услуги форензик и экономическая экспертиза"></div>
+					</div>
+                    <div class="bread bread_main">
+                        <div class="bread__body">
+                            <span>
+                                <a class="link bread__link" href="#"><span>Главная</span></a>
+                            </span>
+                            <span class="bread__separator"><img src="./img/icons/bread-arrow.svg" alt="Разделитель"></span>
+                            <span class="bread__current">Кто мы</span>
+                        </div>
+                    </div>
+				</div>
+			</div>
+		</main>
+
+        <section class="section rule-section">
+            <div class="container">
+				<div class="section__header section__header_rule-section">
 					<div class="section__header-block">
-						<h2 class="section__title">Проекты</h2>
+						<h2 class="section__title">Сферы нашей деятельности</h2>
 					</div>
 				</div>
-				<div class="projects-section__body">
-					<div class="projects-section__list">
-						<a href="#" class="project-card link-arrow_hover">
-							<div class="project-card__body">
-								<span class="project-card__cat">Расследование</span>
-								<h2 class="project-card__title">Как мы помогли взыскать 700 тысяч рублей, не участвуя в деле</h2>
-								<span class="link-arrow project-card__link-arrow">
+                <div class="rule-section__body">
+                    <ol class="rule-section__list">
+                        <li class="rule-section__item">Выявление злоупотреблений топ-менеджмента</li>
+                        <li class="rule-section__item">Оценка финансового положения юридических и физических лиц</li>
+                        <li class="rule-section__item">Расследование схем вывод активов</li>
+                        <li class="rule-section__item">Анализ причин банкротства</li>
+                        <li class="rule-section__item">Разработка систем по контролю за рисками</li>
+                        <li class="rule-section__item">Анализ контрагентов</li>
+                        <li class="rule-section__item">Налоговые реконструкции</li>
+                        <li class="rule-section__item">Аналитика больших данных</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+		<section class="section about-section">
+			<div class="container">
+				<div class="section__header section__header_about-section">
+					<div class="section__header-block">
+						<h2 class="section__title">Кто мы</h2>
+					</div>
+					<p class="section__text">Специалисты с уникальным опытом в различных областях, готовые поделиться своими знаниями.</p>
+				</div>
+			</div>
+			<div class="about-section__body team-slider__section">
+				<div class="container team-slider__container">
+					<div class="team-slider swiper-container">
+						<div class="team-slider__wrapper swiper-wrapper">
+							<a href="#" class="swiper-slide team-card link-arrow_hover">
+								<div class="team-card__img"><img src="./img/team/man_1.png" alt="Мужик"></div>
+								<div class="team-card__content">
+									<h3 class="team-card__title">Алексей Никольский</h3>
+									<span class="team-card__working-position">Управляющий партнер</span>
+								</div>
+								<span class="link-arrow team-card__link-arrow">
 									<span class="link-arrow__text">Подробнее</span>
 									<span class="link-arrow__icon">
 										<svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -88,13 +131,14 @@
 										</svg>											
 									</span>
 								</span>
-							</div>
-						</a>
-						<a href="#" class="project-card link-arrow_hover">
-							<div class="project-card__body">
-								<span class="project-card__cat">Расследование</span>
-								<h2 class="project-card__title">Как мы помогли взыскать 700 тысяч рублей, не участвуя в деле</h2>
-								<span class="link-arrow project-card__link-arrow">
+							</a>
+							<a href="#" class="swiper-slide team-card link-arrow_hover">
+								<div class="team-card__img"><img src="./img/team/man_2.png" alt="Мужик"></div>
+								<div class="team-card__content">
+									<h3 class="team-card__title">Никита Кузнецов</h3>
+									<span class="team-card__working-position">Руководитель проектов</span>
+								</div>
+								<span class="link-arrow team-card__link-arrow">
 									<span class="link-arrow__text">Подробнее</span>
 									<span class="link-arrow__icon">
 										<svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -102,13 +146,14 @@
 										</svg>											
 									</span>
 								</span>
-							</div>
-						</a>
-						<a href="#" class="project-card link-arrow_hover">
-							<div class="project-card__body">
-								<span class="project-card__cat">Расследование</span>
-								<h2 class="project-card__title">Как мы помогли взыскать 700 тысяч рублей, не участвуя в деле</h2>
-								<span class="link-arrow project-card__link-arrow">
+							</a>
+							<a href="#" class="swiper-slide team-card link-arrow_hover">
+								<div class="team-card__img"><img src="https://images.unsplash.com/photo-1557862921-37829c790f19?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=871&q=80" alt="Мужик"></div>
+								<div class="team-card__content">
+									<h3 class="team-card__title">Никита Кузнецов</h3>
+									<span class="team-card__working-position">Руководитель проектов</span>
+								</div>
+								<span class="link-arrow team-card__link-arrow">
 									<span class="link-arrow__text">Подробнее</span>
 									<span class="link-arrow__icon">
 										<svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -116,13 +161,14 @@
 										</svg>											
 									</span>
 								</span>
-							</div>
-						</a>
-						<a href="#" class="project-card link-arrow_hover">
-							<div class="project-card__body">
-								<span class="project-card__cat">Расследование</span>
-								<h2 class="project-card__title">Как мы помогли взыскать 700 тысяч рублей, не участвуя в деле</h2>
-								<span class="link-arrow project-card__link-arrow">
+							</a>
+							<a href="#" class="swiper-slide team-card link-arrow_hover">
+								<div class="team-card__img"><img src="https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=876&q=80" alt="Мужик"></div>
+								<div class="team-card__content">
+									<h3 class="team-card__title">Никита Кузнецов</h3>
+									<span class="team-card__working-position">Руководитель проектов</span>
+								</div>
+								<span class="link-arrow team-card__link-arrow">
 									<span class="link-arrow__text">Подробнее</span>
 									<span class="link-arrow__icon">
 										<svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -130,124 +176,51 @@
 										</svg>											
 									</span>
 								</span>
-							</div>
-						</a>
-						<a href="#" class="project-card link-arrow_hover">
-							<div class="project-card__body">
-								<span class="project-card__cat">Расследование</span>
-								<h2 class="project-card__title">Как мы помогли взыскать 700 тысяч рублей, не участвуя в деле</h2>
-								<span class="link-arrow project-card__link-arrow">
-									<span class="link-arrow__text">Подробнее</span>
-									<span class="link-arrow__icon">
-										<svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-											<path d="M1.88389 9.38377C1.39573 9.38377 0.999999 8.98804 0.999999 8.49988C1 8.01173 1.39573 7.616 1.88389 7.616L11.7821 7.616L9.62124 5.34355C9.30503 5.01102 9.30503 4.48897 9.62124 4.15643C9.96078 3.79936 10.5301 3.79936 10.8696 4.15643L14.3447 7.81088C14.7118 8.19694 14.7118 8.80301 14.3447 9.18907L10.8696 12.8436C10.5301 13.2006 9.96077 13.2006 9.62123 12.8436C9.30503 12.511 9.30503 11.989 9.62124 11.6564L11.7823 9.38377L1.88389 9.38377Z" fill="#242424"/>
-										</svg>											
-									</span>
-								</span>
-							</div>
-						</a>
-						<a href="#" class="project-card link-arrow_hover">
-							<div class="project-card__body">
-								<span class="project-card__cat">Расследование</span>
-								<h2 class="project-card__title">Как мы помогли взыскать 700 тысяч рублей, не участвуя в деле</h2>
-								<span class="link-arrow project-card__link-arrow">
-									<span class="link-arrow__text">Подробнее</span>
-									<span class="link-arrow__icon">
-										<svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-											<path d="M1.88389 9.38377C1.39573 9.38377 0.999999 8.98804 0.999999 8.49988C1 8.01173 1.39573 7.616 1.88389 7.616L11.7821 7.616L9.62124 5.34355C9.30503 5.01102 9.30503 4.48897 9.62124 4.15643C9.96078 3.79936 10.5301 3.79936 10.8696 4.15643L14.3447 7.81088C14.7118 8.19694 14.7118 8.80301 14.3447 9.18907L10.8696 12.8436C10.5301 13.2006 9.96077 13.2006 9.62123 12.8436C9.30503 12.511 9.30503 11.989 9.62124 11.6564L11.7823 9.38377L1.88389 9.38377Z" fill="#242424"/>
-										</svg>											
-									</span>
-								</span>
-							</div>
-						</a>
-						<a href="#" class="project-card link-arrow_hover">
-							<div class="project-card__body">
-								<span class="project-card__cat">Расследование</span>
-								<h2 class="project-card__title">Как мы помогли взыскать 700 тысяч рублей, не участвуя в деле</h2>
-								<span class="link-arrow project-card__link-arrow">
-									<span class="link-arrow__text">Подробнее</span>
-									<span class="link-arrow__icon">
-										<svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-											<path d="M1.88389 9.38377C1.39573 9.38377 0.999999 8.98804 0.999999 8.49988C1 8.01173 1.39573 7.616 1.88389 7.616L11.7821 7.616L9.62124 5.34355C9.30503 5.01102 9.30503 4.48897 9.62124 4.15643C9.96078 3.79936 10.5301 3.79936 10.8696 4.15643L14.3447 7.81088C14.7118 8.19694 14.7118 8.80301 14.3447 9.18907L10.8696 12.8436C10.5301 13.2006 9.96077 13.2006 9.62123 12.8436C9.30503 12.511 9.30503 11.989 9.62124 11.6564L11.7823 9.38377L1.88389 9.38377Z" fill="#242424"/>
-										</svg>											
-									</span>
-								</span>
-							</div>
-						</a>
-						<a href="#" class="project-card link-arrow_hover">
-							<div class="project-card__body">
-								<span class="project-card__cat">Расследование</span>
-								<h2 class="project-card__title">Как мы помогли взыскать 700 тысяч рублей, не участвуя в деле</h2>
-								<span class="link-arrow project-card__link-arrow">
-									<span class="link-arrow__text">Подробнее</span>
-									<span class="link-arrow__icon">
-										<svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-											<path d="M1.88389 9.38377C1.39573 9.38377 0.999999 8.98804 0.999999 8.49988C1 8.01173 1.39573 7.616 1.88389 7.616L11.7821 7.616L9.62124 5.34355C9.30503 5.01102 9.30503 4.48897 9.62124 4.15643C9.96078 3.79936 10.5301 3.79936 10.8696 4.15643L14.3447 7.81088C14.7118 8.19694 14.7118 8.80301 14.3447 9.18907L10.8696 12.8436C10.5301 13.2006 9.96077 13.2006 9.62123 12.8436C9.30503 12.511 9.30503 11.989 9.62124 11.6564L11.7823 9.38377L1.88389 9.38377Z" fill="#242424"/>
-										</svg>											
-									</span>
-								</span>
-							</div>
-						</a>
-						<a href="#" class="project-card link-arrow_hover">
-							<div class="project-card__body">
-								<span class="project-card__cat">Расследование</span>
-								<h2 class="project-card__title">Как мы помогли взыскать 700 тысяч рублей, не участвуя в деле</h2>
-								<span class="link-arrow project-card__link-arrow">
-									<span class="link-arrow__text">Подробнее</span>
-									<span class="link-arrow__icon">
-										<svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-											<path d="M1.88389 9.38377C1.39573 9.38377 0.999999 8.98804 0.999999 8.49988C1 8.01173 1.39573 7.616 1.88389 7.616L11.7821 7.616L9.62124 5.34355C9.30503 5.01102 9.30503 4.48897 9.62124 4.15643C9.96078 3.79936 10.5301 3.79936 10.8696 4.15643L14.3447 7.81088C14.7118 8.19694 14.7118 8.80301 14.3447 9.18907L10.8696 12.8436C10.5301 13.2006 9.96077 13.2006 9.62123 12.8436C9.30503 12.511 9.30503 11.989 9.62124 11.6564L11.7823 9.38377L1.88389 9.38377Z" fill="#242424"/>
-										</svg>											
-									</span>
-								</span>
-							</div>
-						</a>
-						<a href="#" class="project-card link-arrow_hover">
-							<div class="project-card__body">
-								<span class="project-card__cat">Расследование</span>
-								<h2 class="project-card__title">Как мы помогли взыскать 700 тысяч рублей, не участвуя в деле</h2>
-								<span class="link-arrow project-card__link-arrow">
-									<span class="link-arrow__text">Подробнее</span>
-									<span class="link-arrow__icon">
-										<svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-											<path d="M1.88389 9.38377C1.39573 9.38377 0.999999 8.98804 0.999999 8.49988C1 8.01173 1.39573 7.616 1.88389 7.616L11.7821 7.616L9.62124 5.34355C9.30503 5.01102 9.30503 4.48897 9.62124 4.15643C9.96078 3.79936 10.5301 3.79936 10.8696 4.15643L14.3447 7.81088C14.7118 8.19694 14.7118 8.80301 14.3447 9.18907L10.8696 12.8436C10.5301 13.2006 9.96077 13.2006 9.62123 12.8436C9.30503 12.511 9.30503 11.989 9.62124 11.6564L11.7823 9.38377L1.88389 9.38377Z" fill="#242424"/>
-										</svg>											
-									</span>
-								</span>
-							</div>
-						</a>
-						<a href="#" class="project-card link-arrow_hover">
-							<div class="project-card__body">
-								<span class="project-card__cat">Расследование</span>
-								<h2 class="project-card__title">Как мы помогли взыскать 700 тысяч рублей, не участвуя в деле</h2>
-								<span class="link-arrow project-card__link-arrow">
-									<span class="link-arrow__text">Подробнее</span>
-									<span class="link-arrow__icon">
-										<svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-											<path d="M1.88389 9.38377C1.39573 9.38377 0.999999 8.98804 0.999999 8.49988C1 8.01173 1.39573 7.616 1.88389 7.616L11.7821 7.616L9.62124 5.34355C9.30503 5.01102 9.30503 4.48897 9.62124 4.15643C9.96078 3.79936 10.5301 3.79936 10.8696 4.15643L14.3447 7.81088C14.7118 8.19694 14.7118 8.80301 14.3447 9.18907L10.8696 12.8436C10.5301 13.2006 9.96077 13.2006 9.62123 12.8436C9.30503 12.511 9.30503 11.989 9.62124 11.6564L11.7823 9.38377L1.88389 9.38377Z" fill="#242424"/>
-										</svg>											
-									</span>
-								</span>
-							</div>
-						</a>
-						<a href="#" class="project-card link-arrow_hover">
-							<div class="project-card__body">
-								<span class="project-card__cat">Расследование</span>
-								<h2 class="project-card__title">Как мы помогли взыскать 700 тысяч рублей, не участвуя в деле</h2>
-								<span class="link-arrow project-card__link-arrow">
-									<span class="link-arrow__text">Подробнее</span>
-									<span class="link-arrow__icon">
-										<svg width="16" height="17" viewBox="0 0 16 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-											<path d="M1.88389 9.38377C1.39573 9.38377 0.999999 8.98804 0.999999 8.49988C1 8.01173 1.39573 7.616 1.88389 7.616L11.7821 7.616L9.62124 5.34355C9.30503 5.01102 9.30503 4.48897 9.62124 4.15643C9.96078 3.79936 10.5301 3.79936 10.8696 4.15643L14.3447 7.81088C14.7118 8.19694 14.7118 8.80301 14.3447 9.18907L10.8696 12.8436C10.5301 13.2006 9.96077 13.2006 9.62123 12.8436C9.30503 12.511 9.30503 11.989 9.62124 11.6564L11.7823 9.38377L1.88389 9.38377Z" fill="#242424"/>
-										</svg>											
-									</span>
-								</span>
-							</div>
-						</a>
+							</a>
+						</div>
+					</div>
+					<div class="team-slider__arrows">
+						<button class="slider-arrow team-slider__arrow team-slider__next">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M6.67013 18.4056C6.29629 18.7931 6.29629 19.4069 6.67013 19.7944L7.11382 20.2542C7.50703 20.6617 8.15985 20.6617 8.55306 20.2542L16.33 12.1944C16.7038 11.807 16.7038 11.1931 16.33 10.8057L8.55293 2.74579C8.15972 2.33828 7.5069 2.33828 7.11369 2.74579L6.67 3.20561C6.29616 3.59305 6.29616 4.20691 6.67 4.59435L13.3334 11.5L6.67013 18.4056Z" fill="white"/>
+							</svg>									
+						</button>
+						<button class="slider-arrow team-slider__arrow team-slider__prev">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M17.3299 5.59436C17.7037 5.20692 17.7037 4.59306 17.3299 4.20563L16.8862 3.7458C16.493 3.33828 15.8401 3.33828 15.4469 3.7458L7.67 11.8056C7.29616 12.193 7.29616 12.8069 7.67 13.1943L15.4471 21.2542C15.8403 21.6617 16.4931 21.6617 16.8863 21.2542L17.33 20.7944C17.7038 20.407 17.7038 19.7931 17.33 19.4057L10.6666 12.5L17.3299 5.59436Z" fill="white"/>
+							</svg>									
+						</button>
 					</div>
 				</div>
 			</div>
 		</section>
+
+        <section class="section office-section">
+            <div class="container">
+                <div class="office-section__body">
+                    <div class="office-section__content">
+                        <h2 class="office-section__title">Классный офис и удаленка</h2>
+                        <p class="office-section__text">Если у тебя есть опыт работы  - мы предложим выгодные условия для сотрудничества, интересную работу и возможности совершенствования своих профессиональных навыков.</p>
+                        <p class="office-section__text">Если ты только начинаешь свой карьерный путь - мы поможем получить уникальный опыт, дадим возможность проявить себя и откроем дороги для дальнейшего карьерного роста.</p>
+                    </div>
+                    <div class="office-section__img"><img src="./img/career/office.png" alt=""></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section resume-section">
+            <div class="container">
+				<div class="section__header section__header_resume-section resume-section__header">
+					<div class="section__header-block">
+						<h2 class="section__title">Хочешь работать с нами?</h2>
+					</div>
+                    <p class="section__text">Отправляй свое резюме на нашу почту</p>
+				</div>
+                <div class="resume-section__body">
+                    <a href="mailto:link@finvestigation.com" class="link resume-section__email">link@finvestigation.com</a>
+                </div>
+            </div>
+        </section>
 
 		<section class="section map-section">
 			<div class="container">

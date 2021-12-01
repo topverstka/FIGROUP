@@ -7,7 +7,6 @@
     padding: 16px 32px;
     background: $accent;
     border-radius: 8px;
-    transition: $tr;
 
     &:hover {
         
@@ -36,7 +35,6 @@
     padding: 12px 24px;
     background: #F8F8F8;
     border-radius: 100px;
-    transition: $tr;
 
     &:hover {
         
@@ -65,7 +63,6 @@
 
 // Ссылки
 .link {
-    transition: $tr;
     
     &:hover {
         
@@ -89,7 +86,6 @@
 .link-arrow__text {
     font-size: 14px;
     font-weight: 600;
-    transition: $tr;
 }
 
 .link-arrow__icon {
