@@ -1,34 +1,38 @@
 @charset "UTF-8";
 @font-face {
   font-family: "Noto Sans";
-  src: url("https://use.typekit.net/af/74b049/00000000000000007735b97f/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff2"), url("https://use.typekit.net/af/74b049/00000000000000007735b97f/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("woff"), url("https://use.typekit.net/af/74b049/00000000000000007735b97f/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3") format("opentype");
-  font-display: auto;
   font-style: normal;
   font-weight: 400;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("../fonts/noto-sans.woff2") format("woff2"), url("../fonts/noto-sans.ttf") format("ttf");
 }
 
 @font-face {
   font-family: "Noto Sans";
-  src: url("https://use.typekit.net/af/e5635b/00000000000000007735b98f/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n6&v=3") format("woff2"), url("https://use.typekit.net/af/e5635b/00000000000000007735b98f/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n6&v=3") format("woff"), url("https://use.typekit.net/af/e5635b/00000000000000007735b98f/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n6&v=3") format("opentype");
-  font-display: auto;
   font-style: normal;
   font-weight: 600;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("../fonts/noto-sans.woff2") format("woff2"), url("../fonts/noto-sans.ttf") format("ttf");
 }
 
 @font-face {
   font-family: "Noto Sans";
-  src: url("https://use.typekit.net/af/dde969/00000000000000007735b995/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("woff2"), url("https://use.typekit.net/af/dde969/00000000000000007735b995/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("woff"), url("https://use.typekit.net/af/dde969/00000000000000007735b995/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("opentype");
-  font-display: auto;
   font-style: normal;
   font-weight: 700;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("../fonts/noto-sans.woff2") format("woff2"), url("../fonts/noto-sans.ttf") format("ttf");
 }
 
 @font-face {
   font-family: "Noto Sans";
-  src: url("https://use.typekit.net/af/cddb52/00000000000000007735b9a8/30/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n9&v=3") format("woff2"), url("https://use.typekit.net/af/cddb52/00000000000000007735b9a8/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n9&v=3") format("woff"), url("https://use.typekit.net/af/cddb52/00000000000000007735b9a8/30/a?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n9&v=3") format("opentype");
-  font-display: auto;
   font-style: normal;
   font-weight: 900;
+  font-stretch: 100%;
+  font-display: swap;
+  src: url("../fonts/noto-sans.woff2") format("woff2"), url("../fonts/noto-sans.ttf") format("ttf");
 }
 
 :root {
@@ -178,6 +182,7 @@ body {
   color: var(--main);
   font-size: 16px;
   font-weight: 400;
+  font-style: normal;
   line-height: 1.5;
   background: var(--bg-page);
 }
