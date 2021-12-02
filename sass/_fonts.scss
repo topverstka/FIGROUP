@@ -1,4 +1,4 @@
-@mixin font($fname, $fstyle, $fweight, $furl_woff2, $furl_ttf){
+@mixin font($fname, $fstyle, $fweight, $furl_woff2){
     @font-face{
         font-family: $fname;
         font-style: $fstyle;
@@ -12,4 +12,4 @@
 @include font('Noto Sans', normal, 400, '../fonts/noto-sans.woff2');
 @include font('Noto Sans', normal, 600, '../fonts/noto-sans.woff2');
 @include font('Noto Sans', normal, 700, '../fonts/noto-sans.woff2');
-@include font('Noto Sans', normal, 900, '../fonts/noto-sans.woff2');
+@include font('Noto Sans', normal, 900, '../fonts/noto-sans.woff2'); 

@@ -33,6 +33,7 @@ $mobile-s: 320px;
     --outline: #C0C0C0;
     --bg-page: #FFF;
     --bg-block: #F8F8F8;
+    --error: #E83D3D;
 }
 
 $main: var(--main);
@@ -45,3 +46,4 @@ $accent2-active: var(--accent2-active);
 $outline: var(--outline);
 $bg-page: var(--bg-page);
 $bg-block: var(--bg-block);
+$error: var(--error);

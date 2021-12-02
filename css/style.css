@@ -5,7 +5,7 @@
   font-weight: 400;
   font-stretch: 100%;
   font-display: swap;
-  src: url("../fonts/noto-sans.woff2") format("woff2"), url("../fonts/noto-sans.ttf") format("ttf");
+  src: url("../fonts/noto-sans.woff2") format("woff2");
 }
 
 @font-face {
@@ -14,7 +14,7 @@
   font-weight: 600;
   font-stretch: 100%;
   font-display: swap;
-  src: url("../fonts/noto-sans.woff2") format("woff2"), url("../fonts/noto-sans.ttf") format("ttf");
+  src: url("../fonts/noto-sans.woff2") format("woff2");
 }
 
 @font-face {
@@ -23,7 +23,7 @@
   font-weight: 700;
   font-stretch: 100%;
   font-display: swap;
-  src: url("../fonts/noto-sans.woff2") format("woff2"), url("../fonts/noto-sans.ttf") format("ttf");
+  src: url("../fonts/noto-sans.woff2") format("woff2");
 }
 
 @font-face {
@@ -32,7 +32,7 @@
   font-weight: 900;
   font-stretch: 100%;
   font-display: swap;
-  src: url("../fonts/noto-sans.woff2") format("woff2"), url("../fonts/noto-sans.ttf") format("ttf");
+  src: url("../fonts/noto-sans.woff2") format("woff2");
 }
 
 :root {
@@ -53,6 +53,7 @@
   --outline: #C0C0C0;
   --bg-page: #FFF;
   --bg-block: #F8F8F8;
+  --error: #E83D3D;
 }
 
 * {
@@ -446,6 +447,115 @@ body._lock {
     padding: 6px 0;
     margin: 26px 0 0 0;
   }
+}
+
+.form {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.form-elem {
+  position: relative;
+  width: 100%;
+}
+
+.form-elem:not(:first-child) {
+  margin: 8px 0 0 0;
+}
+
+.form-elem input {
+  height: 60px;
+}
+
+.form-elem textarea {
+  height: 164px;
+}
+
+.form-elem__area {
+  width: 100%;
+  background: #F9F9F9;
+  -webkit-border-radius: 8px;
+          border-radius: 8px;
+  padding: 30px 12px 12px 12px;
+  -webkit-transition: var(--tr);
+  -o-transition: var(--tr);
+  transition: var(--tr);
+}
+
+.form-elem__area:hover {
+  background: #F4F4F4;
+}
+
+.form-elem__area:focus + .form-elem__label {
+  font-size: 10px;
+  color: var(--second);
+  -webkit-transform: translate(0, -webkit-calc(-50% - 9px));
+      -ms-transform: translate(0, calc(-50% - 9px));
+          transform: translate(0, calc(-50% - 9px));
+}
+
+.form-elem__area:not(:placeholder-shown).form-elem__area:not(:focus) + .form-elem__label {
+  font-size: 10px;
+  color: var(--second);
+  -webkit-transform: translate(0, -webkit-calc(-50% - 9px));
+      -ms-transform: translate(0, calc(-50% - 9px));
+          transform: translate(0, calc(-50% - 9px));
+}
+
+.form-elem__area._error {
+  border: 1px solid var(--error) !important;
+}
+
+.form-elem__area._error + .form-elem__label::after {
+  opacity: 1;
+}
+
+.form-elem__label {
+  position: absolute;
+  top: 30px;
+  left: 12px;
+  width: 100%;
+  -webkit-transform: translate(0, -50%);
+      -ms-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+  font-size: 14px;
+  font-weight: 400;
+  pointer-events: none;
+  -webkit-transition: var(--tr);
+  -o-transition: var(--tr);
+  transition: var(--tr);
+}
+
+.form-elem__label::after {
+  content: 'Error';
+  font-size: inherit;
+  color: var(--error);
+  margin: 0 0 0 6px;
+  opacity: 0;
+}
+
+.form-elem__required {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  display: block;
+  -webkit-transform: translate(0, -50%);
+      -ms-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+  font-size: 14px;
+  color: var(--main);
+  pointer-events: none;
 }
 
 .bread_main {
@@ -1111,25 +1221,13 @@ body._lock {
 }
 
 .modal__form {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
   margin: 32px 0 0 0;
 }
 
 .modal__attention {
   font-size: 14px;
   color: var(--second);
+  line-height: 1.3;
   margin: 14px 0 0 0;
 }
 
@@ -1166,63 +1264,6 @@ body._lock {
   -webkit-transform: translate(-50%, -50%) rotate(-45deg);
       -ms-transform: translate(-50%, -50%) rotate(-45deg);
           transform: translate(-50%, -50%) rotate(-45deg);
-}
-
-.input {
-  position: relative;
-  width: 100%;
-}
-
-.input._required::after {
-  content: '*';
-  position: absolute;
-  top: 50%;
-  right: 12px;
-  display: block;
-  -webkit-transform: translate(0, -50%);
-      -ms-transform: translate(0, -50%);
-          transform: translate(0, -50%);
-  font-size: 14px;
-  color: var(--main);
-}
-
-.input__input {
-  width: 100%;
-  height: 60px;
-  background: #F9F9F9;
-  -webkit-border-radius: 8px;
-          border-radius: 8px;
-  padding: 30px 12px 12px 12px;
-  -webkit-transition: var(--tr);
-  -o-transition: var(--tr);
-  transition: var(--tr);
-}
-
-.input__input:hover {
-  background: #F4F4F4;
-}
-
-.input__input:focus + .input__label {
-  font-size: 10px;
-  color: var(--second);
-  -webkit-transform: translate(0, -webkit-calc(-50% - 9px));
-      -ms-transform: translate(0, calc(-50% - 9px));
-          transform: translate(0, calc(-50% - 9px));
-}
-
-.input__label {
-  position: absolute;
-  top: 50%;
-  left: 12px;
-  width: 100%;
-  -webkit-transform: translate(0, -50%);
-      -ms-transform: translate(0, -50%);
-          transform: translate(0, -50%);
-  font-size: 14px;
-  font-weight: 400;
-  -webkit-transition: var(--tr);
-  -o-transition: var(--tr);
-  transition: var(--tr);
 }
 
 .social-media {
@@ -1638,7 +1679,7 @@ body._lock {
   -webkit-justify-content: space-between;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: 80px 0 0 0;
+  padding: 70px 0 0 0;
 }
 
 @media (max-width: 768px) {
@@ -1654,7 +1695,7 @@ body._lock {
 
 .main__content {
   position: relative;
-  max-width: 475px;
+  max-width: 400px;
   width: 100%;
 }
 
@@ -1668,7 +1709,7 @@ body._lock {
 .main__title {
   font-size: 32px;
   font-weight: 900;
-  line-height: 1.3;
+  line-height: 1.5;
 }
 
 .main__text {
@@ -1942,6 +1983,7 @@ body._lock {
   font-size: 80px;
   font-weight: 900;
   color: #fff;
+  letter-spacing: -0.01em;
 }
 
 @media (max-width: 1200px) {

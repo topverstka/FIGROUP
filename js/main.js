@@ -30,6 +30,75 @@ function bodyLock(con) {
 	}
 }
 
+// Добавление иконки у обязательный для заполнения инпутов
+formInputRequiredLabel()
+function formInputRequiredLabel() {
+    const inputElems = findAll('.form-elem__area[required]')
+    for (let i = 0; i < inputElems.length; i++) {
+        const input = inputElems[i];
+        const parent = input.parentNode
+        const span = document.createElement('span')
+
+        span.classList.add('form-elem__required')
+        span.innerText = '*'
+
+        parent.append(span)
+    }
+}
+
+
+function validationForm() {
+    const name = find('#user_name')
+    const phone = find('#user_phone')
+    const email = find('#user_email')
+
+    let con = true
+
+    for (let i = 0; i < [name, phone, email].length; i++) {
+        const elem = [name, phone, email][i];
+        const elemValue = elem.value.trim()
+
+        if (elemValue === '') {
+            elem.classList.add('_error')
+            con = false
+        } else {
+            elem.classList.remove('_error')
+            con = true
+        }
+    }
+
+    return con
+}
+
+// Валидация формы
+sumbitForm()
+function sumbitForm() {
+    const form = document.querySelector('.modal__form')
+    console.log(form)
+    form.addEventListener('submit', async e => {
+        e.preventDefault()
+        
+        let con = validationForm()
+
+        if (con === true) {
+            const formData = new FormData()
+            const action = form.getAttribute('action')
+    
+            let response = await fetch(action, {
+                method: 'POST',
+                body: formData
+            })
+    
+            if (response.ok) {
+                console.log('Successful')
+            }
+            else {
+                console.log('Error')
+            }
+        }
+    })
+}
+
 // Мобильное меню
 menu()
 function menu() {
