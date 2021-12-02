@@ -254,7 +254,7 @@ body._lock {
           border-radius: 8px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 769px) {
   .btn:hover {
     background: var(--accent-hover);
   }
@@ -283,7 +283,7 @@ body._lock {
           border-radius: 100px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 769px) {
   .choice-chips:hover {
     color: var(--accent);
     background: #EFF7F5;
@@ -306,7 +306,7 @@ body._lock {
   pointer-events: none;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 769px) {
   .link:hover {
     color: var(--accent-hover);
   }
@@ -349,7 +349,7 @@ body._lock {
   transition: var(--tr);
 }
 
-@media (min-width: 768px) {
+@media (min-width: 769px) {
   .link-arrow_hover:hover .link-arrow__text {
     color: var(--accent);
   }
@@ -410,7 +410,7 @@ body._lock {
           border-radius: 50%;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 769px) {
   .slider-arrow:hover {
     background: var(--accent-hover);
   }
@@ -479,7 +479,12 @@ body._lock {
 }
 
 .form-elem textarea {
-  height: 164px;
+  max-width: 100%;
+  min-width: 100%;
+  min-height: 164px;
+  -webkit-transition: 0s;
+  -o-transition: 0s;
+  transition: 0s;
 }
 
 .form-elem__area {
@@ -606,7 +611,7 @@ body._lock {
   transition: var(--tr);
 }
 
-@media (min-width: 768px) {
+@media (min-width: 769px) {
   .cat-card:hover {
     background: var(--accent);
   }
@@ -687,7 +692,7 @@ body._lock {
   margin: auto 0 0 0;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 769px) {
   .service-card:hover .service-card__title {
     color: var(--accent2);
   }
@@ -862,7 +867,7 @@ body._lock {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 769px) {
   .team-card:hover .team-card__img::after {
     -webkit-transform: translate(0, 0);
         -ms-transform: translate(0, 0);
@@ -870,7 +875,7 @@ body._lock {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 769px) {
   .team-card:active {
     -webkit-transform: scale(0.95);
         -ms-transform: scale(0.95);
@@ -980,7 +985,7 @@ body._lock {
   transition: var(--tr);
 }
 
-@media (min-width: 768px) {
+@media (min-width: 769px) {
   .project-card:hover {
     background: var(--accent);
   }
@@ -1040,7 +1045,7 @@ body._lock {
   transition: var(--tr);
 }
 
-@media (min-width: 768px) {
+@media (min-width: 769px) {
   .news-card:hover .news-card__img::after {
     opacity: 0;
   }
@@ -1305,6 +1310,65 @@ body._lock {
 
 .current_page_item a {
   color: var(--accent-active);
+}
+
+.menu-item-has-children {
+  position: relative;
+}
+
+@media (min-width: 769px) {
+  .menu-item-has-children:hover .sub-menu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+    -webkit-transform: translate(-50%, -webkit-calc(100% + 30px)) scale(1);
+        -ms-transform: translate(-50%, calc(100% + 30px)) scale(1);
+            transform: translate(-50%, calc(100% + 30px)) scale(1);
+  }
+}
+
+.sub-menu {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  -webkit-transform: translate(-50%, -webkit-calc(100% + 30px)) scale(0.95);
+      -ms-transform: translate(-50%, calc(100% + 30px)) scale(0.95);
+          transform: translate(-50%, calc(100% + 30px)) scale(0.95);
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (350px)[2];
+      grid-template-columns: repeat(2, 350px);
+  gap: 24px 20px;
+  background: #fff;
+  -webkit-border-radius: 16px;
+          border-radius: 16px;
+  -webkit-box-shadow: 0px 8px 32px rgba(217, 217, 217, 0.16);
+          box-shadow: 0px 8px 32px rgba(217, 217, 217, 0.16);
+  padding: 24px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  -webkit-transition: .2s;
+  -o-transition: .2s;
+  transition: .2s;
+}
+
+.sub-menu::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 30%;
+  height: 30px;
+  -webkit-transform: translate(-50%, -100%);
+      -ms-transform: translate(-50%, -100%);
+          transform: translate(-50%, -100%);
+}
+
+@media (max-width: 768px) {
+  .sub-menu {
+    display: none;
+  }
 }
 
 .content-blog ul,
@@ -2807,7 +2871,7 @@ body._lock {
   transition: var(--tr);
 }
 
-@media (min-width: 768px) {
+@media (min-width: 769px) {
   .footer__link:hover {
     color: var(--accent2);
   }
@@ -3336,7 +3400,7 @@ body._lock {
   cursor: pointer;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 769px) {
   .content-blog .wp-block-video:hover #video-play-round {
     fill: var(--accent-hover);
   }
@@ -3378,7 +3442,7 @@ body._lock {
   color: var(--accent);
 }
 
-@media (min-width: 768px) {
+@media (min-width: 769px) {
   .content-blog a:hover {
     color: var(--accent-hover);
   }

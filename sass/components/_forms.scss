@@ -18,7 +18,10 @@
 }
 
 .form-elem textarea {
-    height: 164px;
+    max-width: 100%;
+    min-width: 100%;
+    min-height: 164px;
+    transition: 0s;
 }
 
 .form-elem__area {

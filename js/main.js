@@ -47,6 +47,7 @@ function formInputRequiredLabel() {
 }
 
 
+// Валидация формы
 function validationForm() {
     const name = find('#user_name')
     const phone = find('#user_phone')
@@ -70,11 +71,11 @@ function validationForm() {
     return con
 }
 
-// Валидация формы
+// Отправка формы
 sumbitForm()
 function sumbitForm() {
     const form = document.querySelector('.modal__form')
-    console.log(form)
+
     form.addEventListener('submit', async e => {
         e.preventDefault()
         

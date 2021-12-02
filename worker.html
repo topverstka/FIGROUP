@@ -32,7 +32,43 @@
 							<div class="header__nav-body">
 								<ul class="header__nav-list">
 									<li class="header__nav-item"><a href="./about.html" class="link header__nav-link">Кто мы</a></li>
-									<li class="header__nav-item"><a href="./categories.html" class="link header__nav-link">Что мы делаем</a></li>
+									<li class="header__nav-item menu-item-has-children">
+										<a href="./categories.html" class="link header__nav-link">Что мы делаем</a>
+										<ul class="sub-menu">
+											<li class="menu-item sub-menu__item">
+												<a href="#" class="service-card">
+													<div class="service-card__body">
+														<div class="service-card__img"><img src="./img/services/icons/searching.svg" alt=""></div>
+														<span class="service-card__title">Поиск активов</span>
+													</div>
+												</a>
+											</li>
+											<li class="menu-item sub-menu__item">
+												<a href="#" class="service-card">
+													<div class="service-card__body">
+														<div class="service-card__img"><img src="./img/services/icons/searching.svg" alt=""></div>
+														<span class="service-card__title">Экономические экспертизы и исследования</span>
+													</div>
+												</a>
+											</li>
+											<li class="menu-item sub-menu__item">
+												<a href="#" class="service-card">
+													<div class="service-card__body">
+														<div class="service-card__img"><img src="./img/services/icons/searching.svg" alt=""></div>
+														<span class="service-card__title">Аудит рисков в бизнес-процессах</span>
+													</div>
+												</a>
+											</li>
+											<li class="menu-item sub-menu__item">
+												<a href="#" class="service-card">
+													<div class="service-card__body">
+														<div class="service-card__img"><img src="./img/services/icons/searching.svg" alt=""></div>
+														<span class="service-card__title">Налоговая реконструкция</span>
+													</div>
+												</a>
+											</li>
+										</ul>
+									</li>
 									<li class="header__nav-item"><a href="./projects.html" class="link header__nav-link">Проекты</a></li>
 									<li class="header__nav-item"><a href="./news.html" class="link header__nav-link">Публикации</a></li>
 									<li class="header__nav-item"><a href="./career.html" class="link header__nav-link">Карьера</a></li>
@@ -229,17 +265,33 @@
 		<div class="modal__body">
 			<div class="modal__content">
 				<h2 class="modal__title">Запись на консультацию</h2>
-				<form action="#" class="modal__form">
-					<div class="input _required">
-						<input class="form-elem__input" type="text" id="name" name="name">
+				<form action="#" method="POST" class="form modal__form" id="modal__form">
+					<div class="form-elem">
+						<input class="form-elem__area _required" type="text" id="user_name" name="name" placeholder=" ">
 						<label class="form-elem__label" for="name">Имя</label>
 					</div>
-					<div class="input">
-						<input class="form-elem__input" type="text" id="phone" name="name">
-						<label class="form-elem__label" for="name">Имя</label>
+					<div class="form-elem">
+						<input class="form-elem__area _required" type="tel" id="user_phone" name="phone" placeholder=" ">
+						<label class="form-elem__label" for="phone">Номер телефона</label>
+					</div>
+					<div class="form-elem">
+						<input class="form-elem__area _required" type="email" id="user_email" name="email" placeholder=" ">
+						<label class="form-elem__label" for="email">E-mail</label>
+					</div>
+					<div class="form-elem">
+						<input class="form-elem__area" type="text" id="user_company" name="company" placeholder=" ">
+						<label class="form-elem__label" for="company">Название вашей компании</label>
+					</div>
+					<div class="form-elem">
+						<input class="form-elem__area" type="text" id="user_working_pos" name="working_pos" placeholder=" ">
+						<label class="form-elem__label" for="working_pos">Ваша должность</label>
+					</div>
+					<div class="form-elem">
+						<textarea class="form-elem__area" type="text" id="user_message" name="message" placeholder=" "></textarea>
+						<label class="form-elem__label" for="message">Комментарий</label>
 					</div>
 					<span class="modal__attention">Нажав на кнопку, вы соглашаетесь с обработкой персональных данных.</span>
-					<button class="btn modal__submit" data-modal-open="modal-1">Проконсультироваться</button>
+					<button class="btn modal__submit" type="submit">Проконсультироваться</button>
 				</form>
 				<button class="modal__close">
 					<span></span>

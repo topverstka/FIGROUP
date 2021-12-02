@@ -1,0 +1,48 @@
+.menu-item-has-children {
+    position: relative;
+
+    @media (min-width: $minHover) {
+        
+        &:hover {
+    
+            & .sub-menu {
+                opacity: 1;
+                visibility: visible;
+                pointer-events: all;
+                transform: translate(-50%, calc(100% + 30px)) scale(1);
+            }
+        }
+    }
+}
+
+.sub-menu {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, calc(100% + 30px)) scale(.95);
+    display: grid;
+    grid-template-columns: repeat(2, 350px);
+    gap: 24px 20px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0px 8px 32px rgba(217, 217, 217, 0.16);
+    padding: 24px;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: .2s;
+    
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 30%;
+        height: 30px;
+        transform: translate(-50%, -100%);
+    }
+
+    @media (max-width: $tablet) {
+        display: none;
+    }
+}
