@@ -1,9 +1,5 @@
 .worker-section {
-    margin-top: 48px;
-
-    @media (max-width: $tablet) {
-        margin-top: 32px;
-    }
+    margin-top: 32px;
 }
 
 .worker-section__body {
@@ -21,7 +17,10 @@
 }
 
 .worker-section__info {
-
+    
+    @media (max-width: $mobile-l) {
+        width: 100%;
+    }
 }
 
 .worker-section__img {
@@ -31,6 +30,10 @@
     height: 520px;
     border-radius: $radius;
     overflow: hidden;
+
+    @media (max-width: $mobile-l) {
+        max-width: none;
+    }
 
     & img {
         object-fit: cover;

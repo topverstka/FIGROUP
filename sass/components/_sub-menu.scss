@@ -19,7 +19,7 @@
     position: absolute;
     bottom: 0;
     left: 50%;
-    transform: translate(-50%, calc(100% + 30px)) scale(.95);
+    transform: translate(-50%, calc(100% + 10px)) scale(.95);
     display: grid;
     grid-template-columns: repeat(2, 350px);
     gap: 24px 20px;

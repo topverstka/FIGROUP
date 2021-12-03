@@ -85,7 +85,7 @@
 }
 
 // Картинка
-.main__img-block {
+.main__img-wrap {
     position: relative;
     min-width: 370px;
     width: 50%;
@@ -120,10 +120,25 @@
     }
 }
 
+.main__img-block {
+
+    &.js-tilt {
+        transform-style: preserve-3d;
+        transform: perspective(300px);
+    }
+}
+
+.main__img-bg {
+}
+
+.main__img-ill {
+    position: absolute;
+}
+
 
 .main_index {
 
-    & .main__img-block {
+    & .main__img-wrap {
         height: 408px;
 
         @media (max-width: $tablet) {
@@ -135,6 +150,23 @@
         max-width: 540px;
         // transform: translate(0, calc(-50% + 14px))
     }
+
+    & .main__img-ill {
+        top: 56px;
+        right: -8px;
+        width: 80%;
+        // height: 80%;
+        transform: translateZ(30px);
+
+        @media (max-width: $tablet) {
+            top: 50%;
+            left: 50%;
+            width: 80%;
+            height: 80%;
+            transform: translate(-50%, -50%);
+        }
+    }
+    
 }
 
 
@@ -144,7 +176,7 @@
         padding-top: 0;
     }
 
-    & .main__img-block {
+    & .main__img-wrap {
         height: 509px;
         margin: 14px 0 0 0;
 
@@ -165,7 +197,7 @@
         padding-top: 0;
     }
 
-    & .main__img-block {
+    & .main__img-wrap {
         height: 583px;
         margin: 16px 0 0 0;
 
@@ -187,7 +219,7 @@
         padding-top: 0;
     }
 
-    & .main__img-block {
+    & .main__img-wrap {
         height: 665px;
         margin: -65px 0 0 0;
 
