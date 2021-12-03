@@ -4,13 +4,17 @@
     border-radius: $radius;
     transition: $tr;
 
+    @media (max-width: $tablet) {
+        padding: 16px;
+    }
+
     &:hover {
         
         @media (min-width: $minHover) {
             background: $accent;
     
             & .cat-card__icon {
-                // background: rgba(255, 255, 255, .08);
+                background: rgba(255, 255, 255, .08);
             }
     
             & .cat-card__title,
@@ -58,18 +62,28 @@
     height: 100%;
     display: flex;
     flex-direction: column;
+
+    @media (max-width: $tablet) {
+        flex-direction: row;
+        align-items: center;
+    }
 }
 
 .cat-card__icon {
+    min-width: 64px;
     width: 64px;
     height: 64px;
     display: flex;
     align-items: center;
     justify-content: center;
-    // background: #EFF7F5;
-    background: rgba(183, 237, 221, 0.18);
+    background: #EFF7F5;
+    // background: rgba(183, 237, 221, 0.18);
     border-radius: 8px;
     transition: $tr;
+
+    @media (max-width: $tablet) {
+        
+    }
 
     & svg {
         width: 38px;
@@ -87,8 +101,17 @@
     font-weight: 900;
     margin: 24px 0;
     transition: $tr;
+
+    @media (max-width: $tablet) {
+        font-size: 20px;
+        margin: 0 0 0 24px;
+    }
 }
 
 .cat-card__link-arrow {
     margin: auto 0 0 0;
+
+    @media (max-width: $tablet) {
+        display: none;
+    }
 }

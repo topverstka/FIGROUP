@@ -13,6 +13,17 @@ function findAll(selectors) {
 	return d.querySelectorAll(selectors)
 }
 
+// Удаляет у всех элементов items класс itemClass
+function removeAll(items,itemClass) {   
+    if (typeof items == 'string') {
+      items = document.querySelectorAll(items)
+    }
+    for (let i = 0; i < items.length; i++) {
+      const item = items[i]
+      item.classList.remove(itemClass)
+    }
+}
+
 function bodyLock(con) {
     if (con === true) {
         body.classList.add('_lock');
@@ -74,9 +85,13 @@ function validationForm() {
 // Отправка формы
 sumbitForm()
 function sumbitForm() {
-    const form = document.querySelector('.modal__form')
+    const form = find('.modal__form')
 
     form.addEventListener('submit', async e => {
+        const modal = find('.modal._show')
+        const btnSend = form.querySelector('[type=submit]')
+        btnSend.classList.add('send-preloader')
+
         e.preventDefault()
         
         let con = validationForm()
@@ -89,13 +104,27 @@ function sumbitForm() {
                 method: 'POST',
                 body: formData
             })
+            
+            // settimeout здесь для того, чтобы показать работу отправки формы. В дальнейшем это нужно убрать
+            setTimeout(() => {
+                if (response.ok) {
+                    console.log('Successful')
+                    form.reset()
     
-            if (response.ok) {
-                console.log('Successful')
-            }
-            else {
-                console.log('Error')
-            }
+                    modal.classList.remove('_show')
+                    find('#send-done').classList.add('_show')
+                    btnSend.classList.remove('send-preloader')
+                }
+                else {
+                    console.log('Error')
+                    form.reset()
+    
+                    modal.classList.remove('_show')
+                    find('#send-error').classList.add('_show')
+                    btnSend.classList.remove('send-preloader')
+                }
+            }, 2000)
+
         }
     })
 }
@@ -175,211 +204,249 @@ const teamSlider = new Swiper('.team-slider', {
 	}
 });
 
-// Открытие модального окна, если в url указан его id
-openModalHash()
-function openModalHash() {
-    if (window.location.hash) {
-        const hash = window.location.hash.substring(1)
-        const modal = document.querySelector(`.modal#${hash}`)
-
-        if (modal) {
-            modal.classList.add('_show');
-            bodyLock(true)
-            closeWhenClickingOnBg(`#${hash} .modal__content`, modal);
+// Функции для модальных окон
+modal()
+function modal() {
+    // Открытие модального окна, если в url указан его id
+    openModalHash()
+    function openModalHash() {
+        if (window.location.hash) {
+            const hash = window.location.hash.substring(1)
+            const modal = document.querySelector(`.modal#${hash}`)
+    
+            if (modal) {
+                modal.classList.add('_show');
+                bodyLock(true)
+                closeWhenClickingOnBg(`#${hash} .modal__content`, modal);
+            }
         }
     }
-}
-
-// Закрытие модальных окон при клике по крестику
-closeModalWhenClickingOnCross()
-function closeModalWhenClickingOnCross() {
-    const modalElems = document.querySelectorAll('.modal')
-    for (let i = 0; i < modalElems.length; i++) {
-        const modal = modalElems[i];
-        const closeThisModal = modal.querySelector('.modal__close')
-
-        closeThisModal.addEventListener('click', () => {
-            modal.classList.remove('_show')
-            bodyLock(false)
-            resetHash()
-        })
-    }
-}
-
-// Закрытие модальных окон при нажатии по клавише ESC
-closeModalWhenClickingOnESC()
-function closeModalWhenClickingOnESC() {
-    const modalElems = document.querySelectorAll('.modal')
-    for (let i = 0; i < modalElems.length; i++) {
-        const modal = modalElems[i];
-
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
+    
+    // Закрытие модальных окон при клике по крестику
+    closeModalWhenClickingOnCross()
+    function closeModalWhenClickingOnCross() {
+        const modalElems = document.querySelectorAll('.modal')
+        for (let i = 0; i < modalElems.length; i++) {
+            const modal = modalElems[i];
+            const closeThisModal = modal.querySelector('.modal__close')
+    
+            closeThisModal.addEventListener('click', () => {
                 modal.classList.remove('_show')
                 bodyLock(false)
                 resetHash()
+            })
+        }
+    }
+    
+    // Закрытие модальных окон при нажатии по клавише ESC
+    closeModalWhenClickingOnESC()
+    function closeModalWhenClickingOnESC() {
+        const modalElems = document.querySelectorAll('.modal')
+        for (let i = 0; i < modalElems.length; i++) {
+            const modal = modalElems[i];
+    
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    modal.classList.remove('_show')
+                    bodyLock(false)
+                    resetHash()
+                }
+            })
+        }
+    }
+    
+    // Сброс id модального окна в url
+    function resetHash() {
+        const windowTop = window.pageYOffset
+        window.location.hash = ''
+        window.scrollTo(0, windowTop)
+    }
+    
+    // Открытие модальных окон
+    openModal()
+    function openModal() {
+        const btnsOpenModal = document.querySelectorAll('[data-modal-open]');
+    
+        for (let i = 0; i < btnsOpenModal.length; i++) {
+            const btn = btnsOpenModal[i];
+    
+            btn.addEventListener('click', (e) => {
+                const dataBtn = btn.dataset.modalOpen;
+                const modalThatOpens = document.querySelector(`#${dataBtn}`)
+    
+                btn.classList.add('modal-show');
+                modalThatOpens.classList.add('_show');
+                bodyLock(true)
+                closeWhenClickingOnBg(`#${dataBtn} .modal__content`, modalThatOpens);
+                window.location.hash = dataBtn
+            });
+        }
+    }
+    
+    // Закрытие модального окна при клике по заднему фону
+    function closeWhenClickingOnBg(itemArray, itemParent, classShow = '_show') {
+        document.addEventListener('click', (e) => {
+            let itemElems = document.querySelectorAll(itemArray)
+    
+            for (let i = 0; i < itemElems.length; i++) {
+                const item = itemElems[i];
+    
+                const target = e.target,
+                    itsItem = target == item || item.contains(target),
+                    itemIsShow = item.classList.contains(classShow);
+    
+                if (itemParent) {
+                    const itsItemParent = target == itemParent || itemParent.contains(target),
+                        itemParentIsShow = itemParent.classList.contains(classShow);
+    
+                    if (!itsItem && itsItemParent && itemParentIsShow) {
+                        itemParent.classList.remove(classShow);
+    
+                        if (body.classList.contains('_lock')) {
+                            bodyLock(false)
+                        }
+    
+                        if (window.location.hash === '#' + itemParent.getAttribute('id')) {
+                            resetHash()
+                        }
+                    }
+                } else {
+                    if (!itsItem && itemIsShow) {
+                        item.classList.remove(classShow);
+                        if (body.classList.contains('_lock')) {
+                            bodyLock(false)
+                        }
+    
+                        if (window.location.hash === '#' + itemParent.getAttribute('id')) {
+                            resetHash()
+                        }
+                    }
+                }
+    
             }
         })
     }
 }
 
-// Сброс id модального окна в url
-function resetHash() {
-    const windowTop = window.pageYOffset
-    window.location.hash = ''
-    window.scrollTo(0, windowTop)
-}
-
-// Открытие модальных окон
-openModal()
-function openModal() {
-    const btnsOpenModal = document.querySelectorAll('[data-modal-open]');
-
-    for (let i = 0; i < btnsOpenModal.length; i++) {
-        const btn = btnsOpenModal[i];
-
-        btn.addEventListener('click', (e) => {
-            const dataBtn = btn.dataset.modalOpen;
-            const modalThatOpens = document.querySelector(`#${dataBtn}`)
-
-            btn.classList.add('modal-show');
-            modalThatOpens.classList.add('_show');
-            bodyLock(true)
-            closeWhenClickingOnBg(`#${dataBtn} .modal__content`, modalThatOpens);
-            window.location.hash = dataBtn
-        });
+// Табы в разделе категорий
+tabsCatSection()
+function tabsCatSection() {
+    const tabElems = findAll('.cat-section__choice-chips')
+    // const cardElems = findAll('.cat-section__cat-card')
+    
+    for (let i = 0; i < tabElems.length; i++) {
+        const tab = tabElems[i];
+        
+        tab.addEventListener('click', () => {
+            showCardsCatSection(tab)
+            activeTabCatSection(tab)
+        })
     }
 }
 
-// Закрытие модального окна при клике по заднему фону
-function closeWhenClickingOnBg(itemArray, itemParent, classShow = '_show') {
-    document.addEventListener('click', (e) => {
-        let itemElems = document.querySelectorAll(itemArray)
+function showCardsCatSection(tab) {
+    const dataAttr = tab.dataset.tabCat
+    const cardElems = findAll('.cat-section__cat-card')
+    const cardParent = cardElems[0].parentNode
+    const cardShowElems = findAll(`[data-card-cat=${dataAttr}]`)
+    
+    // Присваиваем активный класс карточке
+    removeAll(cardElems, '_show')
+    
+    for (let i = 0; i < cardShowElems.length; i++) {
+        const cardShow = cardShowElems[i];
+        
+        cardShow.classList.add('_show')
 
-        for (let i = 0; i < itemElems.length; i++) {
-            const item = itemElems[i];
-
-            const target = e.target,
-                itsItem = target == item || item.contains(target),
-                itemIsShow = item.classList.contains(classShow);
-
-            if (itemParent) {
-                const itsItemParent = target == itemParent || itemParent.contains(target),
-                    itemParentIsShow = itemParent.classList.contains(classShow);
-
-                if (!itsItem && itsItemParent && itemParentIsShow) {
-                    itemParent.classList.remove(classShow);
-
-                    if (body.classList.contains('_lock')) {
-                        bodyLock(false)
-                    }
-
-                    if (window.location.hash === '#' + itemParent.getAttribute('id')) {
-                        resetHash()
-                    }
-                }
-            } else {
-                if (!itsItem && itemIsShow) {
-                    item.classList.remove(classShow);
-                    if (body.classList.contains('_lock')) {
-                        bodyLock(false)
-                    }
-
-                    if (window.location.hash === '#' + itemParent.getAttribute('id')) {
-                        resetHash()
-                    }
-                }
-            }
-
+        // Перемещаем карточку наверх списка
+        if (i === 0) {
+            cardParent.prepend(cardShow)
         }
+        else {
+            cardParent.insertBefore(cardShow, cardShowElems[0].nextSibling)
+        }
+    }
+}
+
+// Активируем выбранный таб
+function activeTabCatSection(tab) {
+    const tabElems = findAll('.cat-section__choice-chips')
+    removeAll(tabElems, '_active')
+
+    tab.classList.add('_active')
+}
+
+// Показываем больше карточек при клике по "Показать еще"
+showMoreCatSection()
+function showMoreCatSection() {
+    const btn = find('.cat-section__more')
+    const cardShowElems = findAll('.cat-section__cat-card._show')
+    const cardParent = cardShowElems[0].parentNode
+
+    btn.addEventListener('click', () => {
+
+        if (btn.dataset.moreCat === 'show_more') {
+            for (let i = 0; i < cardShowElems.length; i++) {
+                const cardShow = cardShowElems[i];
+                
+                if (i > 2) {
+                    cardShow.classList.add('_show')
+                    // cardShow.style.display = 'block'
+                }
+                cardParent.classList.add('show-more_active')
+                btn.dataset.moreCat = 'hide_more'
+                btn.innerText = 'Скрыть'
+            }
+        } 
+        else if (btn.dataset.moreCat === 'hide_more') {
+            for (let i = 0; i < cardShowElems.length; i++) {
+                const cardShow = cardShowElems[i];
+                
+                if (i > 2) {
+                    cardShow.classList.remove('_show')
+                    // cardShow.style.display = 'none'
+                }
+                cardParent.classList.remove('show-more_active')
+                btn.dataset.moreCat = 'show_more'
+                btn.innerText = 'Показать еще'
+            }
+        }
+
+        // for (let i = 0; i < cardShowElems.length; i++) {
+        //     const cardShow = cardShowElems[i];
+            
+        //     // if (btn.classList.contains('_show')) {
+        //     //     if (i > 2) {
+        //     //         cardShow.style.display = 'block'
+        //     //     }
+        //     //     console.log('_show')
+        //     //     btn.classList.remove('_show')
+        //     //     btn.classList.add('_hide')
+        //     //     btn.innerText = 'Скрыть'
+        //     // }
+            
+        //     // if (btn.classList.contains('_hide')) {
+        //     //     if (i > 2) {
+        //     //         cardShow.style.display = 'none'
+        //     //     }
+        //     //     console.log('_hide')
+        //     //     btn.classList.remove('_hide')
+        //     //     btn.classList.add('_show')
+        //     //     btn.innerText = 'Показать еще'
+        //     // }
+        // }
     })
 }
 
+// Показываем кнопку "Показать еще" если кол-во карточек больше 3
+function showBtnMoreCatSection() {
+    const btn = find('.cat-section__more')
+    const cardShowElems = findAll('.cat-section__cat-card._show')
 
-
-
-
-// TODO: ЗАКОНЧИЛ ЗДЕСЬ!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-// // Ленивая загрузка изображений
-// [].forEach.call(document.querySelectorAll('img[data-src]'), function(img) {
-// 	img.setAttribute('src', img.getAttribute('data-src'));
-// 	img.onload = function() {
-// 		img.removeAttribute('data-src');
-// 	};
-// });
-
-
-// // Куки
-// function setCookie(c_name,value,exdays){
-//     var exdate=new Date();
-//     exdate.setDate(exdate.getDate() + exdays);
-//     var c_value = escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString()) + "; path=/";
-//     document.cookie=c_name + "=" + c_value;
-// }
-
-// function getMyCookie(name) {
-//     var c = document.cookie.match("(^|;) ?" + name + "=([^;]*)(;|$)");
-//         if (c) return c[2];
-//     	else return "";
-// }
-
-
-// // Слайдер с контрольными точками (Используется библиотека swiper: https://swiperjs.com/)
-// var swiper = new Swiper('.swiper-slider', {
-// 	slidesPerView: 1,
-// 	spaceBetween: 10,
-// 	loop: false,
-// 	// init: false,
-// 	pagination: {
-// 		el: '.testimonials-swiper-pagination',
-// 		clickable: true,
-// 	},
-// 	navigation: {
-// 		nextEl: '.testimonials-swiper-next',
-// 		prevEl: '.testimonials-swiper-prev',
-// 	},
-// 	breakpoints: {
-// 		670: {
-// 			slidesPerView: 2,
-// 			spaceBetween: 20,
-// 		},
-// 		992: {
-// 			slidesPerView: 3,
-// 			spaceBetween: 20,
-// 		},
-// 		1300: {
-// 			slidesPerView: 4,
-// 			spaceBetween: 20,
-// 		},
-// 	}
-// });
-
-
-// // Галлерея с модальным окном (Используется библиотека LightGallary: https://www.lightgalleryjs.com/) 
-// lightGallery(document.querySelector('.lightgallery'));
-
-
-// // Скрипт для раздела FAQ - "Частозадаваемые вопросы"
-// function findFaq(){
-// 	let faqBoxes = document.querySelectorAll('.faq-box')
-// 	for(i = 0; i <= faqBoxes.length-1; i++){
-// 		faqBoxes[i].addEventListener('click', function(e) {
-// 			e.preventDefault();
-// 			if(this.classList.contains('active')){
-// 				this.classList.remove('active');
-// 			}else{
-// 				let activeElem = this.closest('.faq').querySelector('.faq-box.active');
-// 				if(activeElem){
-// 					activeElem.classList.remove('active');
-// 				}
-// 				this.classList.add('active');
-// 			}
-// 		});
-// 	}
-// }
-// findFaq();
-
-
-// // AOS анимации инициализация (https://michalsnik.github.io/aos/)
-// AOS.init();
+    if (cardShowElems.length > 3) {
+        btn.classList.add('_show')
+    }
+    else {
+        btn.classList.remove('_show')
+    }
+}

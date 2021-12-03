@@ -61,6 +61,7 @@ body {
 }
 
 @import '_grid'; // Сетка
+@import '_animation';
 
 // Компоненты
 @import 'components/_buttons';
@@ -78,6 +79,7 @@ body {
 @import 'components/_wp-style';
 @import 'components/_sub-menu';
 @import 'components/_img-cap';
+@import 'components/_send-preloader';
 
 // Текстовые компоненты
 @import 'components/text/_text';

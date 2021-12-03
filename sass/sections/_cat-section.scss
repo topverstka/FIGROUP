@@ -46,7 +46,7 @@
 
     @media (max-width: $tablet) {
         
-        & .cat-section__cat-card {
+        &:not(.cat-section__card-list.show-more_active) .cat-section__cat-card._show {
 
             &:not(:nth-child(-n + 3)) {
                 display: none; 
@@ -56,9 +56,19 @@
 }
 
 .cat-section__cat-card {
+    display: none;
 
+    &._show {
+        display: block;
+        animation: showElem .3s linear forwards;
+    }
 }
 
 .cat-section__more {
+    display: none;
 
+    &._show {
+        display: block;
+        animation: showElem .3s linear forwards;
+    }
 }
