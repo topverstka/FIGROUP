@@ -91,7 +91,7 @@
 			</div>
 		</header>
 		
-		<main class="main service__main">
+		<main class="main main_service">
 			<div class="container">
 				<div class="main__body">
 					<div class="main__content">
@@ -103,10 +103,17 @@
 							<span></span>
 						</div>
 					</div>
-                    <div class="main__img-wrap">
-                        <div class="main__img">
-                            <img src="./img/main/service.svg" alt="Услуги форензик и экономическая экспертиза">                             
-                        </div>
+                    <div class="main__img-wrap">						
+						<div class="main__img">
+							<div class="main__img-block anim-ill js-tilt" data-tilt-perspective="300" data-tilt-speed="400" data-tilt-max="25">
+								<div class="main__img-bg">
+									<img src="./img/main/service/service_bg.svg" alt="">
+								</div>
+								<div class="main__img-ill">
+									<img src="./img/main/service/service_ill.svg" alt="">
+								</div>
+							</div>
+						</div>
                     </div>
                     <div class="bread bread_main">
                         <div class="bread__body">
@@ -401,6 +408,8 @@
 
 	<!-- Подключение скриптов -->
 	<script src="./js/libs/swiper-bundle.min.js"></script>
+	<script src="./js/libs/jquery.slim.min.js"></script>
+	<script src="./js/libs/tilt.jquery.js"></script>
 	<script src="./js/main.js"></script>
 
 </body>

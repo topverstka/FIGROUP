@@ -57,6 +57,17 @@ function formInputRequiredLabel() {
     }
 }
 
+// Анимация иллюстрации на главном экране
+animIllMain()
+function animIllMain() {
+    if (find('.anim-ill')) {
+		$(function () {
+			if (window.innerWidth > 768) {
+				$('.js-tilt').tilt()
+			}
+		});
+    }
+}
 
 // Валидация формы
 function validationForm() {
@@ -377,7 +388,9 @@ function activeTabCatSection(tab) {
 }
 
 // Показываем больше карточек при клике по "Показать еще"
-showMoreCatSection()
+if (find('.cat-section__cat-card')) {
+    showMoreCatSection()
+}
 function showMoreCatSection() {
     const btn = find('.cat-section__more')
     const cardShowElems = findAll('.cat-section__cat-card._show')

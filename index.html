@@ -128,7 +128,7 @@
             const trTitle = tr.querySelectorAll('td')[0]
             const trLink = tr.querySelectorAll('td')[1]
             // const url = 'https://topverstka.github.io/enrollee/catalog/' + trLink.innerText
-            const url = './' + trLink.innerText
+            const url = trLink.innerText
 
             trTitle.setAttribute('title', trTitle.innerText)
             trLink.innerHTML = `<a href="${url}">${url}<br></a>`
