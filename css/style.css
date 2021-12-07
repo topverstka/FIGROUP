@@ -1787,6 +1787,9 @@ body._lock {
 }
 
 .header__nav-link {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
   font-size: 14px;
   font-weight: 600;
 }
