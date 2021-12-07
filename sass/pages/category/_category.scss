@@ -2,9 +2,9 @@
 .category__content {
     position: relative;
     z-index: 1;
-    margin: 22px 0 0 0;
+    margin-top: 22px;
 
     @media (max-width: $tablet) {
-        margin: 80px 0 0 0;
+        margin-top: 80px;
     }
 }

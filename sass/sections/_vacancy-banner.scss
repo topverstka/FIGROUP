@@ -47,6 +47,10 @@
 
 .vacancy-banner__link-arrow {
     margin: 32px 0 0 0;
+
+    @media (max-width: $tablet) {
+        margin: 16px 0 0 0;
+    }
 }
 
 
@@ -63,6 +67,6 @@
 
     @media (max-width: 580px) {
         position: initial;
-        margin: 48px 0 0 0;
+        margin: 42px 0 0 0;
     }
 }

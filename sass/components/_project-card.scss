@@ -23,6 +23,17 @@
 
     &:active {
         transform: scale(.98);
+        background: $accent;
+
+        & .project-card__cat,
+        & .project-card__title,
+        & .link-arrow__text {
+            color: #fff;
+        }
+
+        & .link-arrow__icon svg path {
+            fill: #fff;
+        }
     }
 }
 

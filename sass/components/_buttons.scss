@@ -4,13 +4,14 @@
     font-size: 14px;
     font-weight: 600;
     color: #fff;
+    letter-spacing: .03em;
     padding: 16px 32px;
     background: $accent;
     border-radius: 8px;
     overflow: hidden;
 
     &:hover {
-        
+
         @media (min-width: $minHover) {
             background: $accent-hover;
         }

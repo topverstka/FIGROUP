@@ -24,6 +24,17 @@
 
     &:active {
         transform: scale(.98);
+        
+        & .news-card__img { 
+
+            &::after {
+                opacity: 0;
+            }
+
+            &::before {
+                transform: translate(0, 0);
+            }
+        }
     }
 }
 

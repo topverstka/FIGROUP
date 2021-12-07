@@ -1,4 +1,4 @@
-
+'use strict'
 // Служебные переменные
 const d = document;
 const body = d.querySelector('body');
@@ -41,10 +41,18 @@ function bodyLock(con) {
 	}
 }
 
+// Расстояния между элементом и верхней границей страницы 
+// function offsetPage(elem) {
+//     var rect = elem.getBoundingClientRect(),
+//     scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
+//     scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+//     return { top: rect.top + scrollTop, left: rect.left + scrollLeft }
+// }
+
 // Добавление иконки у обязательный для заполнения инпутов
 formInputRequiredLabel()
 function formInputRequiredLabel() {
-    const inputElems = findAll('.form-elem__area[required]')
+    const inputElems = findAll('.form-elem__area._required')
     for (let i = 0; i < inputElems.length; i++) {
         const input = inputElems[i];
         const parent = input.parentNode
@@ -52,7 +60,7 @@ function formInputRequiredLabel() {
 
         span.classList.add('form-elem__required')
         span.innerText = '*'
-
+        
         parent.append(span)
     }
 }
@@ -68,6 +76,87 @@ function animIllMain() {
 		});
     }
 }
+
+// Анимация при скролле на главной странице
+// animScrollMainPage()
+function animScrollMainPage() {
+    const slider = find('.advantages')
+    // const 
+
+    window.addEventListener('scroll', e => {
+        const sliderBottomWindow = slider.getBoundingClientRect().top - window.innerHeight + slider.clientHeight
+        const sliderTopWindow = slider.getBoundingClientRect().top
+
+        if (sliderTopWindow >= 0 && sliderBottomWindow <= 0) {
+
+            // if ()
+            console.log('ok')
+        }
+    })
+}
+
+// class Timeliner {
+//     constructor(node, keyframes) {
+//         this.node = node;
+//         this.keyframes = keyframes
+//         this.keyframesTimeline = keyframes.map(val => val.progress)
+//         setKeyframeStyles(this.node, keyframes[0])
+//     }
+
+//     draw = (progress) => {
+//         const curProgress = progress * 100
+//         const nearestFrameIndex = findNearestFrame(this.keyframesTimeline, curProgress)
+//         const leftFrame = this.keyframes[nearestFrameIndex]
+//         const rightFrame = this.keyframes[nearestFrameIndex + 1]
+//         this.drawStylesTick(curProgress, leftFrame, rightFrame)
+//     }
+// }
+
+// function drawStylesTick(progress, leftFrame, rightFrame) {
+//     const leftFrameStyles = getStylesOnly(leftFrame)
+// }
+
+// let last_known_scroll_position = 0;
+// let ticking = false;
+
+// function doSomething(scroll_pos) {
+//   // Делаем что-нибудь с позицией скролла
+//   console.log(scroll_pos)
+// }
+
+// window.addEventListener('scroll', function(e) {
+//   last_known_scroll_position = window.scrollY;
+//   let i = 0
+
+//     const interval = setInterval(() => {
+//         doSomething(last_known_scroll_position);
+//         i++
+
+//         if (i == 100) {
+//             clearInterval(interval)
+
+//         }
+//     }, 0);
+
+//   if (!ticking) {
+//     window.requestAnimationFrame(function() {
+//       doSomething(i);
+//       ticking = false;
+//     });
+
+
+//     ticking = true;
+//   }
+// });
+
+// function isScrolledIntoView(el) {
+//     var elemTop = el.getBoundingClientRect().top,
+//         elemBottom = el.getBoundingClientRect().bottom,
+//         isVisible = (elemTop >= 0) && ((elemBottom + 240) <= window.innerHeight);
+
+//     // console.log(elemTop, elemBottom, window.innerHeight)
+//     return isVisible;
+// }
 
 // Валидация формы
 function validationForm() {
@@ -101,7 +190,6 @@ function sumbitForm() {
     form.addEventListener('submit', async e => {
         const modal = find('.modal._show')
         const btnSend = form.querySelector('[type=submit]')
-        btnSend.classList.add('send-preloader')
 
         e.preventDefault()
         
@@ -110,6 +198,8 @@ function sumbitForm() {
         if (con === true) {
             const formData = new FormData()
             const action = form.getAttribute('action')
+
+            btnSend.classList.add('send-preloader')
     
             let response = await fetch(action, {
                 method: 'POST',

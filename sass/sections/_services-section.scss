@@ -3,6 +3,10 @@
     &_blog {
         margin: 0 0 124px 0;
 
+        @media (max-width: $tablet) {
+            margin: 0 0 80px 0;
+        }
+
         & .section__header {
             margin: 0 0 32px 0;
         }

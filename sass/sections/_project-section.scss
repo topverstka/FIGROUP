@@ -1,3 +1,7 @@
+.projects-section {
+    margin-top: 32px;
+}
+
 .projects-section__header-more {
 
 }
@@ -5,7 +9,7 @@
 .projects-section__list {
     display: grid;
     grid-template-columns: repeat(3, minmax(min-content, 350px));
-    grid-auto-rows: minmax(250px, min-content);
+    grid-auto-rows: minmax(255px, min-content);
     gap: 30px;
 
     @media (max-width: $tablet) {
@@ -17,12 +21,28 @@
         grid-template-columns: 1fr;
         gap: 16px;
     }
+}
 
+.projects-section_limit {
+    
     @media (max-width: $tablet) {
         
         & .project-card {
             
             &:not(:nth-child(-n + 2)) {
+                display: none;
+            }
+        }
+    }
+}
+
+.projects-section_page-limit {
+    
+    @media (max-width: $tablet) {
+        
+        & .project-card {
+            
+            &:not(:nth-child(-n + 5)) {
                 display: none;
             }
         }

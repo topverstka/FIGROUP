@@ -11,9 +11,10 @@
     }
 
     &:active {
-
-        @media (max-width: $minHover) {
-            transform: scale(.95);
+        transform: scale(.95);
+            
+        & .team-card__img::after {
+            transform: translate(0, 0);
         }
     }
 }
@@ -66,7 +67,7 @@
 .team-card__content {
     display: flex;
     flex-direction: column;
-    margin: 16px 0;
+    margin: 16px 0 12px 0;
 }
 
 .team-card__title {

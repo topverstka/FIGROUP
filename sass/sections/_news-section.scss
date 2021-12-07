@@ -37,7 +37,7 @@
                 font-size: 24px;
     
                 @media (max-width: $tablet) { 
-                    font-size: 16px;
+                    // font-size: 16px;
                 }
             }
         }
@@ -169,6 +169,19 @@
 
             @media (max-width: 540px) {
                 font-size: 24px;
+            }
+        }
+    }
+}
+
+.news-section_limit {
+    
+    @media (max-width: $tablet) {
+        
+        & .news-card {
+            
+            &:not(:nth-child(-n + 5)) {
+                display: none;
             }
         }
     }

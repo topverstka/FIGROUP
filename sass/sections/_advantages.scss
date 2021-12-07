@@ -28,7 +28,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 48px 96px 48px 48px;
+    padding: 61px 96px 48px 48px;
 
     @media (max-width: 1200px) {
         padding: 48px;
@@ -64,6 +64,7 @@
     font-size: 80px;
     font-weight: 900;
     color: #fff;
+    line-height: 1;
     letter-spacing: -0.01em;
     // white-space: nowrap;
 
@@ -89,11 +90,12 @@
 }
 
 .advantages__title-text {
+    display: inline-block;
     font-size: 32px;
     font-weight: 900;
     line-height: 1.3;
     color: #fff;
-    margin: 9px 0 0 0;
+    margin: 23px 0 0 0;
 
     @media (max-width: 1200px) {
         font-size: 28px;
@@ -113,6 +115,7 @@
 }
 
 .advantages__descr {
+    max-width: 600px;
     font-size: 16px;
     color: #fff;
     margin: 12px 0 0 0;

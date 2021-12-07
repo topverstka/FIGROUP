@@ -5,6 +5,10 @@
     }
 
     & .services-section {
-        margin-bottom: 64px;
+        margin-bottom: 124px;
+
+        @media (max-width: $tablet) {
+            margin-bottom: 80px;
+        }
     }
 }

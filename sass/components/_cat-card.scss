@@ -31,30 +31,21 @@
 
     &:active {
         transform: scale(.98);
-        // background: $accent;
+        background: $accent;
+    
+        & .cat-card__icon {
+            background: rgba(255, 255, 255, .08);
+        }
 
-        // & .cat-card__icon {
-        //     // background: rgba(255, 255, 255, .08);
+        & .cat-card__title,
+        & .link-arrow__text {
+            color: #fff;
+        }
 
-        //     & svg path {
-        //         fill: #fff;
-        //     }
-        // }
-
-        // & .cat-card__title {
-        //     color: #fff;
-        // }
-
-        // & .link-arrow__text {
-        //     color: #fff;
-        // }
-
-        // & .link-arrow__icon {
-
-        //     & svg path {
-        //         fill: #fff;
-        //     }
-        // }
+        & .link-arrow__icon svg path,
+        & .cat-card__icon svg path {
+            fill: #fff;
+        }
     }
 }
 
