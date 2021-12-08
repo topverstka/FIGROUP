@@ -266,7 +266,7 @@ const advantagesSlider = new Swiper('.advantages__slider', {
 
 	breakpoints: {
 		1200: {
-			slidesPerView: 'auto',
+			slidesPerView: 1,
 		},
 		700: {
 			slidesPerView: 1.1,
