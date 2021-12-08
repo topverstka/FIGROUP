@@ -3852,8 +3852,12 @@ body._lock {
   margin: 32px 0;
 }
 
-.content-blog a {
+.content-blog strong {
   font-weight: 600;
+  color: var(--accent);
+}
+
+.content-blog a {
   color: var(--accent);
 }
 

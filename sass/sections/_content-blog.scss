@@ -72,8 +72,13 @@
         margin: 32px 0;
     }
 
-    & a {
+    & strong {
         font-weight: 600;
+        color: $accent;
+    }
+
+    & a {
+        // font-weight: 600;
         color: $accent;
 
         &:hover {
