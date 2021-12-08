@@ -22,6 +22,13 @@
     }
 }
 
+.modal_con-send {
+
+    & .modal__content {
+        padding-bottom: 56px;
+    }
+}
+
 .modal__body {
     min-height: 100%;
     transform: translate(0, 100vh);
@@ -38,10 +45,14 @@
 
 .modal__content {
     position: relative;
-    max-width: 540px;
+    max-width: 525px;
     background: #fff;
     border-radius: $radius;
     padding: 40px 40px 32px 40px;
+
+    @media (max-width: $tablet) {
+        padding: 24px;
+    }
 }
 
 .modal__big-icon {
