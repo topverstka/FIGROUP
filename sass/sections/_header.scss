@@ -2,12 +2,12 @@
     position: relative;
     z-index: 1;
     width: 100%;
-    background: #fff;
-    box-shadow: 0px 8px 32px rgba(217, 217, 217, 0.16);
+    // background: #fff;
+    // box-shadow: 0px 8px 32px rgba(217, 217, 217, 0.16);
 
-    @media (max-width: $tablet) {
-        box-shadow: none;
-    }
+    // @media (max-width: $tablet) {
+    //     box-shadow: none;
+    // }
 }
 
 // Верхняя часть шапки
@@ -38,8 +38,10 @@
 .header__down {
     background: #fff;
     padding: 22px 0;
-
+    box-shadow: 0px 8px 32px rgba(217, 217, 217, 0.16);
+    
     @media (max-width: $tablet) {
+        box-shadow: none;
         padding: 10px 0;
     }
 }
