@@ -1,12 +1,250 @@
-@keyframes showElem {
-    from {
+/* Стили анимации пульсации кругов */
+@keyframes pulse {
+    0% {
+        transform: scale(0.5);
         opacity: 0;
     }
+
+    50% {
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+}
+
+/* Стили кроссбраузерной анимации пульсации кругов */
+@-webkit-keyframes pulse {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+}
+
+/* Стили анимации блика для кнопок */
+@keyframes sheens {
+
+    0%,
+    79% {
+        opacity: 0;
+        filter: alpha(opacity=0);
+        -webkit-transform: rotateZ(60deg) translate(-5em, 7.5em);
+        transform: rotateZ(60deg) translate(-5em, 7.5em)
+    }
+
+    80% {
+        opacity: 1;
+        filter: alpha(opacity=100);
+        -webkit-transform: rotateZ(60deg) translate(-5em, 7.5em);
+        transform: rotateZ(60deg) translate(-5em, 7.5em)
+    }
+
+    95% {
+        opacity: 1;
+        filter: alpha(opacity=100);
+        -webkit-transform: rotateZ(60deg) translate(1em, -11em);
+        transform: rotateZ(60deg) translate(1em, -11em)
+    }
+
     to {
+        opacity: 0;
+        filter: alpha(opacity=0);
+        -webkit-transform: rotateZ(60deg) translate(1em, -9em);
+        transform: rotateZ(60deg) translate(1em, -9em)
+    }
+}
+
+/* Стили кроссбраузерной анимации блика для кнопок */
+@-webkit-keyframes sheens {
+
+    0%,
+    79% {
+        opacity: 0;
+        filter: alpha(opacity=0);
+        -webkit-transform: rotateZ(60deg) translate(-5em, 7.5em);
+        transform: rotateZ(60deg) translate(-5em, 7.5em)
+    }
+
+    80% {
+        opacity: 1;
+        filter: alpha(opacity=100);
+        -webkit-transform: rotateZ(60deg) translate(-5em, 7.5em);
+        transform: rotateZ(60deg) translate(-5em, 7.5em)
+    }
+
+    95% {
+        opacity: 1;
+        filter: alpha(opacity=100);
+        -webkit-transform: rotateZ(60deg) translate(1em, -11em);
+        transform: rotateZ(60deg) translate(1em, -11em)
+    }
+
+    to {
+        opacity: 0;
+        filter: alpha(opacity=0);
+        -webkit-transform: rotateZ(60deg) translate(1em, -9em);
+        transform: rotateZ(60deg) translate(1em, -9em)
+    }
+}
+
+
+/* Стили анимации полоски в квизе */
+@keyframes moveIt {
+    from {
+        background-position: 0 center
+    }
+
+    to {
+        background-position: 48px center
+    }
+}
+
+/* Стили кроссбраузерной анимации полоски в квизе */
+@-webkit-keyframes moveIt {
+    from {
+        background-position: 0 center
+    }
+
+    to {
+        background-position: 48px center
+    }
+}
+
+// Стили анимации для wow
+.animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+.animated.hinge {
+    -webkit-animation-duration: 2s;
+    animation-duration: 2s;
+}
+
+@keyframes showElem {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
         opacity: 1;
     }
 }
 
+.showElem {
+    animation-name: showElem;
+}
+
+@keyframes slideInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.slideInRight {
+    animation-name: slideInRight;
+}
+
+@keyframes slideInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.slideInLeft {
+    animation-name: slideInLeft;
+}
+
+@keyframes slideInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.slideInDown {
+    animation-name: slideInDown;
+}
+
+@keyframes slideInTop {
+    0% {
+        opacity: 0;
+        transform: translateY(-100px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.slideInTop {
+    animation-name: slideInTop;
+}
+
+@keyframes slideInPageLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-2000px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.slideInPageLeft {
+    animation-name: slideInPageLeft;
+}
+
+@keyframes slideInPageRight {
+    0% {
+        opacity: 0;
+        transform: translateX(2000px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.slideInPageRight {
+    animation-name: slideInPageRight;
+}
+
+// Анимация прелоадера при отправке формы
 @keyframes sendPreloader {
     from {
         transform: translate(-50%, -50%) rotate(0);
