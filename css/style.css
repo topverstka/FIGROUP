@@ -389,6 +389,37 @@ body._lock {
           animation-name: showElem;
 }
 
+@-webkit-keyframes showPulse {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes showPulse {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+.showPulse {
+  -webkit-animation-name: showPulse;
+          animation-name: showPulse;
+}
+
 @-webkit-keyframes slideInRight {
   0% {
     opacity: 0;
@@ -1927,6 +1958,7 @@ body._lock {
   position: relative;
   z-index: 1;
   width: 100%;
+  background: #fff;
 }
 
 .header__up {
@@ -2096,6 +2128,61 @@ body._lock {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+}
+
+.header__nav-item:nth-child(0) {
+  -webkit-animation-delay: 0ms;
+          animation-delay: 0ms;
+}
+
+.header__nav-item:nth-child(1) {
+  -webkit-animation-delay: 100ms;
+          animation-delay: 100ms;
+}
+
+.header__nav-item:nth-child(2) {
+  -webkit-animation-delay: 200ms;
+          animation-delay: 200ms;
+}
+
+.header__nav-item:nth-child(3) {
+  -webkit-animation-delay: 300ms;
+          animation-delay: 300ms;
+}
+
+.header__nav-item:nth-child(4) {
+  -webkit-animation-delay: 400ms;
+          animation-delay: 400ms;
+}
+
+.header__nav-item:nth-child(5) {
+  -webkit-animation-delay: 500ms;
+          animation-delay: 500ms;
+}
+
+.header__nav-item:nth-child(6) {
+  -webkit-animation-delay: 600ms;
+          animation-delay: 600ms;
+}
+
+.header__nav-item:nth-child(7) {
+  -webkit-animation-delay: 700ms;
+          animation-delay: 700ms;
+}
+
+.header__nav-item:nth-child(8) {
+  -webkit-animation-delay: 800ms;
+          animation-delay: 800ms;
+}
+
+.header__nav-item:nth-child(9) {
+  -webkit-animation-delay: 900ms;
+          animation-delay: 900ms;
+}
+
+.header__nav-item:nth-child(10) {
+  -webkit-animation-delay: 1000ms;
+          animation-delay: 1000ms;
 }
 
 .header__nav-item:not(:last-child) {
@@ -2949,8 +3036,6 @@ body._lock {
 
 .cat-section__cat-card._show {
   display: block;
-  -webkit-animation: showElem .3s linear forwards;
-          animation: showElem .3s linear forwards;
 }
 
 .services-section_blog {
@@ -3588,6 +3673,61 @@ body._lock {
 
 .footer__item {
   line-height: 1.2;
+}
+
+.footer__item:nth-child(0) {
+  -webkit-animation-delay: 0ms;
+          animation-delay: 0ms;
+}
+
+.footer__item:nth-child(1) {
+  -webkit-animation-delay: 100ms;
+          animation-delay: 100ms;
+}
+
+.footer__item:nth-child(2) {
+  -webkit-animation-delay: 200ms;
+          animation-delay: 200ms;
+}
+
+.footer__item:nth-child(3) {
+  -webkit-animation-delay: 300ms;
+          animation-delay: 300ms;
+}
+
+.footer__item:nth-child(4) {
+  -webkit-animation-delay: 400ms;
+          animation-delay: 400ms;
+}
+
+.footer__item:nth-child(5) {
+  -webkit-animation-delay: 500ms;
+          animation-delay: 500ms;
+}
+
+.footer__item:nth-child(6) {
+  -webkit-animation-delay: 600ms;
+          animation-delay: 600ms;
+}
+
+.footer__item:nth-child(7) {
+  -webkit-animation-delay: 700ms;
+          animation-delay: 700ms;
+}
+
+.footer__item:nth-child(8) {
+  -webkit-animation-delay: 800ms;
+          animation-delay: 800ms;
+}
+
+.footer__item:nth-child(9) {
+  -webkit-animation-delay: 900ms;
+          animation-delay: 900ms;
+}
+
+.footer__item:nth-child(10) {
+  -webkit-animation-delay: 1000ms;
+          animation-delay: 1000ms;
 }
 
 .footer__item:not(:first-child) {

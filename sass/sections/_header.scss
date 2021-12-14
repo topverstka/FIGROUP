@@ -2,6 +2,7 @@
     position: relative;
     z-index: 1;
     width: 100%;
+    background: #fff;
     // background: #fff;
     // box-shadow: 0px 8px 32px rgba(217, 217, 217, 0.16);
 
@@ -123,6 +124,13 @@
 
 .header__nav-item {
     display: flex;
+
+    @for $i from 0 through 10 {
+        
+        &:nth-child(#{$i}) {
+            animation-delay: 100ms*$i;
+        }
+    }
     
     &:not(:last-child) {
         margin: 0 32px 0 0;
