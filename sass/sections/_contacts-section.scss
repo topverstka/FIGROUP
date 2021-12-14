@@ -53,6 +53,13 @@
 
 .contacts-section__item {
 
+    @for $i from 1 to 5 {
+        
+        &:nth-child(#{$i}) {
+            animation-delay: 100ms*$i;
+        }
+    }
+
     &:not(:first-child) {
         margin: 16px 0 0 0;
     }

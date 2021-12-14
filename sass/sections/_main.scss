@@ -26,6 +26,21 @@
     }
 }
 
+.main__content-elem  {
+
+    @for $i from 1 through 5 {
+        
+        &:nth-child(#{$i}) {
+            @if $i == 1 {
+                animation-delay: 0;
+            }
+            @else {
+                animation-delay: 100ms*($i - 1);
+            }
+        }
+    }
+}
+
 .main__title {
     font-size: 32px;
     font-weight: 900;

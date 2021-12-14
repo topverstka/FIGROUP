@@ -13,6 +13,22 @@
     margin: 64px 0 0 0;
 }
 
+.main-blog__content-elem {
+
+    @for $i from 1 through 4 {
+        
+        @if $i == 1 {
+            animation-delay: 0;
+        }
+        @else {
+
+            &:nth-child(#{$i}) {
+                animation-delay: 100ms*($i - 1)
+            }
+        }
+    }
+}
+
 .main-blog__info {
     display: flex;
     align-items: center;

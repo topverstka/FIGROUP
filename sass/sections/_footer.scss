@@ -69,10 +69,22 @@
 .footer__item {
     line-height: 1.2;
 
-    @for $i from 0 through 10 {
+    // @for $i from 0 through 10 {
+        
+    //     &:nth-child(#{$i}) {
+    //         animation-delay: 100ms*$i;
+    //     }
+    // }
+
+    @for $i from 1 through 10 {
         
         &:nth-child(#{$i}) {
-            animation-delay: 100ms*$i;
+            @if $i == 1 {
+                animation-delay: 0;
+            }
+            @else {
+                animation-delay: 100ms*($i - 1);
+            }
         }
     }
 

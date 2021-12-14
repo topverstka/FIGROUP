@@ -61,13 +61,6 @@
     &._show {
         display: block;
         // animation: showElem .3s linear forwards;
-
-        // @for $i from 1 through 6 {
-            
-        //     &:nth-child(#{$i}) {
-        //         animation-delay: 100ms*$i; 
-        //     }
-        // }
     }
 }
 
