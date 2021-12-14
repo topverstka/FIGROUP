@@ -122,6 +122,11 @@
 }
 
 // Стили анимации для wow
+.wow {
+    visibility: hidden;
+    animation-name: none;
+}
+
 .animated {
     -webkit-animation-duration: 1s;
     animation-duration: 1s;

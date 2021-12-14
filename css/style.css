@@ -354,6 +354,12 @@ body._lock {
   }
 }
 
+.wow {
+  visibility: hidden;
+  -webkit-animation-name: none;
+          animation-name: none;
+}
+
 .animated {
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
