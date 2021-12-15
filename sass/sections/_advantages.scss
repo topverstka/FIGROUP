@@ -16,12 +16,37 @@
     }
 }
 
+.advantages__wrapper {
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+        height: 0;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: none;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: none;
+    }
+}
+
 .advantages__slide {
     max-width: 1110px;
     width: 100%;
     border-radius: $radius;
     overflow: hidden;
+    margin-right: 16px;
     // background: linear-gradient(95.93deg, #399478 0%, #3C7471 100%);
+
+    &:first-child {
+        margin-left: 100px;
+    }
+
+    &:last-child {
+        margin-right: 100px;
+    }
 }
 
 .advantages__slide-body {

@@ -255,34 +255,73 @@ function menu() {
 	})
 }
 
-const advantagesSlider = new Swiper('.advantages__slider', {
-	// slidesPerView: 1.33, // Кол-во показываемых слайдов
-	spaceBetween: 16,
-	centeredSlides: true,
-	// autoHeight: true,
-	// slidesPerView: 'auto',
-	// loop: true, // Бесконечный слайдер
-	// freeMode: true, // Слайдеры не зафиксированны
+// Горизонтальный скролл у слайдера с преимуществами
+if (window.innerWidth > 768) {
+    (function() {
+        const slider = find('.advantages__wrapper')
+        function scrollHorizontally(e) {
+            const multiplied = (e.shiftKey) ? 120 : 60
+            e = window.event || e
+            var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)))
+            slider.scrollLeft -= (delta * multiplied)
+            e.preventDefault()
+        }
+        if (slider.addEventListener) {
+            // IE9, Chrome, Safari, Opera
+            slider.addEventListener('mousewheel', scrollHorizontally, false)
+            // Firefox
+            slider.addEventListener('DOMMouseScroll', scrollHorizontally, false)
+        } else {
+            // IE 6/7/8
+            slider.attachEvent('onmousewheel', scrollHorizontally)
+        }
 
-	breakpoints: {
-		1200: {
-			slidesPerView: 1,
-		},
-		700: {
-			slidesPerView: 1.1,
-		},
-		0: {
-			slidesPerView: 1.08,
-			spaceBetween: 8,
-			centeredSlides: false,
-		}
-	},
+        // Отступы по бокам у слайдера с преимуществами
+        const main = find('.main__body')
+        const slideElems = slider.querySelectorAll('.advantages__slide')
 
-	// navigation: {
-	// 	nextEl: '.swiper__arrow-next',
-	// 	prevEl: '.swiper__arrow-prev',
-	// }
-});
+        window.addEventListener('resize', () => {
+            setMarginSlides()
+        })
+
+        setMarginSlides()
+        function setMarginSlides() {
+            // Первый слайдер
+            slideElems[0].style.marginLeft = main.getBoundingClientRect().left + 'px'
+            // Второй слайдер
+            slideElems[slideElems.length - 1].style.marginRight = main.getBoundingClientRect().left + 'px'
+        }
+    })()
+}
+
+// const advantagesSlider = new Swiper('.advantages__slider', {
+// 	// slidesPerView: 1.33, // Кол-во показываемых слайдов
+// 	spaceBetween: 16,
+// 	centeredSlides: true,
+// 	// autoHeight: true,
+// 	// slidesPerView: 'auto',
+// 	// loop: true, // Бесконечный слайдер
+// 	// freeMode: true, // Слайдеры не зафиксированны
+
+// 	breakpoints: {
+// 		1200: {
+// 			slidesPerView: 1,
+// 		},
+// 		700: {
+// 			slidesPerView: 1.1,
+// 		},
+// 		0: {
+// 			slidesPerView: 1.08,
+// 			spaceBetween: 8,
+// 			centeredSlides: false,
+// 		}
+// 	},
+
+// 	// navigation: {
+// 	// 	nextEl: '.swiper__arrow-next',
+// 	// 	prevEl: '.swiper__arrow-prev',
+// 	// }
+// });
 
 const teamSlider = new Swiper('.team-slider', {
 	loop: true,

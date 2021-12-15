@@ -2774,12 +2774,37 @@ body._lock {
   display: flex;
 }
 
+.advantages__wrapper {
+  overflow-y: auto;
+}
+
+.advantages__wrapper::-webkit-scrollbar {
+  height: 0;
+}
+
+.advantages__wrapper::-webkit-scrollbar-track {
+  background: none;
+}
+
+.advantages__wrapper::-webkit-scrollbar-thumb {
+  background-color: none;
+}
+
 .advantages__slide {
   max-width: 1110px;
   width: 100%;
   -webkit-border-radius: var(--radius);
           border-radius: var(--radius);
   overflow: hidden;
+  margin-right: 16px;
+}
+
+.advantages__slide:first-child {
+  margin-left: 100px;
+}
+
+.advantages__slide:last-child {
+  margin-right: 100px;
 }
 
 .advantages__slide-body {
