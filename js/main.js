@@ -260,6 +260,7 @@ function menu() {
     const slider = find('.advantages__wrapper')
     const main = find('.main__body')
     const slideElems = slider.querySelectorAll('.advantages__slide')
+    let z = slider.scrollLeft
     
     window.addEventListener('resize', () => {
         setMarginSlides()
@@ -271,8 +272,12 @@ function menu() {
             const multiplied = (e.shiftKey) ? 120 : 60
             e = window.event || e
             var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)))
+
             slider.scrollLeft -= (delta * multiplied)
-            e.preventDefault()
+            if (z != slider.scrollLeft) {
+                z = slider.scrollLeft
+                e.preventDefault()
+            }
         }
         if (slider.addEventListener) {
             // IE9, Chrome, Safari, Opera
