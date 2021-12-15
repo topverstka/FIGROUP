@@ -2799,12 +2799,10 @@ body._lock {
   margin-right: 16px;
 }
 
-.advantages__slide:first-child {
-  margin-left: 100px;
-}
-
-.advantages__slide:last-child {
-  margin-right: 100px;
+@media (max-width: 600px) {
+  .advantages__slide {
+    width: 84% !important;
+  }
 }
 
 .advantages__slide-body {
@@ -2935,6 +2933,12 @@ body._lock {
 @media (max-width: 720px) {
   .advantages__title-text {
     font-size: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .advantages__title-text {
+    font-weight: 700;
   }
 }
 

@@ -256,9 +256,17 @@ function menu() {
 }
 
 // Горизонтальный скролл у слайдера с преимуществами
-if (window.innerWidth > 768) {
-    (function() {
-        const slider = find('.advantages__wrapper')
+(function() {
+    const slider = find('.advantages__wrapper')
+    const main = find('.main__body')
+    const slideElems = slider.querySelectorAll('.advantages__slide')
+    
+    window.addEventListener('resize', () => {
+        setMarginSlides()
+    })
+    
+    if (window.innerWidth > 768) scroll()
+    function scroll() {
         function scrollHorizontally(e) {
             const multiplied = (e.shiftKey) ? 120 : 60
             e = window.event || e
@@ -275,24 +283,17 @@ if (window.innerWidth > 768) {
             // IE 6/7/8
             slider.attachEvent('onmousewheel', scrollHorizontally)
         }
-
-        // Отступы по бокам у слайдера с преимуществами
-        const main = find('.main__body')
-        const slideElems = slider.querySelectorAll('.advantages__slide')
-
-        window.addEventListener('resize', () => {
-            setMarginSlides()
-        })
-
-        setMarginSlides()
-        function setMarginSlides() {
-            // Первый слайдер
-            slideElems[0].style.marginLeft = main.getBoundingClientRect().left + 'px'
-            // Второй слайдер
-            slideElems[slideElems.length - 1].style.marginRight = main.getBoundingClientRect().left + 'px'
-        }
-    })()
-}
+    }
+    
+    // Отступы по бокам у слайдера с преимуществами
+    setMarginSlides()
+    function setMarginSlides() {
+        // Первый слайдер
+        slideElems[0].style.marginLeft = main.getBoundingClientRect().left + 'px'
+        // Второй слайдер
+        slideElems[slideElems.length - 1].style.marginRight = main.getBoundingClientRect().left + 'px'
+    }
+})()
 
 // const advantagesSlider = new Swiper('.advantages__slider', {
 // 	// slidesPerView: 1.33, // Кол-во показываемых слайдов
