@@ -269,7 +269,7 @@ function menu() {
     if (window.innerWidth > 768) scroll()
     function scroll() {
         function scrollHorizontally(e) {
-            const multiplied = (e.shiftKey) ? 120 : 60
+            const multiplied = (e.shiftKey) ? 240 : 120
             e = window.event || e
             var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)))
 
