@@ -17,19 +17,19 @@
 }
 
 .advantages__wrapper {
-    overflow-y: auto;
+    // overflow-y: auto;
 
-    &::-webkit-scrollbar {
-        height: 0;
-    }
+    // &::-webkit-scrollbar {
+    //     height: 0;
+    // }
 
-    &::-webkit-scrollbar-track {
-        background: none;
-    }
+    // &::-webkit-scrollbar-track {
+    //     background: none;
+    // }
 
-    &::-webkit-scrollbar-thumb {
-        background-color: none;
-    }
+    // &::-webkit-scrollbar-thumb {
+    //     background-color: none;
+    // }
 }
 
 .advantages__slide {

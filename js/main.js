@@ -256,78 +256,125 @@ function menu() {
 }
 
 // Горизонтальный скролл у слайдера с преимуществами
-(function() {
-    const slider = find('.advantages__wrapper')
-    const main = find('.main__body')
-    const slideElems = slider.querySelectorAll('.advantages__slide')
-    let z = slider.scrollLeft
+// (function() {
+//     const slider = find('.advantages__wrapper')
+//     const main = find('.main__body')
+//     const slideElems = slider.querySelectorAll('.advantages__slide')
+//     let z = slider.scrollLeft
     
-    window.addEventListener('resize', () => {
-        setMarginSlides()
-    })
+//     window.addEventListener('resize', () => {
+//         setMarginSlides()
+//     })
     
-    if (window.innerWidth > 768) scroll()
-    function scroll() {
-        function scrollHorizontally(e) {
-            const multiplied = (e.shiftKey) ? 240 : 120
-            e = window.event || e
-            var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)))
+//     if (window.innerWidth > 768) scroll()
+//     function scroll() {
+//         function scrollHorizontally(e) {
+//             const multiplied = (e.shiftKey) ? 240 : 120
+//             const slideWidth = (slider.scrollWidth - window.innerWidth) / slideElems.length
+//             // console.log(slideWidth)
+//             e = window.event || e
+//             var delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)))
+//             let scrollSlideCon = true
+//             // slider.scrollLeft -= (delta * multiplied)
 
-            slider.scrollLeft -= (delta * multiplied)
-            if (z != slider.scrollLeft) {
-                z = slider.scrollLeft
-                e.preventDefault()
-            }
-        }
-        if (slider.addEventListener) {
-            // IE9, Chrome, Safari, Opera
-            slider.addEventListener('mousewheel', scrollHorizontally, false)
-            // Firefox
-            slider.addEventListener('DOMMouseScroll', scrollHorizontally, false)
-        } else {
-            // IE 6/7/8
-            slider.attachEvent('onmousewheel', scrollHorizontally)
-        }
-    }
+//             if (scrollSlideCon === true) {
+//                 console.log(scrollSlideCon)
+//                 scrollSlideCon = false
+//                 let scrollInterval = setInterval(() => {
+//                     if (slider.scrollLeft < slideWidth) {
+//                         slider.scrollLeft += 5
+//                         console.log(slider.scrollLeft, slideWidth)
+//                     }
+//                     else {
+//                         clearInterval(scrollInterval)
+//                         scrollSlideCon = true
+//                         console.log('else')
+//                     }
+//                 }, 10)
+//             }
+
+//             e.preventDefault()
+//             if (z != slider.scrollLeft) {
+//                 z = slider.scrollLeft
+//             }
+//         }
+//         if (slider.addEventListener) {
+//             // IE9, Chrome, Safari, Opera
+//             slider.addEventListener('mousewheel', scrollHorizontally, false)
+//             // Firefox
+//             slider.addEventListener('DOMMouseScroll', scrollHorizontally, false)
+//         } else {
+//             // IE 6/7/8
+//             slider.attachEvent('onmousewheel', scrollHorizontally)
+//         }
+//     }
     
-    // Отступы по бокам у слайдера с преимуществами
-    setMarginSlides()
-    function setMarginSlides() {
-        // Первый слайдер
-        slideElems[0].style.marginLeft = main.getBoundingClientRect().left + 'px'
-        // Второй слайдер
-        slideElems[slideElems.length - 1].style.marginRight = main.getBoundingClientRect().left + 'px'
-    }
-})()
+//     // Отступы по бокам у слайдера с преимуществами
+//     setMarginSlides()
+//     function setMarginSlides() {
+//         // Первый слайдер
+//         slideElems[0].style.marginLeft = main.getBoundingClientRect().left + 'px'
+//         // Второй слайдер
+//         slideElems[slideElems.length - 1].style.marginRight = main.getBoundingClientRect().left + 'px'
+//     }
+// })()
 
-// const advantagesSlider = new Swiper('.advantages__slider', {
-// 	// slidesPerView: 1.33, // Кол-во показываемых слайдов
-// 	spaceBetween: 16,
-// 	centeredSlides: true,
-// 	// autoHeight: true,
-// 	// slidesPerView: 'auto',
-// 	// loop: true, // Бесконечный слайдер
-// 	// freeMode: true, // Слайдеры не зафиксированны
+const advantagesSlider = new Swiper('.advantages__slider', {
+	// slidesPerView: 1.33, // Кол-во показываемых слайдов
+	// spaceBetween: 16,
+	// centeredSlides: true,
+	// autoHeight: true,
+	// slidesPerView: 'auto',
+	// loop: true, // Бесконечный слайдер
+	// freeMode: true, // Слайдеры не зафиксированны
+    loop: false,
+    speed: 1000,
+    grabCursor: false,
 
-// 	breakpoints: {
-// 		1200: {
-// 			slidesPerView: 1,
-// 		},
-// 		700: {
-// 			slidesPerView: 1.1,
-// 		},
-// 		0: {
-// 			slidesPerView: 1.08,
-// 			spaceBetween: 8,
-// 			centeredSlides: false,
-// 		}
-// 	},
+    mousewheel: true,
+    mousewheel: {
+        releaseOnEdges: true,
+      },
+    keyboard: {
+      enabled: true,
+    },
 
-// 	// navigation: {
-// 	// 	nextEl: '.swiper__arrow-next',
-// 	// 	prevEl: '.swiper__arrow-prev',
-// 	// }
-// });
+	breakpoints: {
+		1200: {
+			slidesPerView: 1,
+		},
+		700: {
+			slidesPerView: 1.1,
+		},
+		0: {
+			slidesPerView: 1.08,
+			spaceBetween: 8,
+			centeredSlides: false,
+		}
+	},
+
+	// navigation: {
+	// 	nextEl: '.swiper__arrow-next',
+	// 	prevEl: '.swiper__arrow-prev',
+	// }
+});
+// advantagesSlider.mousewheel.disable()
+// console.log(advantagesSlider)
+// advantagesSlider.on('scroll', (swiper, e) => {
+//     console.log(swiper, e)
+//     window.addEventListener('mousewheel', resetScroll)
+
+//     function resetScroll(e) {
+//         e.preventDefault()
+//         console.log(e)
+//     }
+//     setTimeout(() => {
+//         window.removeEventListener('mousewheel', resetScroll)
+//     }, 1000)
+// })
+// advantagesSlider.on('slideChange', (swiper, e) => {
+//     console.log(swiper, e)
+// })
 
 const teamSlider = new Swiper('.team-slider', {
 	loop: true,
