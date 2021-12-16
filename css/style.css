@@ -1029,9 +1029,6 @@ body._lock {
   .cat-card:hover {
     background: var(--accent);
   }
-  .cat-card:hover .cat-card__icon {
-    background: rgba(255, 255, 255, 0.08);
-  }
   .cat-card:hover .cat-card__title,
   .cat-card:hover .link-arrow__text {
     color: #fff;
@@ -1047,10 +1044,6 @@ body._lock {
       -ms-transform: scale(0.98);
           transform: scale(0.98);
   background: var(--accent);
-}
-
-.cat-card:active .cat-card__icon {
-  background: rgba(255, 255, 255, 0.08);
 }
 
 .cat-card:active .cat-card__title,
@@ -1106,7 +1099,7 @@ body._lock {
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
-  background: #EFF7F5;
+  background: rgba(183, 237, 221, 0.18);
   -webkit-border-radius: 8px;
           border-radius: 8px;
   -webkit-transition: var(--tr);

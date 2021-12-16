@@ -14,7 +14,7 @@
             background: $accent;
     
             & .cat-card__icon {
-                background: rgba(255, 255, 255, .08);
+                // background: rgba(255, 255, 255, .08);
             }
     
             & .cat-card__title,
@@ -34,7 +34,7 @@
         background: $accent;
     
         & .cat-card__icon {
-            background: rgba(255, 255, 255, .08);
+            // background: rgba(255, 255, 255, .08);
         }
 
         & .cat-card__title,
@@ -67,8 +67,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #EFF7F5;
-    // background: rgba(183, 237, 221, 0.18);
+    // background: #EFF7F5;
+    background: rgba(183, 237, 221, 0.18);
     border-radius: 8px;
     transition: $tr;
 
