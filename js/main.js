@@ -292,10 +292,12 @@ function advantagesSlider() {
 }
 
 // Горизонтальный скролл у слайдера с преимуществами
-(function() {
+if (window.innerWidth > 768) advantagesSlider()
+function advantagesSlider() {
     const slider = find('.advantages__slider')
     let scrollValue = 0 // Кол-во px на которое был проскролен слайдер
     let allowScroll = true // Разрешаем скролл слайдеров
+    let edgeSlide = true
     let allowVertUpScroll = true // Разрешаем скролл страницы верх
     let allowVertDownScroll = true // Разрешаем скролл страницы вниз
 
@@ -315,7 +317,15 @@ function advantagesSlider() {
             console.log(allowScroll)
 
             if (allowScroll === true) changePosSlider(delta)
-            else if (allowScroll === false) e.preventDefault()
+            else if (allowScroll === false) {
+                e.preventDefault()
+                console.log('allowScroll e.preventDefault()')
+            }
+
+            if (allowVertUpScroll === false && allowVertDownScroll === false) {
+                e.preventDefault()
+                console.log('allowVert e.preventDefault()')
+            }
 
             function changePosSlider(direction) {
                 const wrapperWidth = wrapper.scrollWidth
@@ -332,10 +342,17 @@ function advantagesSlider() {
                 if (direction === -1) { // next
                     scrollValue += scrollPart
                     if (scrollValue > wrapperWidth - scrollPart) {
+                        edgeSlide = true
                         scrollValue = wrapperWidth - scrollPart
                         console.log('> wrapperWidth - scrollPart')
+
+                        setTimeout(() => {
+                            allowVertDownScroll = true
+                        }, wrapperTransition)
                     }
                     else {
+                        edgeSlide = false
+                        allowVertDownScroll = false
                         e.preventDefault()
                     }
 
@@ -344,17 +361,32 @@ function advantagesSlider() {
                     // if (scrollValue >= wrapperWidth - scrollPart) allowVertDownScroll = true
                     // else allowVertDownScroll = false
 
-                    setTimeout(() => {
-                        allowScroll = true
-                    }, wrapperTransition)
+
+                    if (edgeSlide === true) {
+                        allowScroll = true 
+                        console.log('ok')
+                    }
+                    else {
+                        setTimeout(() => {
+                            allowScroll = true
+                        }, wrapperTransition)
+                    }
                 }
                 else if (direction === 1) { // prev
                     scrollValue -= scrollPart
+                    console.log(scrollValue)
                     if (scrollValue < 0) {
+                        edgeSlide = true
                         scrollValue = 0
                         console.log('< 0')
+                        
+                        setTimeout(() => {
+                            allowVertUpScroll = true
+                        }, wrapperTransition)
                     }
                     else {
+                        edgeSlide = false
+                        allowVertUpScroll = false
                         e.preventDefault()
                     }
 
@@ -366,9 +398,19 @@ function advantagesSlider() {
 
                     // }
 
-                    setTimeout(() => {
+                    // if (scrollValue === 0) {
+                    //     allowScroll = true
+                    // }
+
+                    if (edgeSlide === true) {
                         allowScroll = true
-                    }, wrapperTransition)
+                    }
+                    else {
+                        setTimeout(() => {
+                            allowScroll = true
+                        }, wrapperTransition)
+                    }
+
                 }
             }
 
@@ -416,7 +458,7 @@ function advantagesSlider() {
     //     // Второй слайдер
     //     slideElems[slideElems.length - 1].style.marginRight = main.getBoundingClientRect().left + 'px'
     // }
-})()
+}
 
 // (function() {
 //     const slider = find('.advantages__wrapper')

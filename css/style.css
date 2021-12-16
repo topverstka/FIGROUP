@@ -2759,6 +2759,16 @@ body._lock {
 @media (max-width: 768px) {
   .advantages {
     margin-top: 80px;
+    overflow-y: auto;
+  }
+  .advantages::-webkit-scrollbar {
+    height: 0px;
+  }
+  .advantages::-webkit-scrollbar-track {
+    background: none;
+  }
+  .advantages::-webkit-scrollbar-thumb {
+    background-color: none;
   }
 }
 
