@@ -780,7 +780,7 @@ function fixHeaderWhenScroll() {
     const header = find('.header')
     const headerHeight = header.offsetHeight
     const headerTransition = 300 // Плавность шапки в мс
-    const distTop = window.innerHeight * 2
+    const distTop = window.innerHeight
 
     header.style.transition = headerTransition / 1000 + 's'
 
