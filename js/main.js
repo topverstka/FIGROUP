@@ -774,10 +774,46 @@ function activeTabCatSection(tab) {
     tab.classList.add('_active')
 }
 
-// Показываем больше карточек при клике по "Показать еще"
-if (find('.cat-section__cat-card')) {
-    showMoreCatSection()
+// Фиксация шапки при скролле
+fixHeaderWhenScroll()
+function fixHeaderWhenScroll() {
+    const header = find('.header')
+    const headerHeight = header.offsetHeight
+    const headerTransition = 300 // Плавность шапки в мс
+    const distTop = window.innerHeight * 2
+
+    header.style.transition = headerTransition / 1000 + 's'
+
+    window.addEventListener('scroll', addFixed)
+    
+    addFixed()
+    function addFixed() {
+        
+        if (scrollY >= distTop) {
+            header.classList.add('_fixed')
+            body.style.paddingTop = headerHeight + 'px'
+            
+            const wowElems = header.querySelectorAll('.wow')
+            for (let i = 0; i < wowElems.length; i++) {
+                const wow = wowElems[i];
+                
+                wow.classList.remove('wow')
+            }
+        }
+        else {
+            header.classList.remove('_fixed')
+            body.style.paddingTop = '0px'
+        }
+    }
 }
+
+showMore()
+function showMore() {
+
+}
+
+// Показываем больше карточек при клике по "Показать еще"
+if (find('.cat-section__cat-card')) showMoreCatSection()
 function showMoreCatSection() {
     const btn = find('.cat-section__more')
     const cardShowElems = findAll('.cat-section__cat-card._show')

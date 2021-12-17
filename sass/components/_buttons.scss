@@ -175,7 +175,7 @@
 }
 
 // Кнопк/ссылка "Подробнее" у разделов
-.section-more {
+.more-btn {
     width: 100%;
     display: block;
     font-size: 14px;
@@ -189,7 +189,7 @@
     }
 }
 
-.section-more_hidden-pc {
+.more-btn_hidden-pc {
     display: none;
 
     @media (max-width: $tablet) {

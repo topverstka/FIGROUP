@@ -831,7 +831,7 @@ body._lock {
   height: 24px;
 }
 
-.section-more {
+.more-btn {
   width: 100%;
   display: block;
   font-size: 14px;
@@ -842,17 +842,17 @@ body._lock {
 }
 
 @media (max-width: 768px) {
-  .section-more {
+  .more-btn {
     margin: 26px 0 0 0;
   }
 }
 
-.section-more_hidden-pc {
+.more-btn_hidden-pc {
   display: none;
 }
 
 @media (max-width: 768px) {
-  .section-more_hidden-pc {
+  .more-btn_hidden-pc {
     display: block;
   }
 }
@@ -1958,6 +1958,18 @@ body._lock {
   z-index: 1;
   width: 100%;
   background: #fff;
+}
+
+.header._fixed {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.header._fixed .header__up {
+  display: none;
 }
 
 .header__up {

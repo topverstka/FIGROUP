@@ -9,6 +9,25 @@
     // @media (max-width: $tablet) {
     //     box-shadow: none;
     // }
+
+    &._fixed {
+        position: fixed;
+        z-index: 10;
+        top: 0;
+        left: 0;
+        width: 100%;
+        // transform: translate(0, -100%);
+        // opacity: 0;
+
+        & .header__up {
+            display: none;
+        }
+    }
+
+    &._show {
+        // transform: translate(0, 0);
+        // opacity: 1;
+    }
 }
 
 // Верхняя часть шапки
