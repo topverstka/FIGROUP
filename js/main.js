@@ -292,7 +292,7 @@ function advantagesSlider() {
 }
 
 // Горизонтальный скролл у слайдера с преимуществами
-if (window.innerWidth > 768) advantagesSlider()
+if (window.innerWidth > 768 && find('.advantages__slider')) advantagesSlider()
 function advantagesSlider() {
     const slider = find('.advantages__slider')
     let scrollValue = 0 // Кол-во px на которое был проскролен слайдер
