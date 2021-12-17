@@ -1963,13 +1963,17 @@ body._lock {
 .header._fixed {
   position: fixed;
   z-index: 10;
-  top: 0;
+  top: -30%;
   left: 0;
   width: 100%;
 }
 
 .header._fixed .header__up {
   display: none;
+}
+
+.header._show {
+  top: 0;
 }
 
 .header__up {

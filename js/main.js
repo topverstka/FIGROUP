@@ -230,29 +230,74 @@ function sumbitForm() {
     })
 }
 
+// Фиксация шапки при скролле
+fixHeaderWhenScroll()
+function fixHeaderWhenScroll() {
+    const header = find('.header')
+    const headerDouble = document.createElement('div') // Дубль меню, который будет плавно появляться при скролле
+    const headerTransition = 300 // Плавность шапки в мс
+    const distTop = window.innerHeight
+    const wrapper = find('.wrapper')
+
+    headerDouble.innerHTML = header.innerHTML
+    headerDouble.classList.add('header', '_fixed')
+    wrapper.prepend(headerDouble)
+
+    headerDouble.style.transition = headerTransition / 1000 + 's'
+
+    window.addEventListener('scroll', addFixed)
+    
+    const wowElems = headerDouble.querySelectorAll('.wow')
+    for (let i = 0; i < wowElems.length; i++) {
+        const wow = wowElems[i];
+        
+        wow.classList.remove('wow')
+    }
+
+    addFixed()
+    function addFixed() {
+        
+        if (scrollY >= distTop) {
+            headerDouble.classList.add('_show')
+            // body.style.paddingTop = headerHeight + 'px'
+            
+        }
+        else {
+            headerDouble.classList.remove('_show')
+            // body.style.paddingTop = '0px'
+        }
+    }
+}
+
 // Мобильное меню
 menu()
 function menu() {
-	const burger = find('.burger')
-	const menu = find('.menu');
-	
-	// Высота меню
-	window.addEventListener('resize', () => {
-		const headerHeight = find('.header').clientHeight
+	const burgerElems = findAll('.burger')
 
-		if (window.innerWidth <= 768) {
-			menu.style.paddingTop = headerHeight + 'px'
-		}
-		else {
-			menu.style.paddingTop = 0
-		}
-	})
+    for (let i = 0; i < burgerElems.length; i++) {
+        const burger = burgerElems[i];
+        const menu = burger.previousElementSibling
+        
+        // Высота меню
+        window.addEventListener('resize', () => {
+            const headerHeight = find('.header').clientHeight
+    
+            if (window.innerWidth <= 768) {
+                menu.style.paddingTop = headerHeight + 'px'
+            }
+            else {
+                menu.style.paddingTop = 0
+            }
+        })
+    
+        burger.addEventListener('click', (e) => {
 
-	burger.addEventListener('click', (e) => {
-		burger.classList.toggle('burger_close')
-		menu.classList.toggle('_show')
-		bodyLock()
-	})
+            burger.classList.toggle('burger_close')
+            menu.classList.toggle('_show')
+            bodyLock()
+        })
+        
+    }
 }
 
 // advantagesSlider()
@@ -772,39 +817,6 @@ function activeTabCatSection(tab) {
     removeAll(tabElems, '_active')
 
     tab.classList.add('_active')
-}
-
-// Фиксация шапки при скролле
-fixHeaderWhenScroll()
-function fixHeaderWhenScroll() {
-    const header = find('.header')
-    const headerHeight = header.offsetHeight
-    const headerTransition = 300 // Плавность шапки в мс
-    const distTop = window.innerHeight
-
-    header.style.transition = headerTransition / 1000 + 's'
-
-    window.addEventListener('scroll', addFixed)
-    
-    addFixed()
-    function addFixed() {
-        
-        if (scrollY >= distTop) {
-            header.classList.add('_fixed')
-            body.style.paddingTop = headerHeight + 'px'
-            
-            const wowElems = header.querySelectorAll('.wow')
-            for (let i = 0; i < wowElems.length; i++) {
-                const wow = wowElems[i];
-                
-                wow.classList.remove('wow')
-            }
-        }
-        else {
-            header.classList.remove('_fixed')
-            body.style.paddingTop = '0px'
-        }
-    }
 }
 
 showMore()
