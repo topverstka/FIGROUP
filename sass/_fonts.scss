@@ -1,15 +1,15 @@
-@mixin font($fname, $fstyle, $fweight, $furl_woff2){
-    @font-face{
-        font-family: $fname;
-        font-style: $fstyle;
-        font-weight: $fweight;
-        font-stretch: 100%;
-        font-display: swap;
-        src: url($furl_woff2) format('woff2');
-    }
+@mixin font($fname, $fstyle, $fweight, $furl_woff2) {
+  @font-face {
+    font-family: $fname;
+    font-style: $fstyle;
+    font-weight: $fweight;
+    font-stretch: 100%;
+    src: url($furl_woff2) format("woff2");
+    font-display: swap;
+  }
 }
 
-@include font('Noto Sans', normal, 400, '../fonts/noto-sans.woff2');
-@include font('Noto Sans', normal, 600, '../fonts/noto-sans.woff2');
-@include font('Noto Sans', normal, 700, '../fonts/noto-sans.woff2');
-@include font('Noto Sans', normal, 900, '../fonts/noto-sans.woff2'); 
+@include font("Noto Sans", normal, 400, "../fonts/NotoSans-Regular.woff2");
+@include font("Noto Sans", normal, 600, "../fonts/NotoSans-SemiBold.woff2");
+@include font("Noto Sans", normal, 700, "../fonts/NotoSans-Bold.woff2");
+@include font("Noto Sans", normal, 900, "../fonts/NotoSans-Black.woff2");

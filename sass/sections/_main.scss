@@ -42,8 +42,8 @@
   font-size: 32px;
   font-weight: 900;
   line-height: 1.5;
-  @media (min-width: 1100px) {
-    letter-spacing: 0.65px;
+  @media (min-width: 1201px) {
+    letter-spacing: 0;
   }
 }
 
@@ -51,6 +51,9 @@
   margin: 16px 0 0 0;
   font-size: 20px;
   color: $second;
+  @media (min-width: 1201px) {
+    letter-spacing: 0;
+  }
 }
 
 .main__label {
@@ -61,6 +64,9 @@
 
 .main__btn {
   margin: 64px 0 0 0;
+  @media (min-width: 1201px) {
+    letter-spacing: 0;
+  }
 }
 
 .main__circles {

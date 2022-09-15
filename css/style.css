@@ -4,32 +4,32 @@
   font-style: normal;
   font-weight: 400;
   font-stretch: 100%;
+  src: url("../fonts/NotoSans-Regular.woff2") format("woff2");
   font-display: swap;
-  src: url("../fonts/noto-sans.woff2") format("woff2");
 }
 @font-face {
   font-family: "Noto Sans";
   font-style: normal;
   font-weight: 600;
   font-stretch: 100%;
+  src: url("../fonts/NotoSans-SemiBold.woff2") format("woff2");
   font-display: swap;
-  src: url("../fonts/noto-sans.woff2") format("woff2");
 }
 @font-face {
   font-family: "Noto Sans";
   font-style: normal;
   font-weight: 700;
   font-stretch: 100%;
+  src: url("../fonts/NotoSans-Bold.woff2") format("woff2");
   font-display: swap;
-  src: url("../fonts/noto-sans.woff2") format("woff2");
 }
 @font-face {
   font-family: "Noto Sans";
   font-style: normal;
   font-weight: 900;
   font-stretch: 100%;
+  src: url("../fonts/NotoSans-Black.woff2") format("woff2");
   font-display: swap;
-  src: url("../fonts/noto-sans.woff2") format("woff2");
 }
 :root {
   --ffMain: "Noto Sans", sans-serif;
@@ -1598,13 +1598,13 @@ body._lock {
 }
 @media (min-width: 1100px) {
   .header__contact-mail {
-    margin: 0 0 0 31px;
-    letter-spacing: 0.033em;
+    margin: 0 0 0 30px;
+    letter-spacing: 0.013em;
   }
 }
 
 .header__contact-tel {
-  letter-spacing: -0.01em;
+  letter-spacing: -0.013em;
 }
 
 .header__down {
@@ -1727,8 +1727,18 @@ body._lock {
   -webkit-animation-delay: 900ms;
           animation-delay: 900ms;
 }
+@media (min-width: 1201px) {
+  .header__nav-item {
+    letter-spacing: 0.029em;
+  }
+}
 .header__nav-item:not(:last-child) {
   margin: 0 32px 0 0;
+}
+@media (min-width: 1201px) {
+  .header__nav-item:not(:last-child) {
+    margin: 0 28px 0 0;
+  }
 }
 @media (max-width: 1024px) {
   .header__nav-item:not(:last-child) {
@@ -1740,14 +1750,6 @@ body._lock {
     width: 100%;
     margin: 0;
   }
-}
-
-.header__nav-item:nth-of-type(2) {
-  margin-left: -1px;
-}
-
-.header__nav-item:nth-of-type(3) {
-  margin-left: -1px;
 }
 
 .header__nav-link {
@@ -1884,9 +1886,9 @@ body._lock {
   font-weight: 900;
   line-height: 1.5;
 }
-@media (min-width: 1100px) {
+@media (min-width: 1201px) {
   .main__title {
-    letter-spacing: 0.65px;
+    letter-spacing: 0;
   }
 }
 
@@ -1894,6 +1896,11 @@ body._lock {
   margin: 16px 0 0 0;
   font-size: 20px;
   color: var(--second);
+}
+@media (min-width: 1201px) {
+  .main__text {
+    letter-spacing: 0;
+  }
 }
 
 .main__label {
@@ -1904,6 +1911,11 @@ body._lock {
 
 .main__btn {
   margin: 64px 0 0 0;
+}
+@media (min-width: 1201px) {
+  .main__btn {
+    letter-spacing: 0;
+  }
 }
 
 .main__circles {
@@ -2194,6 +2206,11 @@ body._lock {
 .advantages {
   margin-top: 67px;
 }
+@media (min-width: 1201px) {
+  .advantages {
+    margin-top: 63px;
+  }
+}
 @media (max-width: 768px) {
   .advantages {
     margin-top: 80px;
@@ -2235,7 +2252,7 @@ body._lock {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 61px 96px 48px 48px;
+  padding: 62px 96px 51px 48px;
 }
 @media (max-width: 1200px) {
   .advantages__slide-body {
@@ -2272,7 +2289,11 @@ body._lock {
   font-weight: 900;
   line-height: 1;
   color: #fff;
-  letter-spacing: -0.01em;
+}
+@media (min-width: 1201px) {
+  .advantages__title-result {
+    letter-spacing: 0;
+  }
 }
 @media (max-width: 1200px) {
   .advantages__title-result {
@@ -2308,6 +2329,12 @@ body._lock {
   line-height: 1.3;
   color: #fff;
 }
+@media (min-width: 1201px) {
+  .advantages__title-text {
+    margin-top: 26px;
+    letter-spacing: 0;
+  }
+}
 @media (max-width: 1200px) {
   .advantages__title-text {
     font-size: 28px;
@@ -2340,11 +2367,24 @@ body._lock {
   font-size: 16px;
   color: #fff;
 }
+@media (min-width: 1201px) {
+  .advantages__descr {
+    margin-top: 11px;
+    line-height: 1.4;
+    letter-spacing: 0;
+  }
+}
 
 .advantages__img {
   width: 160px;
   min-width: 160px;
   margin: 0 0 0 32px;
+}
+@media (min-width: 1201px) {
+  .advantages__img {
+    margin-top: 8px;
+    margin-right: -2px;
+  }
 }
 @media (max-width: 1200px) {
   .advantages__img {
