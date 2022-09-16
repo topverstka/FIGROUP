@@ -1,47 +1,46 @@
-'use strict'
+"use strict";
 // Служебные переменные
 const d = document;
-const body = d.querySelector('body');
+const body = d.querySelector("body");
 
 // Служебные функции
 
 function find(selector) {
-	return d.querySelector(selector)
+  return d.querySelector(selector);
 }
 
 function findAll(selectors) {
-	return d.querySelectorAll(selectors)
+  return d.querySelectorAll(selectors);
 }
 
 // Удаляет у всех элементов items класс itemClass
-function removeAll(items,itemClass) {   
-    if (typeof items == 'string') {
-      items = document.querySelectorAll(items)
-    }
-    for (let i = 0; i < items.length; i++) {
-      const item = items[i]
-      item.classList.remove(itemClass)
-    }
+function removeAll(items, itemClass) {
+  if (typeof items == "string") {
+    items = document.querySelectorAll(items);
+  }
+  for (let i = 0; i < items.length; i++) {
+    const item = items[i];
+    item.classList.remove(itemClass);
+  }
 }
 
 function bodyLock(con) {
-    if (con === true) {
-        body.classList.add('_lock');
-    } else if (con === false) {
-        body.classList.remove('_lock');
-    } else if (con === undefined) {
-		if (!body.classList.contains('_lock')) {
-			body.classList.add('_lock');
-		}
-		else {
-			body.classList.remove('_lock')
-		}
-	} else {
-		console.error('Неопределенный аргумент у функции bodyLock()')
-	}
+  if (con === true) {
+    body.classList.add("_lock");
+  } else if (con === false) {
+    body.classList.remove("_lock");
+  } else if (con === undefined) {
+    if (!body.classList.contains("_lock")) {
+      body.classList.add("_lock");
+    } else {
+      body.classList.remove("_lock");
+    }
+  } else {
+    console.error("Неопределенный аргумент у функции bodyLock()");
+  }
 }
 
-// Расстояния между элементом и верхней границей страницы 
+// Расстояния между элементом и верхней границей страницы
 // function offsetPage(elem) {
 //     var rect = elem.getBoundingClientRect(),
 //     scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
@@ -50,49 +49,51 @@ function bodyLock(con) {
 // }
 
 // Добавление иконки у обязательный для заполнения инпутов
-formInputRequiredLabel()
+formInputRequiredLabel();
 function formInputRequiredLabel() {
-    const inputElems = findAll('.form-elem__area._required')
-    for (let i = 0; i < inputElems.length; i++) {
-        const input = inputElems[i];
-        const parent = input.parentNode
-        const span = document.createElement('span')
+  const inputElems = findAll(".form-elem__area._required");
+  for (let i = 0; i < inputElems.length; i++) {
+    const input = inputElems[i];
+    const parent = input.parentNode;
+    const span = document.createElement("span");
 
-        span.classList.add('form-elem__required')
-        span.innerText = '*'
-        
-        parent.append(span)
-    }
+    span.classList.add("form-elem__required");
+    span.innerText = "*";
+
+    parent.append(span);
+  }
 }
 
 // Анимация иллюстрации на главном экране
-animIllMain()
+animIllMain();
 function animIllMain() {
-    if (find('.anim-ill')) {
-		$(function () {
-			if (window.innerWidth > 768) {
-				$('.js-tilt').tilt()
-			}
-		});
-    }
+  if (find(".anim-ill")) {
+    $(function () {
+      if (window.innerWidth > 768) {
+        $(".js-tilt").tilt();
+      }
+    });
+  }
 }
 
 // Анимация при скролле на главной странице
 // animScrollMainPage()
 function animScrollMainPage() {
-    const slider = find('.advantages')
-    // const 
+  const slider = find(".advantages");
+  // const
 
-    window.addEventListener('scroll', e => {
-        const sliderBottomWindow = slider.getBoundingClientRect().top - window.innerHeight + slider.clientHeight
-        const sliderTopWindow = slider.getBoundingClientRect().top
+  window.addEventListener("scroll", (e) => {
+    const sliderBottomWindow =
+      slider.getBoundingClientRect().top -
+      window.innerHeight +
+      slider.clientHeight;
+    const sliderTopWindow = slider.getBoundingClientRect().top;
 
-        if (sliderTopWindow >= 0 && sliderBottomWindow <= 0) {
-
-            // if ()
-            console.log('ok')
-        }
-    })
+    if (sliderTopWindow >= 0 && sliderBottomWindow <= 0) {
+      // if ()
+      console.log("ok");
+    }
+  });
 }
 
 // class Timeliner {
@@ -144,7 +145,6 @@ function animScrollMainPage() {
 //       ticking = false;
 //     });
 
-
 //     ticking = true;
 //   }
 // });
@@ -160,349 +160,337 @@ function animScrollMainPage() {
 
 // Валидация формы
 function validationForm() {
-    const name = find('#user_name')
-    const phone = find('#user_phone')
-    const email = find('#user_email')
+  const name = find("#user_name");
+  const phone = find("#user_phone");
+  const email = find("#user_email");
 
-    let con = true
+  let con = true;
 
-    for (let i = 0; i < [name, phone, email].length; i++) {
-        const elem = [name, phone, email][i];
-        const elemValue = elem.value.trim()
+  for (let i = 0; i < [name, phone, email].length; i++) {
+    const elem = [name, phone, email][i];
+    const elemValue = elem.value.trim();
 
-        if (elemValue === '') {
-            elem.classList.add('_error')
-            con = false
-        } else {
-            elem.classList.remove('_error')
-            con = true
-        }
+    if (elemValue === "") {
+      elem.classList.add("_error");
+      con = false;
+    } else {
+      elem.classList.remove("_error");
+      con = true;
     }
+  }
 
-    return con
+  return con;
 }
 
 // Отправка формы
-sumbitForm()
+sumbitForm();
 function sumbitForm() {
-    const form = find('.modal__form')
+  const form = find(".modal__form");
 
-    form.addEventListener('submit', async e => {
-        const modal = find('.modal._show')
-        const btnSend = form.querySelector('[type=submit]')
+  form.addEventListener("submit", async (e) => {
+    const modal = find(".modal._show");
+    const btnSend = form.querySelector("[type=submit]");
 
-        e.preventDefault()
-        
-        let con = validationForm()
+    e.preventDefault();
 
-        if (con === true) {
-            const formData = new FormData()
-            const action = form.getAttribute('action')
+    let con = validationForm();
 
-            btnSend.classList.add('send-preloader')
-    
-            let response = await fetch(action, {
-                method: 'POST',
-                body: formData
-            })
-            
-            // settimeout здесь для того, чтобы показать работу отправки формы. В дальнейшем это нужно убрать
-            setTimeout(() => {
-                if (response.ok) {
-                    console.log('Successful')
-                    form.reset()
-    
-                    modal.classList.remove('_show')
-                    find('#send-done').classList.add('_show')
-                    btnSend.classList.remove('send-preloader')
-                }
-                else {
-                    console.log('Error')
-                    form.reset()
-    
-                    modal.classList.remove('_show')
-                    find('#send-error').classList.add('_show')
-                    btnSend.classList.remove('send-preloader')
-                }
-            }, 2000)
+    if (con === true) {
+      const formData = new FormData();
+      const action = form.getAttribute("action");
 
+      btnSend.classList.add("send-preloader");
+
+      let response = await fetch(action, {
+        method: "POST",
+        body: formData,
+      });
+
+      // settimeout здесь для того, чтобы показать работу отправки формы. В дальнейшем это нужно убрать
+      setTimeout(() => {
+        if (response.ok) {
+          console.log("Successful");
+          form.reset();
+
+          modal.classList.remove("_show");
+          find("#send-done").classList.add("_show");
+          btnSend.classList.remove("send-preloader");
+        } else {
+          console.log("Error");
+          form.reset();
+
+          modal.classList.remove("_show");
+          find("#send-error").classList.add("_show");
+          btnSend.classList.remove("send-preloader");
         }
-    })
+      }, 2000);
+    }
+  });
 }
 
 // Фиксация шапки при скролле
-fixHeaderWhenScroll()
+fixHeaderWhenScroll();
 function fixHeaderWhenScroll() {
-    const header = find('.header')
-    const headerDouble = document.createElement('div') // Дубль меню, который будет плавно появляться при скролле
-    const headerTransition = 300 // Плавность шапки в мс
-    const distTop = window.innerHeight
-    const wrapper = find('.wrapper')
+  const header = find(".header");
+  const headerDouble = document.createElement("div"); // Дубль меню, который будет плавно появляться при скролле
+  const headerTransition = 300; // Плавность шапки в мс
+  const distTop = window.innerHeight;
+  const wrapper = find(".wrapper");
 
-    headerDouble.innerHTML = header.innerHTML
-    headerDouble.classList.add('header', '_fixed')
-    wrapper.prepend(headerDouble)
+  headerDouble.innerHTML = header.innerHTML;
+  headerDouble.classList.add("header", "_fixed");
+  wrapper.prepend(headerDouble);
 
-    headerDouble.style.transition = headerTransition / 1000 + 's'
+  headerDouble.style.transition = headerTransition / 1000 + "s";
 
-    window.addEventListener('scroll', addFixed)
-    
-    const wowElems = headerDouble.querySelectorAll('.wow')
-    for (let i = 0; i < wowElems.length; i++) {
-        const wow = wowElems[i];
-        
-        wow.classList.remove('wow')
+  window.addEventListener("scroll", addFixed);
+
+  const wowElems = headerDouble.querySelectorAll(".wow");
+  for (let i = 0; i < wowElems.length; i++) {
+    const wow = wowElems[i];
+
+    wow.classList.remove("wow");
+  }
+
+  addFixed();
+  function addFixed() {
+    if (scrollY >= distTop) {
+      headerDouble.classList.add("_show");
+      // body.style.paddingTop = headerHeight + 'px'
+    } else {
+      headerDouble.classList.remove("_show");
+      // body.style.paddingTop = '0px'
     }
-
-    addFixed()
-    function addFixed() {
-        
-        if (scrollY >= distTop) {
-            headerDouble.classList.add('_show')
-            // body.style.paddingTop = headerHeight + 'px'
-            
-        }
-        else {
-            headerDouble.classList.remove('_show')
-            // body.style.paddingTop = '0px'
-        }
-    }
+  }
 }
 
 // Мобильное меню
-menu()
+menu();
 function menu() {
-	const burgerElems = findAll('.burger')
+  const burgerElems = findAll(".burger");
 
-    for (let i = 0; i < burgerElems.length; i++) {
-        const burger = burgerElems[i];
-        const menu = burger.previousElementSibling
-        
-        // Высота меню
-        window.addEventListener('resize', () => {
-            const headerHeight = find('.header').clientHeight
-    
-            if (window.innerWidth <= 768) {
-                menu.style.paddingTop = headerHeight + 'px'
-            }
-            else {
-                menu.style.paddingTop = 0
-            }
-        })
-    
-        burger.addEventListener('click', (e) => {
+  for (let i = 0; i < burgerElems.length; i++) {
+    const burger = burgerElems[i];
+    const menu = burger.previousElementSibling;
 
-            burger.classList.toggle('burger_close')
-            menu.classList.toggle('_show')
-            bodyLock()
-        })
-        
-    }
+    // Высота меню
+    window.addEventListener("resize", () => {
+      const headerHeight = find(".header").clientHeight;
+
+      if (window.innerWidth <= 768) {
+        menu.style.paddingTop = headerHeight + "px";
+      } else {
+        menu.style.paddingTop = 0;
+      }
+    });
+
+    burger.addEventListener("click", (e) => {
+      burger.classList.toggle("burger_close");
+      menu.classList.toggle("_show");
+      bodyLock();
+    });
+  }
 }
 
 // advantagesSlider()
 function advantagesSlider() {
-    const slider = find('.advantages__slider')
-    const wrapper = slider.querySelector('.advantages__wrapper')
-    const slideElems = slider.querySelectorAll('.advantages__slide')
-    const countSlides = slideElems.length
-    const btnNext = slider.querySelector('.advantages__next')
-    const btnPrev = slider.querySelector('.advantages__prev')
-    let scroll = 0
+  const slider = find(".advantages__slider");
+  const wrapper = slider.querySelector(".advantages__wrapper");
+  const slideElems = slider.querySelectorAll(".advantages__slide");
+  const countSlides = slideElems.length;
+  const btnNext = slider.querySelector(".advantages__next");
+  const btnPrev = slider.querySelector(".advantages__prev");
+  let scroll = 0;
 
-    const wrapperTransition = 300
-    const gapSlides = 16
+  const wrapperTransition = 300;
+  const gapSlides = 16;
 
-    wrapper.style.transition = wrapperTransition / 1000 + 's'
+  wrapper.style.transition = wrapperTransition / 1000 + "s";
 
-    btnNext.addEventListener('click', () => { changePosSlider('next') })
-    btnPrev.addEventListener('click', () => { changePosSlider('prev') })
+  btnNext.addEventListener("click", () => {
+    changePosSlider("next");
+  });
+  btnPrev.addEventListener("click", () => {
+    changePosSlider("prev");
+  });
 
-    function changePosSlider(direction) {
-        const wrapperWidth = wrapper.scrollWidth
-        const scrollPart = wrapperWidth / countSlides
-        
+  function changePosSlider(direction) {
+    const wrapperWidth = wrapper.scrollWidth;
+    const scrollPart = wrapperWidth / countSlides;
 
-        if (direction === 'next') {
-            scroll += scrollPart
-            if (scroll >= wrapperWidth - scrollPart) scroll = wrapperWidth - scrollPart
-            wrapper.style.transform = `translateX(-${scroll}px)`
-        }
-        else if (direction === 'prev') {
-            scroll -= scrollPart
-            if (scroll <= 0) scroll = 0
-            wrapper.style.transform = `translateX(-${scroll}px)`
-        }
+    if (direction === "next") {
+      scroll += scrollPart;
+      if (scroll >= wrapperWidth - scrollPart)
+        scroll = wrapperWidth - scrollPart;
+      wrapper.style.transform = `translateX(-${scroll}px)`;
+    } else if (direction === "prev") {
+      scroll -= scrollPart;
+      if (scroll <= 0) scroll = 0;
+      wrapper.style.transform = `translateX(-${scroll}px)`;
     }
+  }
 }
 
 // Горизонтальный скролл у слайдера с преимуществами
-if (window.innerWidth > 768 && find('.advantages__slider')) advantagesSlider()
+if (window.innerWidth > 768 && find(".advantages__slider")) advantagesSlider();
 function advantagesSlider() {
-    const slider = find('.advantages__slider')
-    let scrollValue = 0 // Кол-во px на которое был проскролен слайдер
-    let allowScroll = true // Разрешаем скролл слайдеров
-    let edgeSlide = true
-    let allowVertUpScroll = true // Разрешаем скролл страницы верх
-    let allowVertDownScroll = true // Разрешаем скролл страницы вниз
+  const slider = find(".advantages__slider");
+  let scrollValue = 0; // Кол-во px на которое был проскролен слайдер
+  let allowScroll = true; // Разрешаем скролл слайдеров
+  let edgeSlide = true;
+  let allowVertUpScroll = true; // Разрешаем скролл страницы верх
+  let allowVertDownScroll = true; // Разрешаем скролл страницы вниз
 
-    scroll()
-    function scroll() {
-        function scrollHorizontally(e) {
-            const wrapper = slider.querySelector('.advantages__wrapper')
-            const slideElems = slider.querySelectorAll('.advantages__slide')
-            const countSlides = slideElems.length
-            const delta = Math.max(-1, Math.min(1, (e.wheelDelta || -e.detail)))
+  scroll();
+  function scroll() {
+    function scrollHorizontally(e) {
+      const wrapper = slider.querySelector(".advantages__wrapper");
+      const slideElems = slider.querySelectorAll(".advantages__slide");
+      const countSlides = slideElems.length;
+      const delta = Math.max(-1, Math.min(1, e.wheelDelta || -e.detail));
 
-            const wrapperTransition = 1000
-            const gapSlides = 16
+      const wrapperTransition = 1000;
+      const gapSlides = 16;
 
-            wrapper.style.transition = wrapperTransition / 1000 + 's'
+      wrapper.style.transition = wrapperTransition / 1000 + "s";
 
-            console.log(allowScroll)
+      console.log(allowScroll);
 
-            if (allowScroll === true) changePosSlider(delta)
-            else if (allowScroll === false) {
-                e.preventDefault()
-                console.log('allowScroll e.preventDefault()')
-            }
+      if (allowScroll === true) changePosSlider(delta);
+      else if (allowScroll === false) {
+        e.preventDefault();
+        console.log("allowScroll e.preventDefault()");
+      }
 
-            if (allowVertUpScroll === false && allowVertDownScroll === false) {
-                e.preventDefault()
-                console.log('allowVert e.preventDefault()')
-            }
+      if (allowVertUpScroll === false && allowVertDownScroll === false) {
+        e.preventDefault();
+        console.log("allowVert e.preventDefault()");
+      }
 
-            function changePosSlider(direction) {
-                const wrapperWidth = wrapper.scrollWidth
-                const scrollPart = wrapperWidth / countSlides
+      function changePosSlider(direction) {
+        const wrapperWidth = wrapper.scrollWidth;
+        const scrollPart = wrapperWidth / countSlides;
 
-                allowScroll = false
-                // allowVertUpScroll = false
-                // allowVertDownScroll = false
+        allowScroll = false;
+        // allowVertUpScroll = false
+        // allowVertDownScroll = false
 
-                // if (allowVertUpScroll === false && allowVertDownScroll === false) {
-                //     e.preventDefault()
-                // }
+        // if (allowVertUpScroll === false && allowVertDownScroll === false) {
+        //     e.preventDefault()
+        // }
 
-                if (direction === -1) { // next
-                    scrollValue += scrollPart
-                    if (scrollValue > wrapperWidth - scrollPart) {
-                        edgeSlide = true
-                        scrollValue = wrapperWidth - scrollPart
-                        console.log('> wrapperWidth - scrollPart')
+        if (direction === -1) {
+          // next
+          scrollValue += scrollPart;
+          if (scrollValue > wrapperWidth - scrollPart) {
+            edgeSlide = true;
+            scrollValue = wrapperWidth - scrollPart;
+            console.log("> wrapperWidth - scrollPart");
 
-                        setTimeout(() => {
-                            allowVertDownScroll = true
-                        }, wrapperTransition)
-                    }
-                    else {
-                        edgeSlide = false
-                        allowVertDownScroll = false
-                        e.preventDefault()
-                    }
+            setTimeout(() => {
+              allowVertDownScroll = true;
+            }, wrapperTransition);
+          } else {
+            edgeSlide = false;
+            allowVertDownScroll = false;
+            e.preventDefault();
+          }
 
-                    wrapper.style.transform = `translateX(-${scrollValue}px)`
+          wrapper.style.transform = `translateX(-${scrollValue}px)`;
 
-                    // if (scrollValue >= wrapperWidth - scrollPart) allowVertDownScroll = true
-                    // else allowVertDownScroll = false
+          // if (scrollValue >= wrapperWidth - scrollPart) allowVertDownScroll = true
+          // else allowVertDownScroll = false
 
+          if (edgeSlide === true) {
+            allowScroll = true;
+            console.log("ok");
+          } else {
+            setTimeout(() => {
+              allowScroll = true;
+            }, wrapperTransition);
+          }
+        } else if (direction === 1) {
+          // prev
+          scrollValue -= scrollPart;
+          console.log(scrollValue);
+          if (scrollValue < 0) {
+            edgeSlide = true;
+            scrollValue = 0;
+            console.log("< 0");
 
-                    if (edgeSlide === true) {
-                        allowScroll = true 
-                        console.log('ok')
-                    }
-                    else {
-                        setTimeout(() => {
-                            allowScroll = true
-                        }, wrapperTransition)
-                    }
-                }
-                else if (direction === 1) { // prev
-                    scrollValue -= scrollPart
-                    console.log(scrollValue)
-                    if (scrollValue < 0) {
-                        edgeSlide = true
-                        scrollValue = 0
-                        console.log('< 0')
-                        
-                        setTimeout(() => {
-                            allowVertUpScroll = true
-                        }, wrapperTransition)
-                    }
-                    else {
-                        edgeSlide = false
-                        allowVertUpScroll = false
-                        e.preventDefault()
-                    }
+            setTimeout(() => {
+              allowVertUpScroll = true;
+            }, wrapperTransition);
+          } else {
+            edgeSlide = false;
+            allowVertUpScroll = false;
+            e.preventDefault();
+          }
 
-                    wrapper.style.transform = `translateX(-${scrollValue}px)`
+          wrapper.style.transform = `translateX(-${scrollValue}px)`;
 
-                    // if (scrollValue > 0) {
-                    //     e.preventDefault()
-                    //     console.log('ok')
+          // if (scrollValue > 0) {
+          //     e.preventDefault()
+          //     console.log('ok')
 
-                    // }
+          // }
 
-                    // if (scrollValue === 0) {
-                    //     allowScroll = true
-                    // }
+          // if (scrollValue === 0) {
+          //     allowScroll = true
+          // }
 
-                    if (edgeSlide === true) {
-                        allowScroll = true
-                    }
-                    else {
-                        setTimeout(() => {
-                            allowScroll = true
-                        }, wrapperTransition)
-                    }
-
-                }
-            }
-
-
-            // const multiplied = (e.shiftKey) ? 240 : 120
-            // const slideWidth = (slider.scrollWidth - window.innerWidth) / slideElems.length
-            // // console.log(slideWidth)
-            // e = window.event || e
-            // let scrollSlideCon = true
-            // // slider.scrollLeft -= (delta * multiplied)
-
-            // if (scrollSlideCon === true) {
-            //     console.log(scrollSlideCon)
-            //     scrollSlideCon = false
-            //     let scrollInterval = setInterval(() => {
-            //         if (slider.scrollLeft < slideWidth) {
-            //             slider.scrollLeft += 5
-            //             console.log(slider.scrollLeft, slideWidth)
-            //         }
-            //         else {
-            //             clearInterval(scrollInterval)
-            //             scrollSlideCon = true
-            //             console.log('else')
-            //         }
-            //     }, 10)
-            // }
-
+          if (edgeSlide === true) {
+            allowScroll = true;
+          } else {
+            setTimeout(() => {
+              allowScroll = true;
+            }, wrapperTransition);
+          }
         }
-        if (slider.addEventListener) {
-            // IE9, Chrome, Safari, Opera
-            slider.addEventListener('mousewheel', scrollHorizontally, false)
-            // Firefox
-            slider.addEventListener('DOMMouseScroll', scrollHorizontally, false)
-        } else {
-            // IE 6/7/8
-            slider.attachEvent('onmousewheel', scrollHorizontally)
-        }
+      }
+
+      // const multiplied = (e.shiftKey) ? 240 : 120
+      // const slideWidth = (slider.scrollWidth - window.innerWidth) / slideElems.length
+      // // console.log(slideWidth)
+      // e = window.event || e
+      // let scrollSlideCon = true
+      // // slider.scrollLeft -= (delta * multiplied)
+
+      // if (scrollSlideCon === true) {
+      //     console.log(scrollSlideCon)
+      //     scrollSlideCon = false
+      //     let scrollInterval = setInterval(() => {
+      //         if (slider.scrollLeft < slideWidth) {
+      //             slider.scrollLeft += 5
+      //             console.log(slider.scrollLeft, slideWidth)
+      //         }
+      //         else {
+      //             clearInterval(scrollInterval)
+      //             scrollSlideCon = true
+      //             console.log('else')
+      //         }
+      //     }, 10)
+      // }
     }
+    if (slider.addEventListener) {
+      // IE9, Chrome, Safari, Opera
+      slider.addEventListener("mousewheel", scrollHorizontally, false);
+      // Firefox
+      slider.addEventListener("DOMMouseScroll", scrollHorizontally, false);
+    } else {
+      // IE 6/7/8
+      slider.attachEvent("onmousewheel", scrollHorizontally);
+    }
+  }
 
-    // Отступы по бокам у слайдера с преимуществами
-    // setMarginSlides()
-    // function setMarginSlides() {
-    //     // Первый слайдер
-    //     slideElems[0].style.marginLeft = main.getBoundingClientRect().left + 'px'
-    //     // Второй слайдер
-    //     slideElems[slideElems.length - 1].style.marginRight = main.getBoundingClientRect().left + 'px'
-    // }
+  // Отступы по бокам у слайдера с преимуществами
+  // setMarginSlides()
+  // function setMarginSlides() {
+  //     // Первый слайдер
+  //     slideElems[0].style.marginLeft = main.getBoundingClientRect().left + 'px'
+  //     // Второй слайдер
+  //     slideElems[slideElems.length - 1].style.marginRight = main.getBoundingClientRect().left + 'px'
+  // }
 }
 
 // (function() {
@@ -510,11 +498,11 @@ function advantagesSlider() {
 //     const main = find('.main__body')
 //     const slideElems = slider.querySelectorAll('.advantages__slide')
 //     let z = slider.scrollLeft
-    
+
 //     window.addEventListener('resize', () => {
 //         setMarginSlides()
 //     })
-    
+
 //     if (window.innerWidth > 768) scroll()
 //     function scroll() {
 //         function scrollHorizontally(e) {
@@ -625,276 +613,269 @@ function advantagesSlider() {
 //     console.log(swiper, e)
 // })
 
+const teamSlider = new Swiper(".team-slider", {
+  loop: true,
 
-const teamSlider = new Swiper('.team-slider', {
-	loop: true,
+  breakpoints: {
+    600: {
+      slidesPerView: 2,
+      spaceBetween: 30,
+    },
+    0: {
+      slidesPerView: 1,
+      spaceBetween: 30,
+      centeredSlides: false,
+    },
+  },
 
-	breakpoints: {
-		600: {
-			slidesPerView: 2,
-			spaceBetween: 30,
-		},
-		0: {
-			slidesPerView: 1,
-			spaceBetween: 30,
-			centeredSlides: false,
-		}
-	},
-
-	navigation: {
-		nextEl: '.team-slider__next',
-		prevEl: '.team-slider__prev',
-	}
+  navigation: {
+    nextEl: ".team-slider__next",
+    prevEl: ".team-slider__prev",
+  },
 });
 
 // Функции для модальных окон
-modal()
+modal();
 function modal() {
-    // Открытие модального окна, если в url указан его id
-    openModalHash()
-    function openModalHash() {
-        if (window.location.hash) {
-            const hash = window.location.hash.substring(1)
-            const modal = document.querySelector(`.modal#${hash}`)
-    
-            if (modal) {
-                modal.classList.add('_show');
-                bodyLock(true)
-                closeWhenClickingOnBg(`#${hash} .modal__content`, modal);
+  // Открытие модального окна, если в url указан его id
+  openModalHash();
+  function openModalHash() {
+    if (window.location.hash) {
+      const hash = window.location.hash.substring(1);
+      const modal = document.querySelector(`.modal#${hash}`);
+
+      if (modal) {
+        modal.classList.add("_show");
+        bodyLock(true);
+        closeWhenClickingOnBg(`#${hash} .modal__content`, modal);
+      }
+    }
+  }
+
+  // Закрытие модальных окон при клике по крестику
+  closeModalWhenClickingOnCross();
+  function closeModalWhenClickingOnCross() {
+    const modalElems = document.querySelectorAll(".modal");
+    for (let i = 0; i < modalElems.length; i++) {
+      const modal = modalElems[i];
+      const closeThisModal = modal.querySelector(".modal__close");
+
+      closeThisModal.addEventListener("click", () => {
+        modal.classList.remove("_show");
+        bodyLock(false);
+        resetHash();
+      });
+    }
+  }
+
+  // Закрытие модальных окон при нажатии по клавише ESC
+  closeModalWhenClickingOnESC();
+  function closeModalWhenClickingOnESC() {
+    const modalElems = document.querySelectorAll(".modal");
+    for (let i = 0; i < modalElems.length; i++) {
+      const modal = modalElems[i];
+
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") {
+          modal.classList.remove("_show");
+          bodyLock(false);
+          resetHash();
+        }
+      });
+    }
+  }
+
+  // Сброс id модального окна в url
+  function resetHash() {
+    const windowTop = window.pageYOffset;
+    window.location.hash = "";
+    window.scrollTo(0, windowTop);
+  }
+
+  // Открытие модальных окон
+  openModal();
+  function openModal() {
+    const btnsOpenModal = document.querySelectorAll("[data-modal-open]");
+
+    for (let i = 0; i < btnsOpenModal.length; i++) {
+      const btn = btnsOpenModal[i];
+
+      btn.addEventListener("click", (e) => {
+        const dataBtn = btn.dataset.modalOpen;
+        const modalThatOpens = document.querySelector(`#${dataBtn}`);
+
+        btn.classList.add("modal-show");
+        modalThatOpens.classList.add("_show");
+        bodyLock(true);
+        closeWhenClickingOnBg(`#${dataBtn} .modal__content`, modalThatOpens);
+        window.location.hash = dataBtn;
+      });
+    }
+  }
+
+  // Закрытие модального окна при клике по заднему фону
+  function closeWhenClickingOnBg(itemArray, itemParent, classShow = "_show") {
+    document.addEventListener("click", (e) => {
+      let itemElems = document.querySelectorAll(itemArray);
+
+      for (let i = 0; i < itemElems.length; i++) {
+        const item = itemElems[i];
+
+        const target = e.target,
+          itsItem = target == item || item.contains(target),
+          itemIsShow = item.classList.contains(classShow);
+
+        if (itemParent) {
+          const itsItemParent =
+              target == itemParent || itemParent.contains(target),
+            itemParentIsShow = itemParent.classList.contains(classShow);
+
+          if (!itsItem && itsItemParent && itemParentIsShow) {
+            itemParent.classList.remove(classShow);
+
+            if (body.classList.contains("_lock")) {
+              bodyLock(false);
             }
-        }
-    }
-    
-    // Закрытие модальных окон при клике по крестику
-    closeModalWhenClickingOnCross()
-    function closeModalWhenClickingOnCross() {
-        const modalElems = document.querySelectorAll('.modal')
-        for (let i = 0; i < modalElems.length; i++) {
-            const modal = modalElems[i];
-            const closeThisModal = modal.querySelector('.modal__close')
-    
-            closeThisModal.addEventListener('click', () => {
-                modal.classList.remove('_show')
-                bodyLock(false)
-                resetHash()
-            })
-        }
-    }
-    
-    // Закрытие модальных окон при нажатии по клавише ESC
-    closeModalWhenClickingOnESC()
-    function closeModalWhenClickingOnESC() {
-        const modalElems = document.querySelectorAll('.modal')
-        for (let i = 0; i < modalElems.length; i++) {
-            const modal = modalElems[i];
-    
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape') {
-                    modal.classList.remove('_show')
-                    bodyLock(false)
-                    resetHash()
-                }
-            })
-        }
-    }
-    
-    // Сброс id модального окна в url
-    function resetHash() {
-        const windowTop = window.pageYOffset
-        window.location.hash = ''
-        window.scrollTo(0, windowTop)
-    }
-    
-    // Открытие модальных окон
-    openModal()
-    function openModal() {
-        const btnsOpenModal = document.querySelectorAll('[data-modal-open]');
-    
-        for (let i = 0; i < btnsOpenModal.length; i++) {
-            const btn = btnsOpenModal[i];
-    
-            btn.addEventListener('click', (e) => {
-                const dataBtn = btn.dataset.modalOpen;
-                const modalThatOpens = document.querySelector(`#${dataBtn}`)
-    
-                btn.classList.add('modal-show');
-                modalThatOpens.classList.add('_show');
-                bodyLock(true)
-                closeWhenClickingOnBg(`#${dataBtn} .modal__content`, modalThatOpens);
-                window.location.hash = dataBtn
-            });
-        }
-    }
-    
-    // Закрытие модального окна при клике по заднему фону
-    function closeWhenClickingOnBg(itemArray, itemParent, classShow = '_show') {
-        document.addEventListener('click', (e) => {
-            let itemElems = document.querySelectorAll(itemArray)
-    
-            for (let i = 0; i < itemElems.length; i++) {
-                const item = itemElems[i];
-    
-                const target = e.target,
-                    itsItem = target == item || item.contains(target),
-                    itemIsShow = item.classList.contains(classShow);
-    
-                if (itemParent) {
-                    const itsItemParent = target == itemParent || itemParent.contains(target),
-                        itemParentIsShow = itemParent.classList.contains(classShow);
-    
-                    if (!itsItem && itsItemParent && itemParentIsShow) {
-                        itemParent.classList.remove(classShow);
-    
-                        if (body.classList.contains('_lock')) {
-                            bodyLock(false)
-                        }
-    
-                        if (window.location.hash === '#' + itemParent.getAttribute('id')) {
-                            resetHash()
-                        }
-                    }
-                } else {
-                    if (!itsItem && itemIsShow) {
-                        item.classList.remove(classShow);
-                        if (body.classList.contains('_lock')) {
-                            bodyLock(false)
-                        }
-    
-                        if (window.location.hash === '#' + itemParent.getAttribute('id')) {
-                            resetHash()
-                        }
-                    }
-                }
-    
+
+            if (window.location.hash === "#" + itemParent.getAttribute("id")) {
+              resetHash();
             }
-        })
-    }
+          }
+        } else {
+          if (!itsItem && itemIsShow) {
+            item.classList.remove(classShow);
+            if (body.classList.contains("_lock")) {
+              bodyLock(false);
+            }
+
+            if (window.location.hash === "#" + itemParent.getAttribute("id")) {
+              resetHash();
+            }
+          }
+        }
+      }
+    });
+  }
 }
 
 // Табы в разделе категорий
-tabsCatSection()
+tabsCatSection();
 function tabsCatSection() {
-    const tabElems = findAll('.cat-section__choice-chips')
-    // const cardElems = findAll('.cat-section__cat-card')
-    
-    for (let i = 0; i < tabElems.length; i++) {
-        const tab = tabElems[i];
-        
-        tab.addEventListener('click', () => {
-            showCardsCatSection(tab)
-            activeTabCatSection(tab)
-        })
-    }
+  const tabElems = findAll(".cat-section__choice-chips");
+  // const cardElems = findAll('.cat-section__cat-card')
+
+  for (let i = 0; i < tabElems.length; i++) {
+    const tab = tabElems[i];
+
+    tab.addEventListener("click", () => {
+      showCardsCatSection(tab);
+      activeTabCatSection(tab);
+    });
+  }
 }
 
 function showCardsCatSection(tab) {
-    const dataAttr = tab.dataset.tabCat
-    const cardElems = findAll('.cat-section__cat-card')
-    const cardParent = cardElems[0].parentNode
-    const cardShowElems = findAll(`[data-card-cat=${dataAttr}]`)
-    
-    // Присваиваем активный класс карточке
-    removeAll(cardElems, '_show')
-    
-    for (let i = 0; i < cardShowElems.length; i++) {
-        const cardShow = cardShowElems[i];
-        
-        cardShow.classList.add('_show')
+  const dataAttr = tab.dataset.tabCat;
+  const cardElems = findAll(".cat-section__cat-card");
+  const cardParent = cardElems[0].parentNode;
+  const cardShowElems = findAll(`[data-card-cat=${dataAttr}]`);
 
-        // Перемещаем карточку наверх списка
-        if (i === 0) {
-            cardParent.prepend(cardShow)
-        }
-        else {
-            cardParent.insertBefore(cardShow, cardShowElems[0].nextSibling)
-        }
+  // Присваиваем активный класс карточке
+  removeAll(cardElems, "_show");
+
+  for (let i = 0; i < cardShowElems.length; i++) {
+    const cardShow = cardShowElems[i];
+
+    cardShow.classList.add("_show");
+
+    // Перемещаем карточку наверх списка
+    if (i === 0) {
+      cardParent.prepend(cardShow);
+    } else {
+      cardParent.insertBefore(cardShow, cardShowElems[0].nextSibling);
     }
+  }
 }
 
 // Активируем выбранный таб
 function activeTabCatSection(tab) {
-    const tabElems = findAll('.cat-section__choice-chips')
-    removeAll(tabElems, '_active')
+  const tabElems = findAll(".cat-section__choice-chips");
+  removeAll(tabElems, "_active");
 
-    tab.classList.add('_active')
+  tab.classList.add("_active");
 }
 
-showMore()
-function showMore() {
-
-}
+showMore();
+function showMore() {}
 
 // Показываем больше карточек при клике по "Показать еще"
-if (find('.cat-section__cat-card')) showMoreCatSection()
+if (find(".cat-section__cat-card")) showMoreCatSection();
 function showMoreCatSection() {
-    const btn = find('.cat-section__more')
-    const cardShowElems = findAll('.cat-section__cat-card._show')
-    const cardParent = cardShowElems[0].parentNode
+  const btn = find(".cat-section__more");
+  const cardShowElems = findAll(".cat-section__cat-card._show");
+  const cardParent = cardShowElems[0].parentNode;
 
-    btn.addEventListener('click', () => {
+  btn.addEventListener("click", () => {
+    if (btn.dataset.moreCat === "show_more") {
+      for (let i = 0; i < cardShowElems.length; i++) {
+        const cardShow = cardShowElems[i];
 
-        if (btn.dataset.moreCat === 'show_more') {
-            for (let i = 0; i < cardShowElems.length; i++) {
-                const cardShow = cardShowElems[i];
-                
-                if (i > 2) {
-                    cardShow.classList.add('_show')
-                    // cardShow.style.display = 'block'
-                }
-                cardParent.classList.add('show-more_active')
-                btn.dataset.moreCat = 'hide_more'
-                btn.innerText = 'Скрыть'
-            }
-        } 
-        else if (btn.dataset.moreCat === 'hide_more') {
-            for (let i = 0; i < cardShowElems.length; i++) {
-                const cardShow = cardShowElems[i];
-                
-                if (i > 2) {
-                    cardShow.classList.remove('_show')
-                    // cardShow.style.display = 'none'
-                }
-                cardParent.classList.remove('show-more_active')
-                btn.dataset.moreCat = 'show_more'
-                btn.innerText = 'Показать еще'
-            }
+        if (i > 2) {
+          cardShow.classList.add("_show");
+          // cardShow.style.display = 'block'
         }
+        cardParent.classList.add("show-more_active");
+        btn.dataset.moreCat = "hide_more";
+        btn.innerText = "Скрыть";
+      }
+    } else if (btn.dataset.moreCat === "hide_more") {
+      for (let i = 0; i < cardShowElems.length; i++) {
+        const cardShow = cardShowElems[i];
 
-        // for (let i = 0; i < cardShowElems.length; i++) {
-        //     const cardShow = cardShowElems[i];
-            
-        //     // if (btn.classList.contains('_show')) {
-        //     //     if (i > 2) {
-        //     //         cardShow.style.display = 'block'
-        //     //     }
-        //     //     console.log('_show')
-        //     //     btn.classList.remove('_show')
-        //     //     btn.classList.add('_hide')
-        //     //     btn.innerText = 'Скрыть'
-        //     // }
-            
-        //     // if (btn.classList.contains('_hide')) {
-        //     //     if (i > 2) {
-        //     //         cardShow.style.display = 'none'
-        //     //     }
-        //     //     console.log('_hide')
-        //     //     btn.classList.remove('_hide')
-        //     //     btn.classList.add('_show')
-        //     //     btn.innerText = 'Показать еще'
-        //     // }
-        // }
-    })
+        if (i > 2) {
+          cardShow.classList.remove("_show");
+          // cardShow.style.display = 'none'
+        }
+        cardParent.classList.remove("show-more_active");
+        btn.dataset.moreCat = "show_more";
+        btn.innerText = "Показать еще";
+      }
+    }
+
+    // for (let i = 0; i < cardShowElems.length; i++) {
+    //     const cardShow = cardShowElems[i];
+
+    //     // if (btn.classList.contains('_show')) {
+    //     //     if (i > 2) {
+    //     //         cardShow.style.display = 'block'
+    //     //     }
+    //     //     console.log('_show')
+    //     //     btn.classList.remove('_show')
+    //     //     btn.classList.add('_hide')
+    //     //     btn.innerText = 'Скрыть'
+    //     // }
+
+    //     // if (btn.classList.contains('_hide')) {
+    //     //     if (i > 2) {
+    //     //         cardShow.style.display = 'none'
+    //     //     }
+    //     //     console.log('_hide')
+    //     //     btn.classList.remove('_hide')
+    //     //     btn.classList.add('_show')
+    //     //     btn.innerText = 'Показать еще'
+    //     // }
+    // }
+  });
 }
 
 // Показываем кнопку "Показать еще" если кол-во карточек больше 3
 function showBtnMoreCatSection() {
-    const btn = find('.cat-section__more')
-    const cardShowElems = findAll('.cat-section__cat-card._show')
+  const btn = find(".cat-section__more");
+  const cardShowElems = findAll(".cat-section__cat-card._show");
 
-    if (cardShowElems.length > 3) {
-        btn.classList.add('_show')
-    }
-    else {
-        btn.classList.remove('_show')
-    }
+  if (cardShowElems.length > 3) {
+    btn.classList.add("_show");
+  } else {
+    btn.classList.remove("_show");
+  }
 }
