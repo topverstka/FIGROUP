@@ -354,7 +354,7 @@ function advantagesSlider() {
 
       wrapper.style.transition = wrapperTransition / 1000 + "s";
 
-      console.log(allowScroll);
+      // console.log(allowScroll);
 
       if (allowScroll === true) changePosSlider(delta);
       else if (allowScroll === false) {
@@ -474,9 +474,13 @@ function advantagesSlider() {
     }
     if (slider.addEventListener) {
       // IE9, Chrome, Safari, Opera
-      slider.addEventListener("mousewheel", scrollHorizontally, false);
+      slider.addEventListener("mousewheel", scrollHorizontally, {
+        passive: true,
+      });
       // Firefox
-      slider.addEventListener("DOMMouseScroll", scrollHorizontally, false);
+      slider.addEventListener("DOMMouseScroll", scrollHorizontally, {
+        passive: true,
+      });
     } else {
       // IE 6/7/8
       slider.attachEvent("onmousewheel", scrollHorizontally);
